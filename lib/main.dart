@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'data/lesson_one.dart';
 import 'models/vocab_word.dart';
-import 'services/ad_service.dart';
 
-Future<void> main() async {
+
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  await AdService.initialize();
   runApp(const ChineseShikhiApp());
 }
 
@@ -335,10 +334,13 @@ class ProgressScreen extends StatelessWidget {
   );
 }
 
-class BannerAdBar extends StatefulWidget {
+class BannerAdBar extends StatelessWidget {
   const BannerAdBar({super.key});
+
   @override
-  State<BannerAdBar> createState() => _BannerAdBarState();
+  Widget build(BuildContext context) {
+    return const SizedBox.shrink();
+  }
 }
 
 class _BannerAdBarState extends State<BannerAdBar> {
