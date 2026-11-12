@@ -1,6 +1,12 @@
 import 'hsk_vocabulary.dart';
 import 'package:flutter/material.dart';
-
+menuCard(
+  context,
+  Icons.translate,
+  'New HSK 1–4 শব্দভান্ডার',
+  'প্রায় ২,০০০টি চীনা শব্দ',
+  const HskVocabularyScreen(),
+),
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const ChineseShikhiApp());
