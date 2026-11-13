@@ -1,0 +1,362 @@
+[
+  {
+    "hanzi": "爱",
+    "example": "我爱你。",
+    "example_pinyin": "Wǒ ài nǐ.",
+    "translation": "রাকিব আমিন সেলিনা সকালকে বলছে: আমি তোমাকে ভালোবাসি।"
+  },
+  {
+    "hanzi": "八",
+    "example": "现在八点。",
+    "example_pinyin": "Xiànzài bā diǎn.",
+    "translation": "এখন আটটা বাজে।"
+  },
+  {
+    "hanzi": "爸爸",
+    "example": "我爸爸很好。",
+    "example_pinyin": "Wǒ bàba hěn hǎo.",
+    "translation": "আমার বাবা খুব ভালো।"
+  },
+  {
+    "hanzi": "吧",
+    "example": "我们走吧。",
+    "example_pinyin": "Wǒmen zǒu ba.",
+    "translation": "চলো, আমরা যাই।"
+  },
+  {
+    "hanzi": "白天",
+    "example": "白天我学习中文。",
+    "example_pinyin": "Báitiān wǒ xuéxí Zhōngwén.",
+    "translation": "দিনের বেলা আমি চীনা ভাষা শিখি।"
+  },
+  {
+    "hanzi": "百",
+    "example": "这个苹果一百元。",
+    "example_pinyin": "Zhège píngguǒ yì bǎi yuán.",
+    "translation": "এই আপেলটির দাম একশ ইউয়ান।"
+  },
+  {
+    "hanzi": "半",
+    "example": "现在八点半。",
+    "example_pinyin": "Xiànzài bā diǎn bàn.",
+    "translation": "এখন সাড়ে আটটা।"
+  },
+  {
+    "hanzi": "包子",
+    "example": "我吃一个包子。",
+    "example_pinyin": "Wǒ chī yí ge bāozi.",
+    "translation": "আমি একটি বাওজি খাই।"
+  },
+  {
+    "hanzi": "杯子",
+    "example": "这是塞莱娜的杯子。",
+    "example_pinyin": "Zhè shì Sàiláinà de bēizi.",
+    "translation": "এটি সেলিনা সকাল-এর কাপ।"
+  },
+  {
+    "hanzi": "本",
+    "example": "我有一本书。",
+    "example_pinyin": "Wǒ yǒu yì běn shū.",
+    "translation": "আমার একটি বই আছে।"
+  },
+  {
+    "hanzi": "边",
+    "example": "这边有一家商店。",
+    "example_pinyin": "Zhèbiān yǒu yì jiā shāngdiàn.",
+    "translation": "এদিকে একটি দোকান আছে।"
+  },
+  {
+    "hanzi": "病",
+    "example": "他生病了。",
+    "example_pinyin": "Tā shēngbìng le.",
+    "translation": "সে অসুস্থ হয়েছে।"
+  },
+  {
+    "hanzi": "不",
+    "example": "我不喝茶。",
+    "example_pinyin": "Wǒ bù hē chá.",
+    "translation": "আমি চা পান করি না।"
+  },
+  {
+    "hanzi": "不客气",
+    "example": "谢谢你！不客气！",
+    "example_pinyin": "Xièxie nǐ! Bú kèqi!",
+    "translation": "তোমাকে ধন্যবাদ! স্বাগতম!"
+  },
+  {
+    "hanzi": "不要",
+    "example": "不要着急。",
+    "example_pinyin": "Búyào zháojí.",
+    "translation": "তাড়াহুড়ো করো না।"
+  },
+  {
+    "hanzi": "菜",
+    "example": "妈妈做了很多菜。",
+    "example_pinyin": "Māma zuò le hěn duō cài.",
+    "translation": "মা অনেক খাবার রান্না করেছেন।"
+  },
+  {
+    "hanzi": "茶",
+    "example": "Selena Sokal 喜欢喝茶。",
+    "example_pinyin": "Selena Sokal xǐhuan hē chá.",
+    "translation": "সেলিনা সকাল চা পান করতে পছন্দ করে।"
+  },
+  {
+    "hanzi": "唱",
+    "example": "Rakib Amin 喜欢唱歌。",
+    "example_pinyin": "Rakib Amin xǐhuan chàng gē.",
+    "translation": "রাকিব আমিন গান গাইতে পছন্দ করে।"
+  },
+  {
+    "hanzi": "超市",
+    "example": "我去超市买东西。",
+    "example_pinyin": "Wǒ qù chāoshì mǎi dōngxi.",
+    "translation": "আমি সুপারমার্কেটে জিনিস কিনতে যাই।"
+  },
+  {
+    "hanzi": "车",
+    "example": "这是一辆新车。",
+    "example_pinyin": "Zhè shì yí liàng xīn chē.",
+    "translation": "এটি একটি নতুন গাড়ি।"
+  },
+  {
+    "hanzi": "吃",
+    "example": "我们一起吃饭吧。",
+    "example_pinyin": "Wǒmen yìqǐ chīfàn ba.",
+    "translation": "চলো আমরা একসঙ্গে খাই।"
+  },
+  {
+    "hanzi": "出租车",
+    "example": "我坐出租车去学校。",
+    "example_pinyin": "Wǒ zuò chūzūchē qù xuéxiào.",
+    "translation": "আমি ট্যাক্সিতে করে স্কুলে যাই।"
+  },
+  {
+    "hanzi": "穿",
+    "example": "她今天穿红色衣服。",
+    "example_pinyin": "Tā jīntiān chuān hóngsè yīfu.",
+    "translation": "সে আজ লাল পোশাক পরেছে।"
+  },
+  {
+    "hanzi": "打电话",
+    "example": "我给妈妈打电话。",
+    "example_pinyin": "Wǒ gěi māma dǎ diànhuà.",
+    "translation": "আমি মাকে ফোন করি।"
+  },
+  {
+    "hanzi": "大",
+    "example": "这个房间很大。",
+    "example_pinyin": "Zhège fángjiān hěn dà.",
+    "translation": "এই ঘরটি অনেক বড়।"
+  },
+  {
+    "hanzi": "大家",
+    "example": "大家好！",
+    "example_pinyin": "Dàjiā hǎo!",
+    "translation": "সবাইকে নমস্কার!"
+  },
+  {
+    "hanzi": "大学",
+    "example": "我在大学学习中文。",
+    "example_pinyin": "Wǒ zài dàxué xuéxí Zhōngwén.",
+    "translation": "আমি বিশ্ববিদ্যালয়ে চীনা ভাষা শিখি।"
+  },
+  {
+    "hanzi": "大学生",
+    "example": "他是大学生。",
+    "example_pinyin": "Tā shì dàxuéshēng.",
+    "translation": "সে একজন বিশ্ববিদ্যালয়ের ছাত্র।"
+  },
+  {
+    "hanzi": "到",
+    "example": "我八点到学校。",
+    "example_pinyin": "Wǒ bā diǎn dào xuéxiào.",
+    "translation": "আমি আটটায় স্কুলে পৌঁছাই।"
+  },
+  {
+    "hanzi": "的",
+    "example": "这是Selena Sokal的书。",
+    "example_pinyin": "Zhè shì Selena Sokal de shū.",
+    "translation": "এটি সেলিনা সকাল-এর বই।"
+  },
+  {
+    "hanzi": "第",
+    "example": "这是第一课。",
+    "example_pinyin": "Zhè shì dì yī kè.",
+    "translation": "এটি প্রথম পাঠ।"
+  },
+  {
+    "hanzi": "弟弟",
+    "example": "我的弟弟今年十岁。",
+    "example_pinyin": "Wǒ de dìdi jīnnián shí suì.",
+    "translation": "আমার ছোট ভাইয়ের বয়স এ বছর দশ বছর।"
+  },
+  {
+    "hanzi": "点",
+    "example": "现在三点。",
+    "example_pinyin": "Xiànzài sān diǎn.",
+    "translation": "এখন তিনটা বাজে।"
+  },
+  {
+    "hanzi": "店",
+    "example": "这家店很大。",
+    "example_pinyin": "Zhè jiā diàn hěn dà.",
+    "translation": "এই দোকানটি অনেক বড়।"
+  },
+  {
+    "hanzi": "电话",
+    "example": "我有你的电话。",
+    "example_pinyin": "Wǒ yǒu nǐ de diànhuà.",
+    "translation": "তোমার ফোন নম্বর আমার কাছে আছে।"
+  },
+  {
+    "hanzi": "电脑",
+    "example": "Rakib Amin 有一台电脑。",
+    "example_pinyin": "Rakib Amin yǒu yì tái diànnǎo.",
+    "translation": "রাকিব আমিনের একটি কম্পিউটার আছে।"
+  },
+  {
+    "hanzi": "电视",
+    "example": "我们晚上看电视。",
+    "example_pinyin": "Wǒmen wǎnshang kàn diànshì.",
+    "translation": "আমরা রাতে টেলিভিশন দেখি।"
+  },
+  {
+    "hanzi": "电影",
+    "example": "我喜欢看电影。",
+    "example_pinyin": "Wǒ xǐhuan kàn diànyǐng.",
+    "translation": "আমি সিনেমা দেখতে পছন্দ করি।"
+  },
+  {
+    "hanzi": "电影院",
+    "example": "我们去电影院看电影。",
+    "example_pinyin": "Wǒmen qù diànyǐngyuàn kàn diànyǐng.",
+    "translation": "আমরা সিনেমা দেখতে সিনেমা হলে যাই।"
+  },
+  {
+    "hanzi": "东西",
+    "example": "这些东西是谁的？",
+    "example_pinyin": "Zhèxiē dōngxi shì shéi de?",
+    "translation": "এই জিনিসগুলো কার?"
+  },
+  {
+    "hanzi": "都",
+    "example": "我们都学习中文。",
+    "example_pinyin": "Wǒmen dōu xuéxí Zhōngwén.",
+    "translation": "আমরা সবাই চীনা ভাষা শিখি।"
+  },
+  {
+    "hanzi": "读",
+    "example": "Selena Sokal 正在读中文。",
+    "example_pinyin": "Selena Sokal zhèngzài dú Zhōngwén.",
+    "translation": "সেলিনা সকাল চীনা ভাষা পড়ছে।"
+  },
+  {
+    "hanzi": "读书",
+    "example": "Rakib Amin 喜欢读书。",
+    "example_pinyin": "Rakib Amin xǐhuan dúshū.",
+    "translation": "রাকিব আমিন বই পড়তে পছন্দ করে।"
+  },
+  {
+    "hanzi": "对",
+    "example": "你说得对。",
+    "example_pinyin": "Nǐ shuō de duì.",
+    "translation": "তুমি ঠিক বলেছ।"
+  },
+  {
+    "hanzi": "对不起",
+    "example": "对不起，我来晚了。",
+    "example_pinyin": "Duìbuqǐ, wǒ lái wǎn le.",
+    "translation": "দুঃখিত, আমার আসতে দেরি হয়েছে।"
+  },
+  {
+    "hanzi": "多",
+    "example": "今天的人很多。",
+    "example_pinyin": "Jīntiān de rén hěn duō.",
+    "translation": "আজ অনেক মানুষ আছে।"
+  },
+  {
+    "hanzi": "多少",
+    "example": "这个苹果多少钱？",
+    "example_pinyin": "Zhège píngguǒ duōshao qián?",
+    "translation": "এই আপেলটির দাম কত?"
+  },
+  {
+    "hanzi": "儿子",
+    "example": "他有一个儿子。",
+    "example_pinyin": "Tā yǒu yí ge érzi.",
+    "translation": "তার একটি ছেলে আছে।"
+  },
+  {
+    "hanzi": "二",
+    "example": "我有两本书。",
+    "example_pinyin": "Wǒ yǒu liǎng běn shū.",
+    "translation": "আমার দুটি বই আছে।"
+  },
+  {
+    "hanzi": "饭",
+    "example": "我想吃饭。",
+    "example_pinyin": "Wǒ xiǎng chī fàn.",
+    "translation": "আমি ভাত খেতে চাই।"
+  },
+  {
+    "hanzi": "饭店",
+    "example": "我们在饭店吃饭。",
+    "example_pinyin": "Wǒmen zài fàndiàn chī fàn.",
+    "translation": "আমরা রেস্টুরেন্টে খাই।"
+  },
+  {
+    "hanzi": "房间",
+    "example": "我的房间很干净。",
+    "example_pinyin": "Wǒ de fángjiān hěn gānjìng.",
+    "translation": "আমার ঘরটি খুব পরিষ্কার।"
+  },
+  {
+    "hanzi": "非常",
+    "example": "今天非常热。",
+    "example_pinyin": "Jīntiān fēicháng rè.",
+    "translation": "আজ খুব গরম।"
+  },
+  {
+    "hanzi": "飞机",
+    "example": "Selena Sokal 坐飞机去北京。",
+    "example_pinyin": "Selena Sokal zuò fēijī qù Běijīng.",
+    "translation": "সেলিনা সকাল বিমানে করে বেইজিং যায়।"
+  },
+  {
+    "hanzi": "分",
+    "example": "现在八点十分。",
+    "example_pinyin": "Xiànzài bā diǎn shí fēn.",
+    "translation": "এখন আটটা দশ মিনিট।"
+  },
+  {
+    "hanzi": "分钟",
+    "example": "请等我五分钟。",
+    "example_pinyin": "Qǐng děng wǒ wǔ fēnzhōng.",
+    "translation": "দয়া করে আমার জন্য পাঁচ মিনিট অপেক্ষা করো।"
+  },
+  {
+    "hanzi": "高兴",
+    "example": "见到你我很高兴。",
+    "example_pinyin": "Jiàndào nǐ wǒ hěn gāoxìng.",
+    "translation": "তোমাকে দেখে আমি খুব খুশি।"
+  },
+  {
+    "hanzi": "歌",
+    "example": "Selena Sokal 喜欢这首歌。",
+    "example_pinyin": "Selena Sokal xǐhuan zhè shǒu gē.",
+    "translation": "সেলিনা সকাল এই গানটি পছন্দ করে।"
+  },
+  {
+    "hanzi": "哥哥",
+    "example": "我哥哥在北京工作。",
+    "example_pinyin": "Wǒ gēge zài Běijīng gōngzuò.",
+    "translation": "আমার বড় ভাই বেইজিংয়ে কাজ করেন।"
+  },
+  {
+    "hanzi": "个",
+    "example": "我有一个苹果。",
+    "example_pinyin": "Wǒ yǒu yí ge píngguǒ.",
+    "translation": "আমার একটি আপেল আছে।"
+  }
+]

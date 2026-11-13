@@ -1,5 +1,6 @@
 
 class VocabWord {
+  final int level;
   final String hanzi;
   final String pinyin;
   final String meaning;
@@ -8,6 +9,7 @@ class VocabWord {
   final String translation;
 
   const VocabWord({
+    this.level = 1,
     required this.hanzi,
     required this.pinyin,
     required this.meaning,

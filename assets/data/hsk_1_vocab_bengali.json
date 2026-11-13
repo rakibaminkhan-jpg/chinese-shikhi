@@ -1,0 +1,2402 @@
+[
+  {
+    "hsk_level": 1,
+    "word": "爱",
+    "pinyin": "ài",
+    "translation": "ভালোবাসা; পছন্দ করা",
+    "english": "to love; to like",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "八",
+    "pinyin": "bā",
+    "translation": "আট",
+    "english": "eight",
+    "part_of_speech": "数 num."
+  },
+  {
+    "hsk_level": 1,
+    "word": "爸爸",
+    "pinyin": "bàba",
+    "translation": "বাবা",
+    "english": "father; dad",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "吧",
+    "pinyin": "ba",
+    "translation": "প্রস্তাব বা অনুরোধ বোঝানো বাক্যকণা",
+    "english": "suggestion particle",
+    "part_of_speech": "助 part."
+  },
+  {
+    "hsk_level": 1,
+    "word": "白天",
+    "pinyin": "báitiān",
+    "translation": "দিনের বেলা",
+    "english": "daytime",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "百",
+    "pinyin": "bǎi",
+    "translation": "একশ",
+    "english": "hundred",
+    "part_of_speech": "数 num."
+  },
+  {
+    "hsk_level": 1,
+    "word": "半",
+    "pinyin": "bàn",
+    "translation": "অর্ধেক; আধা",
+    "english": "half",
+    "part_of_speech": "数 num.; （副 adv.）"
+  },
+  {
+    "hsk_level": 1,
+    "word": "包子",
+    "pinyin": "bāozi",
+    "translation": "ভাপানো পুরভরা পাউরুটি",
+    "english": "steamed stuffed bun",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "杯子",
+    "pinyin": "bēizi",
+    "translation": "কাপ; গ্লাস",
+    "english": "cup; glass",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "本",
+    "pinyin": "běn",
+    "translation": "বই গণনার পরিমাপক শব্দ",
+    "english": "measure word for books",
+    "part_of_speech": "量 m.w."
+  },
+  {
+    "hsk_level": 1,
+    "word": "边",
+    "pinyin": "biān",
+    "translation": "পাশ; কিনারা; দিক",
+    "english": "side; edge; location/direction suffix",
+    "part_of_speech": "名 n.; 后缀 suff."
+  },
+  {
+    "hsk_level": 1,
+    "word": "病",
+    "pinyin": "bìng",
+    "translation": "অসুস্থতা; অসুস্থ হওয়া",
+    "english": "illness; to become ill",
+    "part_of_speech": "名 n.; 动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "不",
+    "pinyin": "bù",
+    "translation": "না",
+    "english": "no; not",
+    "part_of_speech": "副 adv."
+  },
+  {
+    "hsk_level": 1,
+    "word": "不客气",
+    "pinyin": "búkèqi",
+    "translation": "স্বাগতম; কোনো ব্যাপার নয়",
+    "english": "you’re welcome",
+    "part_of_speech": "叹 interj."
+  },
+  {
+    "hsk_level": 1,
+    "word": "不要",
+    "pinyin": "búyào",
+    "translation": "করো না; করা নিষেধ",
+    "english": "don’t; must not",
+    "part_of_speech": "副 adv."
+  },
+  {
+    "hsk_level": 1,
+    "word": "菜",
+    "pinyin": "cài",
+    "translation": "তরকারি; খাবার পদ",
+    "english": "dish; vegetable",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "茶",
+    "pinyin": "chá",
+    "translation": "চা",
+    "english": "tea",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "唱",
+    "pinyin": "chàng",
+    "translation": "গান গাওয়া",
+    "english": "to sing",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "超市",
+    "pinyin": "chāoshì",
+    "translation": "সুপারমার্কেট",
+    "english": "supermarket",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "车",
+    "pinyin": "chē",
+    "translation": "গাড়ি; যানবাহন",
+    "english": "car; vehicle",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "吃",
+    "pinyin": "chī",
+    "translation": "খাওয়া",
+    "english": "to eat",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "出租车",
+    "pinyin": "chūzūchē",
+    "translation": "ট্যাক্সি",
+    "english": "taxi",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "穿",
+    "pinyin": "chuān",
+    "translation": "পরা; পরিধান করা",
+    "english": "to wear; to put on",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "打电话",
+    "pinyin": "dǎdiànhuà",
+    "translation": "ফোন করা",
+    "english": "to make a phone call",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "大",
+    "pinyin": "dà",
+    "translation": "বড়",
+    "english": "big; large",
+    "part_of_speech": "形 adj."
+  },
+  {
+    "hsk_level": 1,
+    "word": "大家",
+    "pinyin": "dàjiā",
+    "translation": "সবাই",
+    "english": "everyone",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "大学",
+    "pinyin": "dàxué",
+    "translation": "বিশ্ববিদ্যালয়",
+    "english": "university",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "大学生",
+    "pinyin": "dàxuéshēng",
+    "translation": "বিশ্ববিদ্যালয়ের শিক্ষার্থী",
+    "english": "university student",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "到",
+    "pinyin": "dào",
+    "translation": "পৌঁছানো",
+    "english": "to arrive; to reach",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "的",
+    "pinyin": "de",
+    "translation": "সম্পর্ক বা নির্দিষ্টতা বোঝানো বাক্যকণা",
+    "english": "linking particle",
+    "part_of_speech": "助 part."
+  },
+  {
+    "hsk_level": 1,
+    "word": "第",
+    "pinyin": "dì",
+    "translation": "ক্রমবাচক সংখ্যা তৈরির উপসর্গ",
+    "english": "prefix that makes order numbers (first, second)",
+    "part_of_speech": "前缀 pref."
+  },
+  {
+    "hsk_level": 1,
+    "word": "弟弟",
+    "pinyin": "dìdi",
+    "translation": "ছোট ভাই",
+    "english": "younger brother",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "点",
+    "pinyin": "diǎn",
+    "translation": "টা; ঘণ্টা; বিন্দু",
+    "english": "o’clock; point",
+    "part_of_speech": "量 m.w.; （名 n.）"
+  },
+  {
+    "hsk_level": 1,
+    "word": "店",
+    "pinyin": "diàn",
+    "translation": "দোকান",
+    "english": "shop; store",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "电话",
+    "pinyin": "diànhuà",
+    "translation": "টেলিফোন",
+    "english": "telephone",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "电脑",
+    "pinyin": "diànnǎo",
+    "translation": "কম্পিউটার",
+    "english": "computer",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "电视",
+    "pinyin": "diànshì",
+    "translation": "টেলিভিশন",
+    "english": "television",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "电影",
+    "pinyin": "diànyǐng",
+    "translation": "সিনেমা; চলচ্চিত্র",
+    "english": "movie; film",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "电影院",
+    "pinyin": "diànyǐngyuàn",
+    "translation": "সিনেমা হল",
+    "english": "movie theater",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "东西",
+    "pinyin": "dōngxi",
+    "translation": "জিনিসপত্র",
+    "english": "thing; stuff",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "都",
+    "pinyin": "dōu",
+    "translation": "সব; উভয়ই",
+    "english": "all; both",
+    "part_of_speech": "副 adv."
+  },
+  {
+    "hsk_level": 1,
+    "word": "读",
+    "pinyin": "dú",
+    "translation": "পড়া",
+    "english": "to read",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "读书",
+    "pinyin": "dúshū",
+    "translation": "পড়াশোনা করা; বই পড়া",
+    "english": "to read; to study",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "对",
+    "pinyin": "duì",
+    "translation": "সঠিক; প্রতি; সম্পর্কে",
+    "english": "correct; toward; regarding",
+    "part_of_speech": "形 adj.; 介 prep.; （动 v.; 量 m.w.）"
+  },
+  {
+    "hsk_level": 1,
+    "word": "对不起",
+    "pinyin": "duìbuqǐ",
+    "translation": "দুঃখিত; মাফ করবেন",
+    "english": "sorry; excuse me",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "多",
+    "pinyin": "duō",
+    "translation": "অনেক; বেশি",
+    "english": "many; much; more",
+    "part_of_speech": "形 adj.; 动 v.; 代 pron.; （数 num.; 副 adv.）"
+  },
+  {
+    "hsk_level": 1,
+    "word": "多少",
+    "pinyin": "duōshao",
+    "translation": "কত; কতগুলো",
+    "english": "how many; how much",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "儿子",
+    "pinyin": "érzi",
+    "translation": "ছেলে",
+    "english": "son",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "二",
+    "pinyin": "èr",
+    "translation": "দুই",
+    "english": "two",
+    "part_of_speech": "数 num."
+  },
+  {
+    "hsk_level": 1,
+    "word": "饭",
+    "pinyin": "fàn",
+    "translation": "খাবার; রান্না করা ভাত",
+    "english": "meal; cooked rice",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "饭店",
+    "pinyin": "fàndiàn",
+    "translation": "রেস্তোরাঁ; হোটেল",
+    "english": "restaurant; hotel",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "房间",
+    "pinyin": "fángjiān",
+    "translation": "ঘর; কক্ষ",
+    "english": "room",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "非常",
+    "pinyin": "fēicháng",
+    "translation": "খুব; অত্যন্ত",
+    "english": "very; really",
+    "part_of_speech": "副 adv."
+  },
+  {
+    "hsk_level": 1,
+    "word": "飞机",
+    "pinyin": "fēijī",
+    "translation": "বিমান",
+    "english": "airplane",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "分",
+    "pinyin": "fēn",
+    "translation": "মিনিট; নম্বর; অংশ",
+    "english": "minute; point; part",
+    "part_of_speech": "量 m.w.; （动 v.; 名 n.）"
+  },
+  {
+    "hsk_level": 1,
+    "word": "分钟",
+    "pinyin": "fēnzhōng",
+    "translation": "মিনিট",
+    "english": "minute",
+    "part_of_speech": "量 m.w."
+  },
+  {
+    "hsk_level": 1,
+    "word": "高兴",
+    "pinyin": "gāoxìng",
+    "translation": "খুশি; আনন্দিত",
+    "english": "happy; glad",
+    "part_of_speech": "形 adj."
+  },
+  {
+    "hsk_level": 1,
+    "word": "歌",
+    "pinyin": "gē",
+    "translation": "গান",
+    "english": "song",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "哥哥",
+    "pinyin": "gēge",
+    "translation": "বড় ভাই",
+    "english": "older brother",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "个",
+    "pinyin": "gè",
+    "translation": "সাধারণ গণনাবাচক পরিমাপক শব্দ",
+    "english": "general measure word",
+    "part_of_speech": "量 m.w."
+  },
+  {
+    "hsk_level": 1,
+    "word": "给",
+    "pinyin": "gěi",
+    "translation": "দেওয়া; জন্য; প্রতি",
+    "english": "to give; to; for",
+    "part_of_speech": "动 v.; （介 prep.）"
+  },
+  {
+    "hsk_level": 1,
+    "word": "公司",
+    "pinyin": "gōngsī",
+    "translation": "কোম্পানি",
+    "english": "company",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "工作",
+    "pinyin": "gōngzuò",
+    "translation": "কাজ; কাজ করা",
+    "english": "to work; job",
+    "part_of_speech": "动 v.; 名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "狗",
+    "pinyin": "gǒu",
+    "translation": "কুকুর",
+    "english": "dog",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "贵",
+    "pinyin": "guì",
+    "translation": "দামি",
+    "english": "expensive",
+    "part_of_speech": "形 adj."
+  },
+  {
+    "hsk_level": 1,
+    "word": "国",
+    "pinyin": "guó",
+    "translation": "দেশ",
+    "english": "country",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "还",
+    "pinyin": "hái",
+    "translation": "এখনো; এছাড়াও",
+    "english": "still; also",
+    "part_of_speech": "副 adv."
+  },
+  {
+    "hsk_level": 1,
+    "word": "孩子",
+    "pinyin": "háizi",
+    "translation": "শিশু; বাচ্চা",
+    "english": "child",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "汉语",
+    "pinyin": "Hànyǔ",
+    "translation": "চীনা ভাষা",
+    "english": "Chinese language",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "汉字",
+    "pinyin": "Hànzì",
+    "translation": "চীনা অক্ষর",
+    "english": "Chinese character",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "好",
+    "pinyin": "hǎo",
+    "translation": "ভালো",
+    "english": "good; well",
+    "part_of_speech": "形 adj.; （副 adv.）; （动 v.）"
+  },
+  {
+    "hsk_level": 1,
+    "word": "好吃",
+    "pinyin": "hǎochī",
+    "translation": "সুস্বাদু",
+    "english": "tasty; delicious",
+    "part_of_speech": "形 adj."
+  },
+  {
+    "hsk_level": 1,
+    "word": "好看",
+    "pinyin": "hǎokàn",
+    "translation": "দেখতে সুন্দর; দেখতে ভালো",
+    "english": "attractive; enjoyable to watch or read",
+    "part_of_speech": "形 adj."
+  },
+  {
+    "hsk_level": 1,
+    "word": "好听",
+    "pinyin": "hǎotīng",
+    "translation": "শুনতে সুন্দর",
+    "english": "pleasant to hear",
+    "part_of_speech": "形 adj."
+  },
+  {
+    "hsk_level": 1,
+    "word": "好玩儿",
+    "pinyin": "hǎowánr",
+    "translation": "মজার; উপভোগ্য",
+    "english": "fun; interesting",
+    "part_of_speech": "形 adj."
+  },
+  {
+    "hsk_level": 1,
+    "word": "号",
+    "pinyin": "hào",
+    "translation": "নম্বর; মাসের তারিখ",
+    "english": "number; day of the month",
+    "part_of_speech": "名 n.; 量 m.w."
+  },
+  {
+    "hsk_level": 1,
+    "word": "喝",
+    "pinyin": "hē",
+    "translation": "পান করা",
+    "english": "to drink",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "和",
+    "pinyin": "hé",
+    "translation": "এবং; সঙ্গে",
+    "english": "and; with",
+    "part_of_speech": "介 prep.; 连 conj."
+  },
+  {
+    "hsk_level": 1,
+    "word": "很",
+    "pinyin": "hěn",
+    "translation": "খুব; বেশ",
+    "english": "very; quite",
+    "part_of_speech": "副 adv."
+  },
+  {
+    "hsk_level": 1,
+    "word": "后",
+    "pinyin": "hòu",
+    "translation": "পরে; পেছনে",
+    "english": "after; behind",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "回",
+    "pinyin": "huí",
+    "translation": "ফিরে আসা",
+    "english": "to return",
+    "part_of_speech": "动 v.; （量 m.w.）"
+  },
+  {
+    "hsk_level": 1,
+    "word": "会",
+    "pinyin": "huì",
+    "translation": "পারা; কোনো কাজ জান থাকা",
+    "english": "can; to know how to",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "火车",
+    "pinyin": "huǒchē",
+    "translation": "ট্রেন",
+    "english": "train",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "鸡蛋",
+    "pinyin": "jīdàn",
+    "translation": "ডিম",
+    "english": "egg",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "几",
+    "pinyin": "jǐ",
+    "translation": "কত; কয়েকটি",
+    "english": "how many; several",
+    "part_of_speech": "代 pron.; 数 num."
+  },
+  {
+    "hsk_level": 1,
+    "word": "家",
+    "pinyin": "jiā",
+    "translation": "পরিবার; বাড়ি; প্রতিষ্ঠান গণনার শব্দ",
+    "english": "family; home; measure word for shops and companies",
+    "part_of_speech": "名 n.; 量 m.w.; （后缀 suff.）"
+  },
+  {
+    "hsk_level": 1,
+    "word": "家人",
+    "pinyin": "jiārén",
+    "translation": "পরিবারের সদস্য",
+    "english": "family member",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "见",
+    "pinyin": "jiàn",
+    "translation": "দেখা; সাক্ষাৎ করা",
+    "english": "to see; to meet",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "件",
+    "pinyin": "jiàn",
+    "translation": "বস্তু গণনার পরিমাপক শব্দ",
+    "english": "measure word for items",
+    "part_of_speech": "量 m.w."
+  },
+  {
+    "hsk_level": 1,
+    "word": "饺子",
+    "pinyin": "jiǎozi",
+    "translation": "ডাম্পলিং; মোমো",
+    "english": "dumpling",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "叫",
+    "pinyin": "jiào",
+    "translation": "ডাকা; নাম হওয়া",
+    "english": "to call; to be called",
+    "part_of_speech": "动 v.; （介 prep.）"
+  },
+  {
+    "hsk_level": 1,
+    "word": "姐姐",
+    "pinyin": "jiějie",
+    "translation": "বড় বোন",
+    "english": "older sister",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "今年",
+    "pinyin": "jīnnián",
+    "translation": "এই বছর",
+    "english": "this year",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "今天",
+    "pinyin": "jīntiān",
+    "translation": "আজ",
+    "english": "today",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "九",
+    "pinyin": "jiǔ",
+    "translation": "নয়",
+    "english": "nine",
+    "part_of_speech": "数 num."
+  },
+  {
+    "hsk_level": 1,
+    "word": "觉得",
+    "pinyin": "juéde",
+    "translation": "মনে করা; অনুভব করা",
+    "english": "to think; to feel",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "开",
+    "pinyin": "kāi",
+    "translation": "খোলা; শুরু করা",
+    "english": "to open; to start",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "开车",
+    "pinyin": "kāichē",
+    "translation": "গাড়ি চালানো",
+    "english": "to drive a car",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "看",
+    "pinyin": "kàn",
+    "translation": "দেখা; তাকানো",
+    "english": "to see; to look at",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "看病",
+    "pinyin": "kànbìng",
+    "translation": "ডাক্তার দেখানো",
+    "english": "to see a doctor",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "看见",
+    "pinyin": "kànjiàn",
+    "translation": "চোখে দেখা",
+    "english": "to see; to catch sight of",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "可以",
+    "pinyin": "kěyǐ",
+    "translation": "পারা; অনুমতি থাকা",
+    "english": "can; may",
+    "part_of_speech": "动 v.; 形 adj."
+  },
+  {
+    "hsk_level": 1,
+    "word": "课",
+    "pinyin": "kè",
+    "translation": "ক্লাস; পাঠ",
+    "english": "class; lesson",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "口",
+    "pinyin": "kǒu",
+    "translation": "মুখ; মানুষ বা চুমুক গণনার শব্দ",
+    "english": "mouth; measure word for people, bites, or sips",
+    "part_of_speech": "名 n.; 量 m.w."
+  },
+  {
+    "hsk_level": 1,
+    "word": "块",
+    "pinyin": "kuài",
+    "translation": "টুকরা; ইউয়ান (কথ্য)",
+    "english": "measure word for pieces; yuan (informal)",
+    "part_of_speech": "量 m.w."
+  },
+  {
+    "hsk_level": 1,
+    "word": "来",
+    "pinyin": "lái",
+    "translation": "আসা",
+    "english": "to come",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "老师",
+    "pinyin": "lǎoshī",
+    "translation": "শিক্ষক",
+    "english": "teacher",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "了",
+    "pinyin": "le",
+    "translation": "কাজ সম্পন্ন হওয়ার ভাব বোঝানো বাক্যকণা",
+    "english": "completion particle",
+    "part_of_speech": "助 part."
+  },
+  {
+    "hsk_level": 1,
+    "word": "冷",
+    "pinyin": "lěng",
+    "translation": "ঠান্ডা",
+    "english": "cold",
+    "part_of_speech": "形 adj."
+  },
+  {
+    "hsk_level": 1,
+    "word": "里",
+    "pinyin": "lǐ",
+    "translation": "ভেতরে",
+    "english": "inside; interior",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "两",
+    "pinyin": "liǎng",
+    "translation": "দুই",
+    "english": "two",
+    "part_of_speech": "数 num."
+  },
+  {
+    "hsk_level": 1,
+    "word": "零",
+    "pinyin": "líng",
+    "translation": "শূন্য",
+    "english": "zero",
+    "part_of_speech": "数 num."
+  },
+  {
+    "hsk_level": 1,
+    "word": "六",
+    "pinyin": "liù",
+    "translation": "ছয়",
+    "english": "six",
+    "part_of_speech": "数 num."
+  },
+  {
+    "hsk_level": 1,
+    "word": "妈妈",
+    "pinyin": "māma",
+    "translation": "মা",
+    "english": "mother; mom",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "吗",
+    "pinyin": "ma",
+    "translation": "প্রশ্নবোধক বাক্যকণা",
+    "english": "question particle",
+    "part_of_speech": "助 part."
+  },
+  {
+    "hsk_level": 1,
+    "word": "买",
+    "pinyin": "mǎi",
+    "translation": "কেনা",
+    "english": "to buy",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "卖",
+    "pinyin": "mài",
+    "translation": "বিক্রি করা",
+    "english": "to sell",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "忙",
+    "pinyin": "máng",
+    "translation": "ব্যস্ত",
+    "english": "busy; to be busy with",
+    "part_of_speech": "形 adj.; 动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "猫",
+    "pinyin": "māo",
+    "translation": "বিড়াল",
+    "english": "cat",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "没关系",
+    "pinyin": "méiguānxi",
+    "translation": "কোনো সমস্যা নেই; ঠিক আছে",
+    "english": "it’s okay; never mind",
+    "part_of_speech": "叹 interj."
+  },
+  {
+    "hsk_level": 1,
+    "word": "没事",
+    "pinyin": "méishì",
+    "translation": "কিছু হয়নি; সমস্যা নেই",
+    "english": "to be fine; no problem",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "没有",
+    "pinyin": "méiyǒu",
+    "translation": "নেই; না থাকা; ঘটেনি",
+    "english": "not to have; there is not; did not",
+    "part_of_speech": "动 v.; 副 adv."
+  },
+  {
+    "hsk_level": 1,
+    "word": "妹妹",
+    "pinyin": "mèimei",
+    "translation": "ছোট বোন",
+    "english": "younger sister",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "们",
+    "pinyin": "men",
+    "translation": "বহুবচন বোঝানো প্রত্যয়",
+    "english": "plural suffix",
+    "part_of_speech": "后缀 suff."
+  },
+  {
+    "hsk_level": 1,
+    "word": "米饭",
+    "pinyin": "mǐfàn",
+    "translation": "সিদ্ধ ভাত",
+    "english": "rice",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "面包",
+    "pinyin": "miànbāo",
+    "translation": "রুটি",
+    "english": "bread",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "面条儿",
+    "pinyin": "miàntiáor",
+    "translation": "নুডলস",
+    "english": "noodles",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "明年",
+    "pinyin": "míngnián",
+    "translation": "আগামী বছর",
+    "english": "next year",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "明天",
+    "pinyin": "míngtiān",
+    "translation": "আগামীকাল",
+    "english": "tomorrow",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "名字",
+    "pinyin": "míngzi",
+    "translation": "নাম",
+    "english": "name",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "哪",
+    "pinyin": "nǎ",
+    "translation": "কোন",
+    "english": "which",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "哪个",
+    "pinyin": "nǎge",
+    "translation": "কোনটি",
+    "english": "which one",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "哪里",
+    "pinyin": "nǎlǐ",
+    "translation": "কোথায়",
+    "english": "where",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "哪儿",
+    "pinyin": "nǎr",
+    "translation": "কোথায়",
+    "english": "where",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "哪些",
+    "pinyin": "nǎxiē",
+    "translation": "কোনগুলো",
+    "english": "which ones",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "那",
+    "pinyin": "nà",
+    "translation": "সেটি; ওই",
+    "english": "that",
+    "part_of_speech": "代 pron.; （连 conj.）"
+  },
+  {
+    "hsk_level": 1,
+    "word": "那边",
+    "pinyin": "nàbiān",
+    "translation": "ওই পাশে",
+    "english": "there; that side",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "那个",
+    "pinyin": "nàge",
+    "translation": "ওইটি",
+    "english": "that one",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "那里",
+    "pinyin": "nàlǐ",
+    "translation": "সেখানে",
+    "english": "there",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "那儿",
+    "pinyin": "nàr",
+    "translation": "ওখানে",
+    "english": "there",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "那些",
+    "pinyin": "nàxiē",
+    "translation": "সেগুলো",
+    "english": "those",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "男",
+    "pinyin": "nán",
+    "translation": "পুরুষ",
+    "english": "male",
+    "part_of_speech": "形 adj."
+  },
+  {
+    "hsk_level": 1,
+    "word": "男朋友",
+    "pinyin": "nánpéngyou",
+    "translation": "প্রেমিক",
+    "english": "boyfriend",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "呢",
+    "pinyin": "ne",
+    "translation": "প্রসঙ্গ ধরে প্রশ্ন করার বাক্যকণা",
+    "english": "particle for follow-up questions (and you?)",
+    "part_of_speech": "助 part."
+  },
+  {
+    "hsk_level": 1,
+    "word": "能",
+    "pinyin": "néng",
+    "translation": "পারা; সক্ষম হওয়া",
+    "english": "can; to be able to",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "你",
+    "pinyin": "nǐ",
+    "translation": "তুমি",
+    "english": "you",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "你好",
+    "pinyin": "nǐhǎo",
+    "translation": "হ্যালো; নমস্কার",
+    "english": "hello",
+    "part_of_speech": "叹 interj."
+  },
+  {
+    "hsk_level": 1,
+    "word": "你们",
+    "pinyin": "nǐmen",
+    "translation": "তোমরা",
+    "english": "you (plural)",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "年",
+    "pinyin": "nián",
+    "translation": "বছর",
+    "english": "year",
+    "part_of_speech": "名 n.; 量 m.w."
+  },
+  {
+    "hsk_level": 1,
+    "word": "您",
+    "pinyin": "nín",
+    "translation": "আপনি",
+    "english": "you (formal)",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "牛奶",
+    "pinyin": "niúnǎi",
+    "translation": "দুধ",
+    "english": "milk",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "女",
+    "pinyin": "nǚ",
+    "translation": "নারী",
+    "english": "female",
+    "part_of_speech": "形 adj."
+  },
+  {
+    "hsk_level": 1,
+    "word": "女儿",
+    "pinyin": "nǚ’ér",
+    "translation": "মেয়ে; কন্যা",
+    "english": "daughter",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "女朋友",
+    "pinyin": "nǚpéngyou",
+    "translation": "প্রেমিকা",
+    "english": "girlfriend",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "女士",
+    "pinyin": "nǚshì",
+    "translation": "মহিলা; ভদ্রমহিলা",
+    "english": "Ms.; lady; madam",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "朋友",
+    "pinyin": "péngyou",
+    "translation": "বন্ধু",
+    "english": "friend",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "便宜",
+    "pinyin": "piányi",
+    "translation": "সস্তা",
+    "english": "cheap; inexpensive",
+    "part_of_speech": "形 adj."
+  },
+  {
+    "hsk_level": 1,
+    "word": "漂亮",
+    "pinyin": "piàoliang",
+    "translation": "সুন্দর",
+    "english": "pretty; beautiful",
+    "part_of_speech": "形 adj."
+  },
+  {
+    "hsk_level": 1,
+    "word": "苹果",
+    "pinyin": "píngguǒ",
+    "translation": "আপেল",
+    "english": "apple",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "七",
+    "pinyin": "qī",
+    "translation": "সাত",
+    "english": "seven",
+    "part_of_speech": "数 num."
+  },
+  {
+    "hsk_level": 1,
+    "word": "起床",
+    "pinyin": "qǐchuáng",
+    "translation": "ঘুম থেকে ওঠা",
+    "english": "to get up",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "千",
+    "pinyin": "qiān",
+    "translation": "হাজার",
+    "english": "thousand",
+    "part_of_speech": "数 num."
+  },
+  {
+    "hsk_level": 1,
+    "word": "前",
+    "pinyin": "qián",
+    "translation": "সামনে; আগে",
+    "english": "front; ahead",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "钱",
+    "pinyin": "qián",
+    "translation": "টাকা",
+    "english": "money",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "请",
+    "pinyin": "qǐng",
+    "translation": "অনুগ্রহ করে; আমন্ত্রণ জানানো",
+    "english": "please; to invite",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "请问",
+    "pinyin": "qǐngwèn",
+    "translation": "মাফ করবেন; একটি কথা জিজ্ঞেস করি",
+    "english": "excuse me; may I ask",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "去",
+    "pinyin": "qù",
+    "translation": "যাওয়া",
+    "english": "to go",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "去年",
+    "pinyin": "qùnián",
+    "translation": "গত বছর",
+    "english": "last year",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "热",
+    "pinyin": "rè",
+    "translation": "গরম",
+    "english": "hot",
+    "part_of_speech": "形 adj."
+  },
+  {
+    "hsk_level": 1,
+    "word": "人",
+    "pinyin": "rén",
+    "translation": "মানুষ",
+    "english": "person; people",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "认识",
+    "pinyin": "rènshi",
+    "translation": "চেনা; পরিচিত হওয়া",
+    "english": "to know; to recognize",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "日",
+    "pinyin": "rì",
+    "translation": "দিন; তারিখ",
+    "english": "day (of the month); date",
+    "part_of_speech": "量 m.w.; （名 n.）"
+  },
+  {
+    "hsk_level": 1,
+    "word": "三",
+    "pinyin": "sān",
+    "translation": "তিন",
+    "english": "three",
+    "part_of_speech": "数 num."
+  },
+  {
+    "hsk_level": 1,
+    "word": "商店",
+    "pinyin": "shāngdiàn",
+    "translation": "দোকান",
+    "english": "store; shop",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "上",
+    "pinyin": "shàng",
+    "translation": "উপরে; ওঠা; ক্লাসে অংশ নেওয়া",
+    "english": "on; above; to go up; to attend",
+    "part_of_speech": "名 n.; 动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "上班",
+    "pinyin": "shàngbān",
+    "translation": "কাজে যাওয়া",
+    "english": "to go to work",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "上课",
+    "pinyin": "shàngkè",
+    "translation": "ক্লাস করা",
+    "english": "to go to class",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "上午",
+    "pinyin": "shàngwǔ",
+    "translation": "সকাল",
+    "english": "morning",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "上学",
+    "pinyin": "shàngxué",
+    "translation": "স্কুলে যাওয়া",
+    "english": "to go to school",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "少",
+    "pinyin": "shǎo",
+    "translation": "কম; অল্প",
+    "english": "few; little; to lack",
+    "part_of_speech": "形 adj.; 动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "谁",
+    "pinyin": "shéi/shuí",
+    "translation": "কে",
+    "english": "who",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "什么",
+    "pinyin": "shénme",
+    "translation": "কী",
+    "english": "what",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "生病",
+    "pinyin": "shēngbìng",
+    "translation": "অসুস্থ হওয়া",
+    "english": "to fall ill",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "十",
+    "pinyin": "shí",
+    "translation": "দশ",
+    "english": "ten",
+    "part_of_speech": "数 num."
+  },
+  {
+    "hsk_level": 1,
+    "word": "时候",
+    "pinyin": "shíhou",
+    "translation": "সময়; মুহূর্ত",
+    "english": "time; moment",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "时间",
+    "pinyin": "shíjiān",
+    "translation": "সময়; সময়কাল",
+    "english": "time; period",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "事",
+    "pinyin": "shì",
+    "translation": "বিষয়; ব্যাপার",
+    "english": "matter; thing",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "是",
+    "pinyin": "shì",
+    "translation": "হওয়া",
+    "english": "to be",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "手机",
+    "pinyin": "shǒujī",
+    "translation": "মোবাইল ফোন",
+    "english": "cell phone",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "书",
+    "pinyin": "shū",
+    "translation": "বই",
+    "english": "book",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "书店",
+    "pinyin": "shūdiàn",
+    "translation": "বইয়ের দোকান",
+    "english": "bookstore",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "水",
+    "pinyin": "shuǐ",
+    "translation": "পানি",
+    "english": "water",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "水果",
+    "pinyin": "shuǐguǒ",
+    "translation": "ফল",
+    "english": "fruit",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "睡",
+    "pinyin": "shuì",
+    "translation": "ঘুমানো",
+    "english": "to sleep",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "睡觉",
+    "pinyin": "shuìjiào",
+    "translation": "ঘুমানো; বিছানায় যাওয়া",
+    "english": "to sleep; to go to bed",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "说",
+    "pinyin": "shuō",
+    "translation": "বলা; কথা বলা",
+    "english": "to speak; to say",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "说话",
+    "pinyin": "shuōhuà",
+    "translation": "কথা বলা",
+    "english": "to speak; to talk",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "四",
+    "pinyin": "sì",
+    "translation": "চার",
+    "english": "four",
+    "part_of_speech": "数 num."
+  },
+  {
+    "hsk_level": 1,
+    "word": "岁",
+    "pinyin": "suì",
+    "translation": "বছর বয়স",
+    "english": "years old",
+    "part_of_speech": "量 m.w."
+  },
+  {
+    "hsk_level": 1,
+    "word": "他",
+    "pinyin": "tā",
+    "translation": "সে (পুরুষ)",
+    "english": "he; him",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "它",
+    "pinyin": "tā",
+    "translation": "এটি; সেটা",
+    "english": "it",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "她",
+    "pinyin": "tā",
+    "translation": "সে (নারী)",
+    "english": "she; her",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "他们",
+    "pinyin": "tāmen",
+    "translation": "তারা (পুরুষ বা মিশ্র দল)",
+    "english": "they; them",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "它们",
+    "pinyin": "tāmen",
+    "translation": "সেগুলো (বস্তু)",
+    "english": "they; them (things)",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "她们",
+    "pinyin": "tāmen",
+    "translation": "তারা (নারী)",
+    "english": "they; them (female)",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "太",
+    "pinyin": "tài",
+    "translation": "অত্যন্ত; খুব বেশি",
+    "english": "too; very",
+    "part_of_speech": "副 adv."
+  },
+  {
+    "hsk_level": 1,
+    "word": "天",
+    "pinyin": "tiān",
+    "translation": "দিন; আকাশ; দিনের গণনাবাচক শব্দ",
+    "english": "day; sky; measure word for days",
+    "part_of_speech": "名 n.; 量 m.w."
+  },
+  {
+    "hsk_level": 1,
+    "word": "天气",
+    "pinyin": "tiānqì",
+    "translation": "আবহাওয়া",
+    "english": "weather",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "听",
+    "pinyin": "tīng",
+    "translation": "শোনা; মন দিয়ে শোনা",
+    "english": "to listen; to hear",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "听见",
+    "pinyin": "tīngjiàn",
+    "translation": "শুনতে পাওয়া",
+    "english": "to hear",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "同学",
+    "pinyin": "tóngxué",
+    "translation": "সহপাঠী",
+    "english": "classmate",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "外",
+    "pinyin": "wài",
+    "translation": "বাইরে; বিদেশি",
+    "english": "outside; foreign",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "外边",
+    "pinyin": "wàibian",
+    "translation": "বাইরে",
+    "english": "outside",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "玩",
+    "pinyin": "wán",
+    "translation": "খেলা করা; আনন্দ করা",
+    "english": "to play; to have fun",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "晚",
+    "pinyin": "wǎn",
+    "translation": "দেরি; সন্ধ্যা",
+    "english": "late",
+    "part_of_speech": "形 adj."
+  },
+  {
+    "hsk_level": 1,
+    "word": "晚饭",
+    "pinyin": "wǎnfàn",
+    "translation": "রাতের খাবার",
+    "english": "dinner; supper",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "晚上",
+    "pinyin": "wǎnshang",
+    "translation": "সন্ধ্যা; রাত",
+    "english": "evening; night",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "喂",
+    "pinyin": "wèi",
+    "translation": "হ্যালো? (ফোনে)",
+    "english": "hello? (phone)",
+    "part_of_speech": "叹 interj."
+  },
+  {
+    "hsk_level": 1,
+    "word": "问",
+    "pinyin": "wèn",
+    "translation": "জিজ্ঞেস করা",
+    "english": "to ask",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "问题",
+    "pinyin": "wèntí",
+    "translation": "প্রশ্ন; সমস্যা",
+    "english": "question; problem",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "我",
+    "pinyin": "wǒ",
+    "translation": "আমি",
+    "english": "I; me",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "我们",
+    "pinyin": "wǒmen",
+    "translation": "আমরা",
+    "english": "we; us",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "五",
+    "pinyin": "wǔ",
+    "translation": "পাঁচ",
+    "english": "five",
+    "part_of_speech": "数 num."
+  },
+  {
+    "hsk_level": 1,
+    "word": "午饭",
+    "pinyin": "wǔfàn",
+    "translation": "দুপুরের খাবার",
+    "english": "lunch",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "喜欢",
+    "pinyin": "xǐhuan",
+    "translation": "পছন্দ করা",
+    "english": "to like",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "下",
+    "pinyin": "xià",
+    "translation": "নিচে; পরবর্তী; নেমে যাওয়া",
+    "english": "below; under; next; to go down or get off",
+    "part_of_speech": "名 n.; 动 v.; 量 m.w."
+  },
+  {
+    "hsk_level": 1,
+    "word": "下雨",
+    "pinyin": "xiàyǔ",
+    "translation": "বৃষ্টি হওয়া",
+    "english": "to rain",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "下班",
+    "pinyin": "xiàbān",
+    "translation": "কাজ শেষ করা",
+    "english": "to finish work",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "下课",
+    "pinyin": "xiàkè",
+    "translation": "ক্লাস শেষ হওয়া",
+    "english": "to finish class; class is over",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "下午",
+    "pinyin": "xiàwǔ",
+    "translation": "বিকেল",
+    "english": "afternoon",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "先生",
+    "pinyin": "xiānsheng",
+    "translation": "জনাব; মহাশয়",
+    "english": "Mr.; sir; gentleman",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "现在",
+    "pinyin": "xiànzài",
+    "translation": "এখন; বর্তমানে",
+    "english": "now; at present",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "想",
+    "pinyin": "xiǎng",
+    "translation": "ভাবা; চাই",
+    "english": "to think; to want",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "小",
+    "pinyin": "xiǎo",
+    "translation": "ছোট",
+    "english": "small; tiny",
+    "part_of_speech": "形 adj.; 前缀 pref."
+  },
+  {
+    "hsk_level": 1,
+    "word": "小朋友",
+    "pinyin": "xiǎopéngyǒu",
+    "translation": "শিশু; ছোট বাচ্চা",
+    "english": "child",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "小时",
+    "pinyin": "xiǎoshí",
+    "translation": "ঘণ্টা",
+    "english": "hour",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "小学",
+    "pinyin": "xiǎoxué",
+    "translation": "প্রাথমিক বিদ্যালয়",
+    "english": "elementary school",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "小学生",
+    "pinyin": "xiǎoxuéshēng",
+    "translation": "প্রাথমিক বিদ্যালয়ের শিক্ষার্থী",
+    "english": "elementary student",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "些",
+    "pinyin": "xiē",
+    "translation": "কিছু; কয়েকটি",
+    "english": "some; a few",
+    "part_of_speech": "量 m.w."
+  },
+  {
+    "hsk_level": 1,
+    "word": "写",
+    "pinyin": "xiě",
+    "translation": "লেখা",
+    "english": "to write",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "谢谢",
+    "pinyin": "xièxie",
+    "translation": "ধন্যবাদ; কৃতজ্ঞতা জানানো",
+    "english": "thank you; to thank",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "新",
+    "pinyin": "xīn",
+    "translation": "নতুন",
+    "english": "new",
+    "part_of_speech": "形 adj."
+  },
+  {
+    "hsk_level": 1,
+    "word": "星期",
+    "pinyin": "xīngqī",
+    "translation": "সপ্তাহ",
+    "english": "week",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "星期日",
+    "pinyin": "xīngqīrì",
+    "translation": "রবিবার",
+    "english": "Sunday",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "星期天",
+    "pinyin": "xīngqītiān",
+    "translation": "রবিবার",
+    "english": "Sunday",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "休息",
+    "pinyin": "xiūxi",
+    "translation": "বিশ্রাম নেওয়া",
+    "english": "to rest",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "学",
+    "pinyin": "xué",
+    "translation": "শেখা; অধ্যয়ন করা",
+    "english": "to learn; to study",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "学生",
+    "pinyin": "xuéshēng",
+    "translation": "শিক্ষার্থী",
+    "english": "student",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "学习",
+    "pinyin": "xuéxí",
+    "translation": "শেখা; পড়াশোনা করা",
+    "english": "to learn; to study",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "学校",
+    "pinyin": "xuéxiào",
+    "translation": "বিদ্যালয়; স্কুল",
+    "english": "school",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "雪",
+    "pinyin": "xuě",
+    "translation": "বরফ",
+    "english": "snow",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "要",
+    "pinyin": "yào",
+    "translation": "চাওয়া; প্রয়োজন হওয়া",
+    "english": "to want; to need",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "也",
+    "pinyin": "yě",
+    "translation": "এছাড়াও; ও",
+    "english": "also; too",
+    "part_of_speech": "副 adv."
+  },
+  {
+    "hsk_level": 1,
+    "word": "一",
+    "pinyin": "yī",
+    "translation": "এক",
+    "english": "one",
+    "part_of_speech": "数 num."
+  },
+  {
+    "hsk_level": 1,
+    "word": "衣服",
+    "pinyin": "yīfu",
+    "translation": "জামাকাপড়",
+    "english": "clothes",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "医生",
+    "pinyin": "yīshēng",
+    "translation": "ডাক্তার",
+    "english": "doctor",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "医院",
+    "pinyin": "yīyuàn",
+    "translation": "হাসপাতাল",
+    "english": "hospital",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "一半",
+    "pinyin": "yíbàn",
+    "translation": "অর্ধেক",
+    "english": "half",
+    "part_of_speech": "数 num."
+  },
+  {
+    "hsk_level": 1,
+    "word": "一下",
+    "pinyin": "yíxià",
+    "translation": "একবার; অল্পক্ষণ",
+    "english": "briefly; once",
+    "part_of_speech": "数量 qty. expr.; （副 adv.）"
+  },
+  {
+    "hsk_level": 1,
+    "word": "椅子",
+    "pinyin": "yǐzi",
+    "translation": "চেয়ার",
+    "english": "chair",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "一点儿",
+    "pinyin": "yìdiǎnr",
+    "translation": "একটু; সামান্য",
+    "english": "a little; a bit",
+    "part_of_speech": "数量 qty. expr."
+  },
+  {
+    "hsk_level": 1,
+    "word": "一些",
+    "pinyin": "yìxiē",
+    "translation": "কিছু; কয়েকটি",
+    "english": "some; a few",
+    "part_of_speech": "数量 qty. expr."
+  },
+  {
+    "hsk_level": 1,
+    "word": "有",
+    "pinyin": "yǒu",
+    "translation": "থাকা; আছে",
+    "english": "to have; there is",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "有的",
+    "pinyin": "yǒude",
+    "translation": "কিছু; কিছু লোক",
+    "english": "some",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "有点儿",
+    "pinyin": "yǒudiǎnr",
+    "translation": "একটু; কিছুটা",
+    "english": "slightly; somewhat",
+    "part_of_speech": "副 adv."
+  },
+  {
+    "hsk_level": 1,
+    "word": "有些",
+    "pinyin": "yǒuxiē",
+    "translation": "কিছু; কিছুটা",
+    "english": "some; somewhat",
+    "part_of_speech": "代 pron.; （副 adv.）"
+  },
+  {
+    "hsk_level": 1,
+    "word": "雨",
+    "pinyin": "yǔ",
+    "translation": "বৃষ্টি",
+    "english": "rain",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "元",
+    "pinyin": "yuán",
+    "translation": "ইউয়ান; চীনা মুদ্রা",
+    "english": "yuan",
+    "part_of_speech": "量 m.w."
+  },
+  {
+    "hsk_level": 1,
+    "word": "月",
+    "pinyin": "yuè",
+    "translation": "চাঁদ; মাস",
+    "english": "moon; month",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "再",
+    "pinyin": "zài",
+    "translation": "আবার",
+    "english": "again; once more",
+    "part_of_speech": "副 adv."
+  },
+  {
+    "hsk_level": 1,
+    "word": "在",
+    "pinyin": "zài",
+    "translation": "থাকা; অবস্থান করা; চলমান কাজ বোঝানো",
+    "english": "to be at; at or in; in progress",
+    "part_of_speech": "动 v.; 介 prep.; 副 adv."
+  },
+  {
+    "hsk_level": 1,
+    "word": "再见",
+    "pinyin": "zàijiàn",
+    "translation": "বিদায়",
+    "english": "goodbye",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "早",
+    "pinyin": "zǎo",
+    "translation": "ভোরে; তাড়াতাড়ি",
+    "english": "early; morning",
+    "part_of_speech": "形 adj."
+  },
+  {
+    "hsk_level": 1,
+    "word": "早饭",
+    "pinyin": "zǎofàn",
+    "translation": "সকালের নাশতা",
+    "english": "breakfast",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "早上",
+    "pinyin": "zǎoshang",
+    "translation": "সকাল; ভোর",
+    "english": "morning; early morning",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "怎么",
+    "pinyin": "zěnme",
+    "translation": "কীভাবে",
+    "english": "how",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "怎么样",
+    "pinyin": "zěnmeyàng",
+    "translation": "কেমন; কেমন হয়",
+    "english": "how; how about",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "找",
+    "pinyin": "zhǎo",
+    "translation": "খোঁজা; খুঁজে পাওয়া",
+    "english": "to look for; to find",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "这",
+    "pinyin": "zhè",
+    "translation": "এই",
+    "english": "this",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "这边",
+    "pinyin": "zhèbiān",
+    "translation": "এদিকে; এই পাশ",
+    "english": "here; this side",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "这个",
+    "pinyin": "zhège",
+    "translation": "এইটি",
+    "english": "this one",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "这里",
+    "pinyin": "zhèlǐ",
+    "translation": "এখানে",
+    "english": "here",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "这儿",
+    "pinyin": "zhèr",
+    "translation": "এখানে",
+    "english": "here",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "这些",
+    "pinyin": "zhèxiē",
+    "translation": "এগুলো",
+    "english": "these",
+    "part_of_speech": "代 pron."
+  },
+  {
+    "hsk_level": 1,
+    "word": "真",
+    "pinyin": "zhēn",
+    "translation": "সত্যিই; প্রকৃতপক্ষে",
+    "english": "really; truly",
+    "part_of_speech": "副 adv.; （形 adj.）"
+  },
+  {
+    "hsk_level": 1,
+    "word": "正在",
+    "pinyin": "zhèngzài",
+    "translation": "এই মুহূর্তে; বর্তমানে",
+    "english": "right now",
+    "part_of_speech": "副 adv."
+  },
+  {
+    "hsk_level": 1,
+    "word": "只",
+    "pinyin": "zhī",
+    "translation": "পশু গণনার পরিমাপক শব্দ",
+    "english": "measure word for animals",
+    "part_of_speech": "量 m.w."
+  },
+  {
+    "hsk_level": 1,
+    "word": "知道",
+    "pinyin": "zhīdào",
+    "translation": "জানা",
+    "english": "to know",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "中国",
+    "pinyin": "Zhōngguó",
+    "translation": "চীন",
+    "english": "China",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "中文",
+    "pinyin": "Zhōngwén",
+    "translation": "চীনা ভাষা",
+    "english": "Chinese language",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "中午",
+    "pinyin": "zhōngwǔ",
+    "translation": "দুপুর",
+    "english": "noon; midday",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "中学",
+    "pinyin": "zhōngxué",
+    "translation": "মাধ্যমিক বিদ্যালয়",
+    "english": "middle school",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "中学生",
+    "pinyin": "zhōngxuéshēng",
+    "translation": "মাধ্যমিক বিদ্যালয়ের শিক্ষার্থী",
+    "english": "middle school student",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "住",
+    "pinyin": "zhù",
+    "translation": "থাকা; বসবাস করা",
+    "english": "to live; to stay",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "桌子",
+    "pinyin": "zhuōzi",
+    "translation": "টেবিল; ডেস্ক",
+    "english": "table; desk",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "字",
+    "pinyin": "zì",
+    "translation": "অক্ষর; লিখিত চিহ্ন",
+    "english": "character; letter",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "昨天",
+    "pinyin": "zuótiān",
+    "translation": "গতকাল",
+    "english": "yesterday",
+    "part_of_speech": "名 n."
+  },
+  {
+    "hsk_level": 1,
+    "word": "坐",
+    "pinyin": "zuò",
+    "translation": "বসা",
+    "english": "to sit",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "做",
+    "pinyin": "zuò",
+    "translation": "তৈরি করা; করা",
+    "english": "to make; to do",
+    "part_of_speech": "动 v."
+  },
+  {
+    "hsk_level": 1,
+    "word": "做饭",
+    "pinyin": "zuòfàn",
+    "translation": "রান্না করা",
+    "english": "to cook",
+    "part_of_speech": "动 v."
+  }
+]

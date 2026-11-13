@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   google_mobile_ads: ^9.2.0
+  material_ui: ^1.11.0
   shared_preferences: ^2.5.3
 
 dev_dependencies:
@@ -23,3 +24,4 @@ flutter:
   assets:
     - assets/data/hsk_1_vocab_bengali.json
     - assets/data/hsk_2025_vocab.json
+    - assets/data/hsk_examples.json

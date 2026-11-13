@@ -1,8 +1,4 @@
-
-import 'dart:math';
-
-import 'package:flutter/material.dart';
-
+import 'package:material_ui/material_ui.dart';
 import 'models/vocab_word.dart';
 import 'services/vocab_service.dart';
 
@@ -16,20 +12,19 @@ void main() {
 class ChineseShikhiApp extends StatelessWidget {
   const ChineseShikhiApp({super.key});
 
-  static const Color red = Color(0xFFD32F2F);
+  static const Color red = Color(0xFFC62828);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'চীনা শিখি',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
           seedColor: red,
-          primary: red,
         ),
-        scaffoldBackgroundColor: const Color(0xFFF7F7F7),
+        scaffoldBackgroundColor: const Color(0xFFFFFBF8),
         appBarTheme: const AppBarTheme(
           backgroundColor: red,
           foregroundColor: Colors.white,
@@ -41,8 +36,88 @@ class ChineseShikhiApp extends StatelessWidget {
   }
 }
 
-// ================= PROGRESS DATA =================
+// ================= VOCABULARY DATA =================
 
+// ================= QUIZ DATA =================
+
+class QuizQuestion {
+  final String question;
+  final List<String> options;
+  final int answer;
+  final String explanation;
+
+  const QuizQuestion({
+    required this.question,
+    required this.options,
+    required this.answer,
+    required this.explanation,
+  });
+}
+
+const List<QuizQuestion> questions = [
+  QuizQuestion(
+    question: '你好 এর বাংলা অর্থ কী?',
+    options: ['ধন্যবাদ', 'হ্যালো', 'বিদায়', 'পানি'],
+    answer: 1,
+    explanation: '你好 (Nǐ hǎo) অর্থ হ্যালো।',
+  ),
+  QuizQuestion(
+    question: '谢谢 অর্থ কী?',
+    options: ['ধন্যবাদ', 'বন্ধু', 'মানুষ', 'চা'],
+    answer: 0,
+    explanation: '谢谢 (Xièxie) অর্থ ধন্যবাদ।',
+  ),
+  QuizQuestion(
+    question: '水 অর্থ কী?',
+    options: ['ভাত', 'চা', 'পানি', 'স্কুল'],
+    answer: 2,
+    explanation: '水 (Shuǐ) অর্থ পানি।',
+  ),
+  QuizQuestion(
+    question: '我 অর্থ কী?',
+    options: ['তুমি', 'আমি', 'সে', 'আমরা'],
+    answer: 1,
+    explanation: '我 (Wǒ) অর্থ আমি।',
+  ),
+  QuizQuestion(
+    question: '中国 কোন দেশ?',
+    options: ['বাংলাদেশ', 'ভারত', 'চীন', 'জাপান'],
+    answer: 2,
+    explanation: '中国 (Zhōngguó) অর্থ চীন।',
+  ),
+  QuizQuestion(
+    question: '朋友 অর্থ কী?',
+    options: ['শিক্ষক', 'বন্ধু', 'মানুষ', 'ছাত্র'],
+    answer: 1,
+    explanation: '朋友 (Péngyou) অর্থ বন্ধু।',
+  ),
+  QuizQuestion(
+    question: '老师 অর্থ কী?',
+    options: ['শিক্ষক', 'বন্ধু', 'পানি', 'বাড়ি'],
+    answer: 0,
+    explanation: '老师 (Lǎoshī) অর্থ শিক্ষক।',
+  ),
+  QuizQuestion(
+    question: '再见 অর্থ কী?',
+    options: ['হ্যালো', 'ধন্যবাদ', 'বিদায়', 'ভালো'],
+    answer: 2,
+    explanation: '再见 (Zàijiàn) অর্থ বিদায়।',
+  ),
+  QuizQuestion(
+    question: '吃 অর্থ কী?',
+    options: ['পান করা', 'খাওয়া', 'যাওয়া', 'আসা'],
+    answer: 1,
+    explanation: '吃 (Chī) অর্থ খাওয়া।',
+  ),
+  QuizQuestion(
+    question: '好 অর্থ কী?',
+    options: ['খারাপ', 'না', 'ভালো', 'বিদায়'],
+    answer: 2,
+    explanation: '好 (Hǎo) অর্থ ভালো।',
+  ),
+];
+
+// অ্যাপ চালু থাকা পর্যন্ত ফলাফল সংরক্ষণ
 int lastScore = 0;
 bool hasCompletedQuiz = false;
 
@@ -56,244 +131,219 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'চীনা শিখি 🇨🇳',
+          'চীনা শিখি',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-      ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(22),
-              decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                  colors: [
-                    Color(0xFFD32F2F),
-                    Color(0xFF8E0000),
-                  ],
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const ProgressScreen(),
                 ),
-                borderRadius: BorderRadius.circular(18),
+              );
+            },
+            icon: const Icon(Icons.insights),
+            tooltip: 'অগ্রগতি',
+          ),
+        ],
+      ),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          Container(
+            padding: const EdgeInsets.all(24),
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [
+                  Color(0xFFC62828),
+                  Color(0xFF8E1717),
+                ],
               ),
-              child: const Column(
+              borderRadius: BorderRadius.circular(22),
+            ),
+            child: const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '你好！',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 38,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 8),
+                Text(
+                  'Nǐ hǎo! Welcome',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
+                ),
+                SizedBox(height: 12),
+                Text(
+                  'বাংলায় সহজভাবে Mandarin Chinese শিখুন।',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                SizedBox(height: 16),
+                Text(
+                  'প্রথম ধাপ: HSK 1',
+                  style: TextStyle(color: Colors.white70),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 22),
+          const Text(
+            'আজকের শেখা',
+            style: TextStyle(
+              fontSize: 21,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 12),
+          Row(
+            children: [
+              Expanded(
+                child: statCard(
+                  '১,৯৯৭',
+                  'শব্দ',
+                  Icons.menu_book,
+                ),
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: statCard(
+                  '${questions.length}',
+                  'কুইজ',
+                  Icons.quiz,
+                ),
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: statCard(
+                  hasCompletedQuiz ? '$lastScore/10' : '0/10',
+                  'সঠিক',
+                  Icons.star,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 22),
+          menuCard(
+            context,
+            Icons.translate,
+            'HSK 1 শব্দভান্ডার',
+            '২০টি চীনা শব্দ, Pinyin ও বাংলা অর্থ',
+            const VocabularyScreen(),
+          ),
+          menuCard(
+            context,
+            Icons.quiz_outlined,
+            'দৈনিক কুইজ',
+            '১০টি প্রশ্নের মাধ্যমে পরীক্ষা দিন',
+            const QuizScreen(),
+          ),
+          menuCard(
+            context,
+            Icons.trending_up,
+            'আমার অগ্রগতি',
+            'আপনার পরীক্ষার ফলাফল দেখুন',
+            const ProgressScreen(),
+          ),
+          const SizedBox(height: 16),
+          const Card(
+            child: Padding(
+              padding: EdgeInsets.all(18),
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '欢迎来到中国语学习！',
+                    '📚 শেখার টিপস',
                     style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 23,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 12),
+                  SizedBox(height: 10),
                   Text(
-                    'চীনা ভাষা শেখা শুরু করুন আজ থেকেই।',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                    ),
-                  ),
-                  SizedBox(height: 8),
-                  Text(
-                    'প্রতিদিন একটু একটু করে শিখুন।',
-                    style: TextStyle(
-                      color: Colors.white70,
-                      fontSize: 14,
-                    ),
+                    'প্রতিদিন ১০-১৫ মিনিট চীনা ভাষা অনুশীলন করুন। '
+                    'Pinyin-এর Tone Mark লক্ষ্য করুন এবং প্রতিটি শব্দ '
+                    'বারবার পড়ুন।',
+                    style: TextStyle(fontSize: 15),
                   ),
                 ],
               ),
             ),
-
-            const SizedBox(height: 22),
-
-            const Text(
-              'আপনার শেখার পরিসংখ্যান',
-              style: TextStyle(
-                fontSize: 19,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-
-            const SizedBox(height: 12),
-
-            Row(
-              children: [
-                Expanded(
-                  child: _StatCard(
-                    icon: Icons.menu_book,
-                    title: 'শব্দ',
-                    value: '১,৯৯৭',
-                  ),
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: _StatCard(
-                    icon: Icons.emoji_events,
-                    title: 'শেষ স্কোর',
-                    value: hasCompletedQuiz
-                        ? '$lastScore/10'
-                        : '০/১০',
-                  ),
-                ),
-              ],
-            ),
-
-            const SizedBox(height: 24),
-
-            const Text(
-              'শেখা শুরু করুন',
-              style: TextStyle(
-                fontSize: 19,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-
-            const SizedBox(height: 12),
-
-            _MenuCard(
-              icon: Icons.translate,
-              title: 'শব্দভান্ডার',
-              subtitle: 'HSK 1–4 এর চীনা শব্দ শিখুন',
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => const VocabularyScreen(),
-                  ),
-                );
-              },
-            ),
-
-            _MenuCard(
-              icon: Icons.quiz,
-              title: 'কুইজ',
-              subtitle: 'নিজের শেখা যাচাই করুন',
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => const QuizScreen(),
-                  ),
-                );
-              },
-            ),
-
-            _MenuCard(
-              icon: Icons.bar_chart,
-              title: 'আমার প্রগ্রেস',
-              subtitle: 'আপনার শেখার অগ্রগতি দেখুন',
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => const ProgressScreen(),
-                  ),
-                );
-              },
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
-}
 
-// ================= STAT CARD =================
-
-class _StatCard extends StatelessWidget {
-  final IconData icon;
-  final String title;
-  final String value;
-
-  const _StatCard({
-    required this.icon,
-    required this.title,
-    required this.value,
-  });
-
-  @override
-  Widget build(BuildContext context) {
+  Widget statCard(String value, String label, IconData icon) {
     return Card(
       child: Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: 20,
-          horizontal: 12,
-        ),
+        padding: const EdgeInsets.symmetric(vertical: 14),
         child: Column(
           children: [
-            Icon(
-              icon,
-              color: ChineseShikhiApp.red,
-              size: 30,
-            ),
-            const SizedBox(height: 8),
-            Text(
-              title,
-              style: const TextStyle(fontSize: 14),
-            ),
-            const SizedBox(height: 5),
+            Icon(icon, color: ChineseShikhiApp.red),
+            const SizedBox(height: 6),
             Text(
               value,
               style: const TextStyle(
-                fontSize: 21,
+                fontSize: 19,
                 fontWeight: FontWeight.bold,
               ),
+            ),
+            Text(
+              label,
+              style: const TextStyle(fontSize: 12),
             ),
           ],
         ),
       ),
     );
   }
-}
 
-// ================= MENU CARD =================
-
-class _MenuCard extends StatelessWidget {
-  final IconData icon;
-  final String title;
-  final String subtitle;
-  final VoidCallback onTap;
-
-  const _MenuCard({
-    required this.icon,
-    required this.title,
-    required this.subtitle,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
+  Widget menuCard(
+    BuildContext context,
+    IconData icon,
+    String title,
+    String subtitle,
+    Widget screen,
+  ) {
     return Card(
-      margin: const EdgeInsets.only(bottom: 12),
+      margin: const EdgeInsets.only(bottom: 10),
       child: ListTile(
-        contentPadding: const EdgeInsets.all(14),
+        contentPadding: const EdgeInsets.all(12),
         leading: CircleAvatar(
-          backgroundColor: ChineseShikhiApp.red.withAlpha(25),
-          child: Icon(
-            icon,
-            color: ChineseShikhiApp.red,
-          ),
+          backgroundColor: const Color(0xFFFFE0E0),
+          child: Icon(icon, color: ChineseShikhiApp.red),
         ),
         title: Text(
           title,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
-          ),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         subtitle: Text(subtitle),
         trailing: const Icon(Icons.arrow_forward_ios, size: 17),
-        onTap: onTap,
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => screen),
+          );
+        },
       ),
     );
   }
 }
 
-// ================= VOCABULARY SCREEN =================
+// ================= VOCABULARY =================
 
 class VocabularyScreen extends StatefulWidget {
   const VocabularyScreen({super.key});
@@ -304,11 +354,147 @@ class VocabularyScreen extends StatefulWidget {
 
 class _VocabularyScreenState extends State<VocabularyScreen> {
   late Future<List<VocabWord>> wordsFuture;
+  String searchQuery = '';
+  int selectedLevel = 0;
 
   @override
   void initState() {
     super.initState();
     wordsFuture = VocabService.loadWords();
+  }
+
+  void _showWordDetails(VocabWord word) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          title: const Text(
+            'শব্দের বিস্তারিত',
+            textAlign: TextAlign.center,
+          ),
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  word.hanzi,
+                  style: const TextStyle(
+                    fontSize: 42,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  word.pinyin,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    color: ChineseShikhiApp.red,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const Divider(height: 28),
+                const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'বাংলা অর্থ',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
+                const SizedBox(height: 6),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    word.meaning,
+                    style: const TextStyle(fontSize: 18),
+                  ),
+                ),
+                const SizedBox(height: 18),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'HSK Level ${word.level}',
+                    style: const TextStyle(
+                      color: ChineseShikhiApp.red,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                if (word.example.isNotEmpty) ...[
+                  const Divider(height: 28),
+                  const Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'উদাহরণ বাক্য',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      word.example,
+                      style: const TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Pinyin: ${word.examplePinyin}',
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: ChineseShikhiApp.red,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  const Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'বাংলা অনুবাদ',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      word.translation,
+                      style: const TextStyle(fontSize: 16),
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('বন্ধ করুন'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget _levelChip(String label, int level) {
+    return ChoiceChip(
+      label: Text(label),
+      selected: selectedLevel == level,
+      selectedColor: const Color(0xFFFFE0E0),
+      onSelected: (selected) {
+        setState(() {
+          selectedLevel = level;
+        });
+      },
+    );
   }
 
   @override
@@ -321,79 +507,162 @@ class _VocabularyScreenState extends State<VocabularyScreen> {
         future: wordsFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
+            return const Center(child: CircularProgressIndicator());
           }
 
           if (snapshot.hasError) {
             return Center(
-              child: Padding(
-                padding: const EdgeInsets.all(20),
-                child: Text(
-                  'শব্দ লোড করতে সমস্যা হয়েছে:\n${snapshot.error}',
-                  textAlign: TextAlign.center,
-                ),
-              ),
+              child: Text('শব্দ লোড করা যায়নি: ${snapshot.error}'),
             );
           }
 
-          final words = snapshot.data ?? [];
+          final allWords = snapshot.data ?? [];
 
-          if (words.isEmpty) {
-            return const Center(
-              child: Text('কোনো শব্দ পাওয়া যায়নি।'),
-            );
-          }
+          final filteredWords = allWords.where((word) {
+            final matchesLevel =
+                selectedLevel == 0 || word.level == selectedLevel;
 
-          return ListView.builder(
-            padding: const EdgeInsets.all(14),
-            itemCount: words.length,
-            itemBuilder: (context, index) {
-              final word = words[index];
+            final query = searchQuery.trim().toLowerCase();
 
-              return Card(
-                margin: const EdgeInsets.only(bottom: 12),
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          CircleAvatar(
-                            radius: 16,
-                            child: Text('${index + 1}'),
-                          ),
-                          const SizedBox(width: 14),
-                          Text(
-                            word.hanzi,
-                            style: const TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        word.pinyin,
-                        style: const TextStyle(
-                          color: ChineseShikhiApp.red,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                      ),
-                      const SizedBox(height: 5),
-                      Text(
-                        word.meaning,
-                        style: const TextStyle(fontSize: 17),
-                      ),
-                    ],
+            final matchesSearch = word.hanzi.toLowerCase().contains(query) ||
+                word.pinyin.toLowerCase().contains(query) ||
+                word.meaning.toLowerCase().contains(query);
+
+            return matchesLevel && matchesSearch;
+          }).toList();
+
+          return Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(14),
+                child: TextField(
+                  onChanged: (value) {
+                    setState(() {
+                      searchQuery = value;
+                    });
+                  },
+                  decoration: InputDecoration(
+                    hintText: 'চীনা শব্দ, Pinyin বা অর্থ খুঁজুন',
+                    prefixIcon: const Icon(Icons.search),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(14),
+                    ),
                   ),
                 ),
-              );
-            },
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  alignment: WrapAlignment.center,
+                  children: [
+                    _levelChip('All Words', 0),
+                    _levelChip('HSK 1', 1),
+                    _levelChip('HSK 2', 2),
+                    _levelChip('HSK 3', 3),
+                    _levelChip('HSK 4', 4),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 14),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'HSK Vocabulary',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    Text(
+                      '${filteredWords.length} / ${allWords.length} টি শব্দ',
+                      style: const TextStyle(
+                        color: ChineseShikhiApp.red,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 8),
+              Expanded(
+                child: filteredWords.isEmpty
+                    ? const Center(
+                        child: Text('কোনো শব্দ পাওয়া যায়নি।'),
+                      )
+                    : ListView.builder(
+                        padding: const EdgeInsets.all(14),
+                        itemCount: filteredWords.length,
+                        itemBuilder: (context, index) {
+                          final word = filteredWords[index];
+
+                          return InkWell(
+                            borderRadius: BorderRadius.circular(12),
+                            onTap: () => _showWordDetails(word),
+                            child: Card(
+                              margin: const EdgeInsets.only(bottom: 10),
+                              child: Padding(
+                                padding: const EdgeInsets.all(16),
+                                child: Row(
+                                  children: [
+                                    CircleAvatar(
+                                      backgroundColor: const Color(0xFFFFE0E0),
+                                      child: Text('${index + 1}'),
+                                    ),
+                                    const SizedBox(width: 14),
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            word.hanzi,
+                                            style: const TextStyle(
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          Text(
+                                            word.pinyin,
+                                            style: const TextStyle(
+                                              color: ChineseShikhiApp.red,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          const SizedBox(height: 5),
+                                          Text(
+                                            word.meaning,
+                                            style:
+                                                const TextStyle(fontSize: 16),
+                                          ),
+                                          const SizedBox(height: 6),
+                                          Text(
+                                            'HSK ${word.level} • বিস্তারিত দেখতে চাপ দিন',
+                                            style: const TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.grey,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    const Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: 16,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+              ),
+            ],
           );
         },
       ),
@@ -401,7 +670,7 @@ class _VocabularyScreenState extends State<VocabularyScreen> {
   }
 }
 
-// ================= QUIZ SCREEN =================
+// ================= QUIZ =================
 
 class QuizScreen extends StatefulWidget {
   const QuizScreen({super.key});
@@ -411,90 +680,36 @@ class QuizScreen extends StatefulWidget {
 }
 
 class _QuizScreenState extends State<QuizScreen> {
-  late Future<List<VocabWord>> wordsFuture;
+  final Map<int, int> answers = {};
 
-  List<VocabWord> quizWords = [];
-  List<String> options = [];
+  bool submitted = false;
 
-  int currentQuestion = 0;
-  int score = 0;
-  String? selectedAnswer;
-  bool finished = false;
+  int get score {
+    int total = 0;
 
-  final Random random = Random();
+    for (int i = 0; i < questions.length; i++) {
+      if (answers[i] == questions[i].answer) {
+        total++;
+      }
+    }
 
-  @override
-  void initState() {
-    super.initState();
-    wordsFuture = VocabService.loadWords();
+    return total;
   }
 
-  void prepareQuiz(List<VocabWord> words) {
-    if (quizWords.isNotEmpty || words.length < 4) return;
-
-    quizWords = List<VocabWord>.from(words)..shuffle(random);
-    quizWords = quizWords.take(10).toList();
-
-    prepareOptions(words);
-  }
-
-  void prepareOptions(List<VocabWord> allWords) {
-    final correctAnswer = quizWords[currentQuestion].meaning;
-
-    final otherAnswers = allWords
-        .map((word) => word.meaning)
-        .where((meaning) => meaning.isNotEmpty && meaning != correctAnswer)
-        .toSet()
-        .toList();
-
-    otherAnswers.shuffle(random);
-
-    options = [
-      correctAnswer,
-      ...otherAnswers.take(3),
-    ];
-
-    options.shuffle(random);
-  }
-
-  void selectAnswer(String answer) {
-    if (selectedAnswer != null) return;
+  void submitQuiz() {
+    if (answers.length != questions.length) return;
 
     setState(() {
-      selectedAnswer = answer;
-
-      if (answer == quizWords[currentQuestion].meaning) {
-        score++;
-      }
+      submitted = true;
+      lastScore = score;
+      hasCompletedQuiz = true;
     });
   }
 
-  void nextQuestion(List<VocabWord> allWords) {
-    if (currentQuestion < quizWords.length - 1) {
-      setState(() {
-        currentQuestion++;
-        selectedAnswer = null;
-        prepareOptions(allWords);
-      });
-    } else {
-      setState(() {
-        finished = true;
-        lastScore = score;
-        hasCompletedQuiz = true;
-      });
-    }
-  }
-
-  void restartQuiz(List<VocabWord> words) {
+  void resetQuiz() {
     setState(() {
-      quizWords = [];
-      options = [];
-      currentQuestion = 0;
-      score = 0;
-      selectedAnswer = null;
-      finished = false;
-
-      prepareQuiz(words);
+      answers.clear();
+      submitted = false;
     });
   }
 
@@ -502,195 +717,142 @@ class _QuizScreenState extends State<QuizScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('চীনা ভাষা কুইজ'),
+        title: const Text('HSK 1 কুইজ'),
       ),
-      body: FutureBuilder<List<VocabWord>>(
-        future: wordsFuture,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          Text(
+            'উত্তর দিয়েছেন: ${answers.length}/${questions.length}',
+            style: const TextStyle(
+              fontSize: 17,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 12),
+          LinearProgressIndicator(
+            value: answers.length / questions.length,
+            minHeight: 7,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          const SizedBox(height: 18),
+          ...List.generate(questions.length, (i) {
+            final q = questions[i];
 
-          if (snapshot.hasError) {
-            return Center(
-              child: Text('কুইজ লোড করা যায়নি: ${snapshot.error}'),
-            );
-          }
-
-          final words = snapshot.data ?? [];
-
-          if (words.length < 4) {
-            return const Center(
-              child: Text('কুইজের জন্য পর্যাপ্ত শব্দ পাওয়া যায়নি।'),
-            );
-          }
-
-          prepareQuiz(words);
-
-          if (finished) {
-            return Center(
+            return Card(
+              margin: const EdgeInsets.only(bottom: 14),
               child: Padding(
-                padding: const EdgeInsets.all(24),
+                padding: const EdgeInsets.all(14),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Icon(
-                      Icons.emoji_events,
-                      color: Colors.orange,
-                      size: 80,
-                    ),
-                    const SizedBox(height: 20),
-                    const Text(
-                      'কুইজ সম্পন্ন!',
-                      style: TextStyle(
-                        fontSize: 27,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 15),
                     Text(
-                      'আপনার স্কোর: $score/${quizWords.length}',
+                      '${i + 1}. ${q.question}',
                       style: const TextStyle(
-                        fontSize: 23,
-                        color: ChineseShikhiApp.red,
+                        fontSize: 17,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 25),
-                    ElevatedButton.icon(
-                      onPressed: () => restartQuiz(words),
-                      icon: const Icon(Icons.refresh),
-                      label: const Text('আবার কুইজ দিন'),
+                    const SizedBox(height: 8),
+                    RadioGroup<int>(
+                      groupValue: answers[i],
+                      onChanged: (value) {
+                        if (submitted || value == null) return;
+
+                        setState(() {
+                          answers[i] = value;
+                        });
+                      },
+                      child: Column(
+                        children: List.generate(q.options.length, (j) {
+                          return RadioListTile<int>(
+                            dense: true,
+                            contentPadding: EdgeInsets.zero,
+                            title: Text(q.options[j]),
+                            value: j,
+                            enabled: !submitted,
+                          );
+                        }),
+                      ),
                     ),
+                    if (submitted) ...[
+                      const Divider(),
+                      Text(
+                        answers[i] == q.answer
+                            ? 'সঠিক উত্তর!'
+                            : 'সঠিক উত্তর: ${q.options[q.answer]}',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: answers[i] == q.answer
+                              ? Colors.green
+                              : Colors.red,
+                        ),
+                      ),
+                      const SizedBox(height: 5),
+                      Text(q.explanation),
+                    ],
                   ],
                 ),
               ),
             );
-          }
-
-          final word = quizWords[currentQuestion];
-
-          return Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(
-                  'প্রশ্ন ${currentQuestion + 1}/${quizWords.length}',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-
-                const SizedBox(height: 12),
-
-                LinearProgressIndicator(
-                  value: (currentQuestion + 1) / quizWords.length,
-                  color: ChineseShikhiApp.red,
-                  minHeight: 8,
-                ),
-
-                const SizedBox(height: 35),
-
-                const Text(
-                  'এই শব্দটির অর্থ কী?',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 18),
-                ),
-
-                const SizedBox(height: 20),
-
-                Text(
-                  word.hanzi,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 55,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-
-                const SizedBox(height: 8),
-
-                Text(
-                  word.pinyin,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    color: ChineseShikhiApp.red,
-                  ),
-                ),
-
-                const SizedBox(height: 30),
-
-                ...options.map((option) {
-                  final isSelected = selectedAnswer == option;
-                  final isCorrect = option == word.meaning;
-
-                  Color? backgroundColor;
-
-                  if (selectedAnswer != null) {
-                    if (isCorrect) {
-                      backgroundColor = Colors.green.withAlpha(35);
-                    } else if (isSelected) {
-                      backgroundColor = Colors.red.withAlpha(35);
-                    }
-                  }
-
-                  return Card(
-                    color: backgroundColor,
-                    margin: const EdgeInsets.only(bottom: 10),
-                    child: ListTile(
-                      title: Text(
-                        option,
-                        style: const TextStyle(fontSize: 16),
-                      ),
-                      trailing: selectedAnswer == null
-                          ? null
-                          : Icon(
-                              isCorrect
-                                  ? Icons.check_circle
-                                  : isSelected
-                                      ? Icons.cancel
-                                      : Icons.circle_outlined,
-                              color: isCorrect
-                                  ? Colors.green
-                                  : Colors.red,
-                            ),
-                      onTap: () => selectAnswer(option),
-                    ),
-                  );
-                }),
-
-                const Spacer(),
-
-                if (selectedAnswer != null)
-                  ElevatedButton(
-                    onPressed: () => nextQuestion(words),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: ChineseShikhiApp.red,
-                      foregroundColor: Colors.white,
-                      padding: const EdgeInsets.all(15),
-                    ),
-                    child: Text(
-                      currentQuestion == quizWords.length - 1
-                          ? 'ফলাফল দেখুন'
-                          : 'পরবর্তী প্রশ্ন',
-                    ),
-                  ),
-              ],
+          }),
+          if (!submitted)
+            FilledButton(
+              onPressed: answers.length == questions.length ? submitQuiz : null,
+              style: FilledButton.styleFrom(
+                backgroundColor: ChineseShikhiApp.red,
+                padding: const EdgeInsets.all(16),
+              ),
+              child: const Text('উত্তর জমা দিন'),
             ),
-          );
-        },
+          if (submitted)
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  children: [
+                    const Icon(
+                      Icons.emoji_events,
+                      color: ChineseShikhiApp.red,
+                      size: 55,
+                    ),
+                    const SizedBox(height: 10),
+                    const Text(
+                      'আপনার ফলাফল',
+                      style: TextStyle(
+                        fontSize: 21,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      '$score / ${questions.length}',
+                      style: const TextStyle(
+                        fontSize: 34,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      score >= 8
+                          ? 'চমৎকার! আপনি ভালো করছেন।'
+                          : 'আরও অনুশীলন করুন।',
+                    ),
+                    const SizedBox(height: 14),
+                    OutlinedButton.icon(
+                      onPressed: resetQuiz,
+                      icon: const Icon(Icons.refresh),
+                      label: const Text('আবার চেষ্টা করুন'),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+        ],
       ),
     );
   }
 }
 
-// ================= PROGRESS SCREEN =================
+// ================= PROGRESS =================
 
 class ProgressScreen extends StatelessWidget {
   const ProgressScreen({super.key});
@@ -699,91 +861,46 @@ class ProgressScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('আমার প্রগ্রেস'),
+        title: const Text('আমার অগ্রগতি'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          children: [
-            const SizedBox(height: 25),
-
-            const Icon(
-              Icons.school,
-              size: 80,
-              color: ChineseShikhiApp.red,
-            ),
-
-            const SizedBox(height: 20),
-
-            const Text(
-              'আপনার শেখার অগ্রগতি',
-              style: TextStyle(
-                fontSize: 23,
-                fontWeight: FontWeight.bold,
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(
+                Icons.emoji_events,
+                size: 75,
+                color: ChineseShikhiApp.red,
               ),
-            ),
-
-            const SizedBox(height: 25),
-
-            Card(
-              child: ListTile(
-                leading: const Icon(
-                  Icons.menu_book,
-                  color: ChineseShikhiApp.red,
-                ),
-                title: const Text('মোট শব্দ'),
-                trailing: const Text(
-                  '১,৯৯৭',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                  ),
+              const SizedBox(height: 18),
+              const Text(
+                'শেষ কুইজের ফলাফল',
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-            ),
-
-            Card(
-              child: ListTile(
-                leading: const Icon(
-                  Icons.quiz,
-                  color: ChineseShikhiApp.red,
-                ),
-                title: const Text('কুইজ সম্পন্ন'),
-                trailing: Text(
-                  hasCompletedQuiz ? 'হ্যাঁ' : 'না',
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                  ),
+              const SizedBox(height: 12),
+              Text(
+                hasCompletedQuiz ? '$lastScore / 10' : 'এখনো পরীক্ষা দেননি',
+                style: const TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-            ),
-
-            Card(
-              child: ListTile(
-                leading: const Icon(
-                  Icons.emoji_events,
-                  color: ChineseShikhiApp.red,
-                ),
-                title: const Text('শেষ কুইজের স্কোর'),
-                trailing: Text(
-                  hasCompletedQuiz ? '$lastScore/10' : '—',
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                  ),
-                ),
+              const SizedBox(height: 10),
+              Text(
+                !hasCompletedQuiz
+                    ? 'কুইজ দিয়ে আপনার অগ্রগতি দেখুন।'
+                    : lastScore >= 8
+                        ? 'দারুণ অগ্রগতি! চালিয়ে যান।'
+                        : 'আরও অনুশীলন করুন।',
+                textAlign: TextAlign.center,
               ),
-            ),
-
-            const SizedBox(height: 20),
-
-            const Text(
-              'প্রতিদিন অনুশীলন করুন।\nধীরে ধীরে আপনি চীনা ভাষায় দক্ষ হয়ে উঠবেন!',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
