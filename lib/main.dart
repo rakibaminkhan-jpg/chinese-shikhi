@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'hsk_vocabulary.dart';
 
@@ -5,17 +6,11 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const ChineseShikhiApp());
 }
-void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  runApp(const ChineseShikhiApp());
-}
-
-// ================= APP =================
 
 class ChineseShikhiApp extends StatelessWidget {
   const ChineseShikhiApp({super.key});
 
-  static const Color red = Color(0xFFC62828);
+  static const Color primaryRed = Color(0xFFC62828);
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +20,11 @@ class ChineseShikhiApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: red,
+          seedColor: primaryRed,
         ),
         scaffoldBackgroundColor: const Color(0xFFFFFBF8),
         appBarTheme: const AppBarTheme(
-          backgroundColor: red,
+          backgroundColor: primaryRed,
           foregroundColor: Colors.white,
           centerTitle: true,
         ),
@@ -39,166 +34,244 @@ class ChineseShikhiApp extends StatelessWidget {
   }
 }
 
-// ================= DATA =================
+// ================= HOME SCREEN =================
 
-class VocabWord {
-  final String hanzi;
-  final String pinyin;
-  final String meaning;
-  final String example;
-  final String translation;
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
-  const VocabWord({
-    required this.hanzi,
-    required this.pinyin,
-    required this.meaning,
-    required this.example,
-    required this.translation,
-  });
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'চীনা শিখি',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.insights),
+            tooltip: 'আমার অগ্রগতি',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const ProgressScreen(),
+                ),
+              );
+            },
+          ),
+        ],
+      ),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          Container(
+            padding: const EdgeInsets.all(24),
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [
+                  Color(0xFFC62828),
+                  Color(0xFF8E1717),
+                ],
+              ),
+              borderRadius: BorderRadius.circular(22),
+            ),
+            child: const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '你好！',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 42,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 8),
+                Text(
+                  'Nǐ hǎo! Welcome',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 21,
+                  ),
+                ),
+                SizedBox(height: 14),
+                Text(
+                  'বাংলায় সহজভাবে Mandarin Chinese শিখুন।',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                SizedBox(height: 18),
+                Text(
+                  'প্রতিদিন শিখুন, নিজের দক্ষতা বাড়ান।',
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 14,
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 24),
+
+          const Text(
+            'আপনার শেখার যাত্রা',
+            style: TextStyle(
+              fontSize: 21,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+
+          const SizedBox(height: 14),
+
+          Row(
+            children: [
+              Expanded(
+                child: _statCard(
+                  Icons.menu_book,
+                  'HSK 1–4',
+                  'শব্দভান্ডার',
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: _statCard(
+                  Icons.quiz,
+                  '১০টি',
+                  'কুইজ প্রশ্ন',
+                ),
+              ),
+            ],
+          ),
+
+          const SizedBox(height: 24),
+
+          _menuCard(
+            context,
+            Icons.translate,
+            'HSK 1–4 শব্দভান্ডার',
+            'চীনা শব্দ, Pinyin ও বাংলা অর্থ শিখুন',
+            const HskVocabularyScreen(),
+          ),
+
+          _menuCard(
+            context,
+            Icons.quiz_outlined,
+            'দৈনিক কুইজ',
+            'নিজের চীনা ভাষার দক্ষতা যাচাই করুন',
+            const QuizScreen(),
+          ),
+
+          _menuCard(
+            context,
+            Icons.trending_up,
+            'আমার অগ্রগতি',
+            'আপনার সর্বশেষ পরীক্ষার ফলাফল দেখুন',
+            const ProgressScreen(),
+          ),
+
+          const SizedBox(height: 18),
+
+          const Card(
+            child: Padding(
+              padding: EdgeInsets.all(18),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '📚 আজকের শেখার পরামর্শ',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    'প্রতিদিন ১০–১৫ মিনিট চীনা ভাষা অনুশীলন করুন। '
+                    'নতুন শব্দ পড়ুন, Pinyin শিখুন এবং কুইজ দিন।',
+                    style: TextStyle(fontSize: 15),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  static Widget _statCard(
+    IconData icon,
+    String value,
+    String label,
+  ) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 18),
+        child: Column(
+          children: [
+            Icon(
+              icon,
+              color: ChineseShikhiApp.primaryRed,
+              size: 28,
+            ),
+            const SizedBox(height: 8),
+            Text(
+              value,
+              style: const TextStyle(
+                fontSize: 19,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(label),
+          ],
+        ),
+      ),
+    );
+  }
+
+  static Widget _menuCard(
+    BuildContext context,
+    IconData icon,
+    String title,
+    String subtitle,
+    Widget screen,
+  ) {
+    return Card(
+      margin: const EdgeInsets.only(bottom: 12),
+      child: ListTile(
+        contentPadding: const EdgeInsets.all(14),
+        leading: CircleAvatar(
+          backgroundColor: const Color(0xFFFFE0E0),
+          child: Icon(
+            icon,
+            color: ChineseShikhiApp.primaryRed,
+          ),
+        ),
+        title: Text(
+          title,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+          ),
+        ),
+        subtitle: Text(subtitle),
+        trailing: const Icon(Icons.arrow_forward_ios, size: 17),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => screen,
+            ),
+          );
+        },
+      ),
+    );
+  }
 }
-
-const List<VocabWord> words = [
-  VocabWord(
-    hanzi: '你好',
-    pinyin: 'Nǐ hǎo',
-    meaning: 'হ্যালো / নমস্কার',
-    example: '你好！',
-    translation: 'হ্যালো!',
-  ),
-  VocabWord(
-    hanzi: '谢谢',
-    pinyin: 'Xièxie',
-    meaning: 'ধন্যবাদ',
-    example: '谢谢你。',
-    translation: 'তোমাকে ধন্যবাদ।',
-  ),
-  VocabWord(
-    hanzi: '再见',
-    pinyin: 'Zàijiàn',
-    meaning: 'বিদায়',
-    example: '明天再见。',
-    translation: 'আগামীকাল দেখা হবে।',
-  ),
-  VocabWord(
-    hanzi: '我',
-    pinyin: 'Wǒ',
-    meaning: 'আমি',
-    example: '我是学生。',
-    translation: 'আমি একজন ছাত্র।',
-  ),
-  VocabWord(
-    hanzi: '你',
-    pinyin: 'Nǐ',
-    meaning: 'তুমি',
-    example: '你好吗？',
-    translation: 'তুমি কেমন আছো?',
-  ),
-  VocabWord(
-    hanzi: '他',
-    pinyin: 'Tā',
-    meaning: 'সে (পুরুষ)',
-    example: '他是老师。',
-    translation: 'সে একজন শিক্ষক।',
-  ),
-  VocabWord(
-    hanzi: '她',
-    pinyin: 'Tā',
-    meaning: 'সে (নারী)',
-    example: '她是学生。',
-    translation: 'সে একজন ছাত্রী।',
-  ),
-  VocabWord(
-    hanzi: '我们',
-    pinyin: 'Wǒmen',
-    meaning: 'আমরা',
-    example: '我们是朋友。',
-    translation: 'আমরা বন্ধু।',
-  ),
-  VocabWord(
-    hanzi: '中国',
-    pinyin: 'Zhōngguó',
-    meaning: 'চীন',
-    example: '我去中国。',
-    translation: 'আমি চীনে যাই।',
-  ),
-  VocabWord(
-    hanzi: '人',
-    pinyin: 'Rén',
-    meaning: 'মানুষ',
-    example: '中国人。',
-    translation: 'চীনা মানুষ।',
-  ),
-  VocabWord(
-    hanzi: '水',
-    pinyin: 'Shuǐ',
-    meaning: 'পানি',
-    example: '我要水。',
-    translation: 'আমি পানি চাই।',
-  ),
-  VocabWord(
-    hanzi: '茶',
-    pinyin: 'Chá',
-    meaning: 'চা',
-    example: '我喝茶。',
-    translation: 'আমি চা পান করি।',
-  ),
-  VocabWord(
-    hanzi: '吃',
-    pinyin: 'Chī',
-    meaning: 'খাওয়া',
-    example: '我吃米饭。',
-    translation: 'আমি ভাত খাই।',
-  ),
-  VocabWord(
-    hanzi: '喝',
-    pinyin: 'Hē',
-    meaning: 'পান করা',
-    example: '我喝水。',
-    translation: 'আমি পানি পান করি।',
-  ),
-  VocabWord(
-    hanzi: '好',
-    pinyin: 'Hǎo',
-    meaning: 'ভালো',
-    example: '很好。',
-    translation: 'খুব ভালো।',
-  ),
-  VocabWord(
-    hanzi: '是',
-    pinyin: 'Shì',
-    meaning: 'হওয়া / হয়',
-    example: '我是学生。',
-    translation: 'আমি ছাত্র।',
-  ),
-  VocabWord(
-    hanzi: '不',
-    pinyin: 'Bù',
-    meaning: 'না',
-    example: '我不知道。',
-    translation: 'আমি জানি না।',
-  ),
-  VocabWord(
-    hanzi: '朋友',
-    pinyin: 'Péngyou',
-    meaning: 'বন্ধু',
-    example: '他是我的朋友。',
-    translation: 'সে আমার বন্ধু।',
-  ),
-  VocabWord(
-    hanzi: '学校',
-    pinyin: 'Xuéxiào',
-    meaning: 'বিদ্যালয়',
-    example: '我去学校。',
-    translation: 'আমি স্কুলে যাই।',
-  ),
-  VocabWord(
-    hanzi: '老师',
-    pinyin: 'Lǎoshī',
-    meaning: 'শিক্ষক',
-    example: '他是老师。',
-    translation: 'তিনি একজন শিক্ষক।',
-  ),
-];
 
 // ================= QUIZ DATA =================
 
@@ -279,325 +352,12 @@ const List<QuizQuestion> questions = [
   ),
 ];
 
-// অ্যাপ চালু থাকা পর্যন্ত ফলাফল সংরক্ষণ
+// ================= PROGRESS DATA =================
+
 int lastScore = 0;
 bool hasCompletedQuiz = false;
 
-// ================= HOME SCREEN =================
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'চীনা শিখি',
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => const ProgressScreen(),
-                ),
-              );
-            },
-            icon: const Icon(Icons.insights),
-            tooltip: 'অগ্রগতি',
-          ),
-        ],
-      ),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          Container(
-            padding: const EdgeInsets.all(24),
-            decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                colors: [
-                  Color(0xFFC62828),
-                  Color(0xFF8E1717),
-                ],
-              ),
-              borderRadius: BorderRadius.circular(22),
-            ),
-            child: const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  '你好！',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 38,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 8),
-                Text(
-                  'Nǐ hǎo! Welcome',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                  ),
-                ),
-                SizedBox(height: 12),
-                Text(
-                  'বাংলায় সহজভাবে Mandarin Chinese শিখুন।',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                  ),
-                ),
-                SizedBox(height: 16),
-                Text(
-                  'প্রথম ধাপ: HSK 1',
-                  style: TextStyle(color: Colors.white70),
-                ),
-              ],
-            ),
-          ),
-
-          const SizedBox(height: 22),
-
-          const Text(
-            'আজকের শেখা',
-            style: TextStyle(
-              fontSize: 21,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-
-          const SizedBox(height: 12),
-
-          Row(
-            children: [
-              Expanded(
-                child: statCard(
-                  '${words.length}',
-                  'শব্দ',
-                  Icons.menu_book,
-                ),
-              ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: statCard(
-                  '${questions.length}',
-                  'কুইজ',
-                  Icons.quiz,
-                ),
-              ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: statCard(
-                  hasCompletedQuiz ? '$lastScore/10' : '0/10',
-                  'সঠিক',
-                  Icons.star,
-                ),
-              ),
-            ],
-          ),
-
-          const SizedBox(height: 22),
-
-          menuCard(
-            context,
-            Icons.translate,
-            'HSK 1 শব্দভান্ডার',
-            '২০টি চীনা শব্দ, Pinyin ও বাংলা অর্থ',
-            const VocabularyScreen(),
-          ),
-
-          menuCard(
-            context,
-            Icons.quiz_outlined,
-            'দৈনিক কুইজ',
-            '১০টি প্রশ্নের মাধ্যমে পরীক্ষা দিন',
-            const QuizScreen(),
-          ),
-
-          menuCard(
-            context,
-            Icons.trending_up,
-            'আমার অগ্রগতি',
-            'আপনার পরীক্ষার ফলাফল দেখুন',
-            const ProgressScreen(),
-          ),
-
-          const SizedBox(height: 16),
-
-          const Card(
-            child: Padding(
-              padding: EdgeInsets.all(18),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    '📚 শেখার টিপস',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    'প্রতিদিন ১০-১৫ মিনিট চীনা ভাষা অনুশীলন করুন। '
-                    'Pinyin-এর Tone Mark লক্ষ্য করুন এবং প্রতিটি শব্দ '
-                    'বারবার পড়ুন।',
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget statCard(String value, String label, IconData icon) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 14),
-        child: Column(
-          children: [
-            Icon(icon, color: ChineseShikhiApp.red),
-            const SizedBox(height: 6),
-            Text(
-              value,
-              style: const TextStyle(
-                fontSize: 19,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Text(
-              label,
-              style: const TextStyle(fontSize: 12),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget menuCard(
-    BuildContext context,
-    IconData icon,
-    String title,
-    String subtitle,
-    Widget screen,
-  ) {
-    return Card(
-      margin: const EdgeInsets.only(bottom: 10),
-      child: ListTile(
-        contentPadding: const EdgeInsets.all(12),
-        leading: CircleAvatar(
-          backgroundColor: const Color(0xFFFFE0E0),
-          child: Icon(icon, color: ChineseShikhiApp.red),
-        ),
-        title: Text(
-          title,
-          style: const TextStyle(fontWeight: FontWeight.bold),
-        ),
-        subtitle: Text(subtitle),
-        trailing: const Icon(Icons.arrow_forward_ios, size: 17),
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (_) => screen),
-          );
-        },
-      ),
-    );
-  }
-}
-
-// ================= VOCABULARY =================
-
-class VocabularyScreen extends StatelessWidget {
-  const VocabularyScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('HSK 1 শব্দভান্ডার'),
-      ),
-      body: ListView.builder(
-        padding: const EdgeInsets.all(14),
-        itemCount: words.length,
-        itemBuilder: (context, index) {
-          final word = words[index];
-
-          return Card(
-            margin: const EdgeInsets.only(bottom: 12),
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      CircleAvatar(
-                        radius: 16,
-                        child: Text('${index + 1}'),
-                      ),
-                      const SizedBox(width: 14),
-                      Text(
-                        word.hanzi,
-                        style: const TextStyle(
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(width: 14),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              word.pinyin,
-                              style: const TextStyle(
-                                color: ChineseShikhiApp.red,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Text(
-                              word.meaning,
-                              style: const TextStyle(fontSize: 16),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  const Divider(height: 24),
-                  Text(
-                    word.example,
-                    style: const TextStyle(
-                      fontSize: 21,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  const SizedBox(height: 5),
-                  Text(
-                    word.translation,
-                    style: const TextStyle(fontSize: 15),
-                  ),
-                ],
-              ),
-            ),
-          );
-        },
-      ),
-    );
-  }
-}
-
-// ================= QUIZ =================
+// ================= QUIZ SCREEN =================
 
 class QuizScreen extends StatefulWidget {
   const QuizScreen({super.key});
@@ -734,7 +494,7 @@ class _QuizScreenState extends State<QuizScreen> {
                   ? submitQuiz
                   : null,
               style: FilledButton.styleFrom(
-                backgroundColor: ChineseShikhiApp.red,
+                backgroundColor: ChineseShikhiApp.primaryRed,
                 padding: const EdgeInsets.all(16),
               ),
               child: const Text('উত্তর জমা দিন'),
@@ -748,7 +508,7 @@ class _QuizScreenState extends State<QuizScreen> {
                   children: [
                     const Icon(
                       Icons.emoji_events,
-                      color: ChineseShikhiApp.red,
+                      color: ChineseShikhiApp.primaryRed,
                       size: 55,
                     ),
                     const SizedBox(height: 10),
@@ -787,7 +547,7 @@ class _QuizScreenState extends State<QuizScreen> {
   }
 }
 
-// ================= PROGRESS =================
+// ================= PROGRESS SCREEN =================
 
 class ProgressScreen extends StatelessWidget {
   const ProgressScreen({super.key});
@@ -807,7 +567,7 @@ class ProgressScreen extends StatelessWidget {
               const Icon(
                 Icons.emoji_events,
                 size: 75,
-                color: ChineseShikhiApp.red,
+                color: ChineseShikhiApp.primaryRed,
               ),
               const SizedBox(height: 18),
               const Text(
@@ -819,7 +579,9 @@ class ProgressScreen extends StatelessWidget {
               ),
               const SizedBox(height: 12),
               Text(
-                hasCompletedQuiz ? '$lastScore / 10' : 'এখনো পরীক্ষা দেননি',
+                hasCompletedQuiz
+                    ? '$lastScore / 10'
+                    : 'এখনো পরীক্ষা দেননি',
                 style: const TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
