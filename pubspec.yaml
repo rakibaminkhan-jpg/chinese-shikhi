@@ -19,5 +19,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
   assets:
+    - assets/data/hsk_1_vocab_bengali.json
     - assets/data/hsk_2025_vocab.json
