@@ -1,3 +1,4 @@
+
 class VocabWord {
   final String hanzi;
   final String pinyin;
