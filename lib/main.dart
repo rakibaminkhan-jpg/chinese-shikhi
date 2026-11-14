@@ -28,15 +28,16 @@ Future<void> main() async {
 
 // Chinese Traditional Red & Gold color palette.
 class AppColors {
-  static const red = Color(0xFFC8102E); // Chinese vermilion red
-  static const deepRed = Color(0xFF7A1020); // Deep imperial red
-  static const gold = Color(0xFFD4AF37); // Traditional gold
+  // Modern Black & Gold palette
+  static const red = Color(0xFFB8860B);
+  static const deepRed = Color(0xFF101010);
+  static const gold = Color(0xFFD4AF37);
   static const lightGold = Color(0xFFFFE7A3);
-  static const ivory = Color(0xFFFFF8E9);
-  static const card = Color(0xFFFFFCF4);
-  static const ink = Color(0xFF3B211B);
-  static const muted = Color(0xFF806B5A);
-  static const border = Color(0xFFE6CC83);
+  static const ivory = Color(0xFFF7F5EF);
+  static const card = Color(0xFFFFFFFF);
+  static const ink = Color(0xFF191919);
+  static const muted = Color(0xFF716B5E);
+  static const border = Color(0xFFE2C56B);
   static const success = Color(0xFF28744A);
 }
 
@@ -110,7 +111,7 @@ class ChineseShikhiApp extends StatelessWidget {
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
           backgroundColor: AppColors.red,
-          foregroundColor: AppColors.lightGold,
+          foregroundColor: AppColors.deepRed,
           disabledBackgroundColor: const Color(0xFFE8DDC8),
           disabledForegroundColor: AppColors.muted,
           minimumSize: const Size(0, 48),
@@ -168,14 +169,14 @@ class ChineseShikhiApp extends StatelessWidget {
   }
 
   ThemeData _buildDarkTheme() {
-    const background = Color(0xFF151114);
-    const surface = Color(0xFF261D22);
+    const background = Color(0xFF090909);
+    const surface = Color(0xFF181818);
     const foreground = Color(0xFFFFF1DF);
     const muted = Color(0xFFCCB9A9);
-    const border = Color(0xFF665044);
+    const border = Color(0xFF665321);
 
     final scheme = ColorScheme.fromSeed(
-      seedColor: AppColors.red,
+      seedColor: AppColors.gold,
       brightness: Brightness.dark,
     ).copyWith(
       primary: AppColors.gold,
@@ -193,7 +194,7 @@ class ChineseShikhiApp extends StatelessWidget {
       colorScheme: scheme,
       scaffoldBackgroundColor: background,
       appBarTheme: const AppBarTheme(
-        backgroundColor: Color(0xFF240B11),
+        backgroundColor: Color(0xFF050505),
         foregroundColor: AppColors.lightGold,
         centerTitle: true,
         elevation: 0,
@@ -329,7 +330,7 @@ class _HomeScreenState extends State<HomeScreen> {
     if (result != null && mounted) setState(() => lastScore = result);
   }
 
-  Future<void> _selectTheme(ThemeMode mode) async {
+  Future<void> _selectTheme(ThemeMode mode, {bool closeDialog = false}) async {
     appThemeModeNotifier.value = mode;
 
     try {
@@ -342,7 +343,7 @@ class _HomeScreenState extends State<HomeScreen> {
       await prefs.setString('app_theme_mode', savedValue);
     } catch (_) {}
 
-    if (mounted) Navigator.of(context).pop();
+    if (closeDialog && mounted) Navigator.of(context).pop();
   }
 
   void _showThemeDialog() {
@@ -358,7 +359,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 groupValue: selectedMode,
                 onChanged: (value) {
                   if (value != null) {
-                    _selectTheme(value);
+                    _selectTheme(value, closeDialog: true);
                   }
                 },
                 child: Column(
@@ -399,7 +400,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ValueListenableBuilder<ThemeMode>(
             valueListenable: appThemeModeNotifier,
             builder: (context, mode, child) {
-              final isDark = mode == ThemeMode.dark;
+              final isDark = Theme.of(context).brightness == Brightness.dark;
 
               return IconButton(
                 tooltip: isDark ? 'Day Mode' : 'Night Mode',
@@ -433,7 +434,7 @@ class _HomeScreenState extends State<HomeScreen> {
               gradient: const LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                colors: [AppColors.red, AppColors.deepRed],
+                colors: [Color(0xFF242424), Color(0xFF080808)],
               ),
               borderRadius: BorderRadius.circular(22),
               border: Border.all(color: AppColors.gold, width: 1.6),
