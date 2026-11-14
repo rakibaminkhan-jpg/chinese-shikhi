@@ -1,5 +1,4 @@
 
-
 class VocabWord {
   final int level;
   final String hanzi;
