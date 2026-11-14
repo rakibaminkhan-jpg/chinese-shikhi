@@ -1,4 +1,4 @@
-import 'package:material_ui/material_ui.dart';
+import 'package:flutter/material.dart';
 import 'models/vocab_word.dart';
 import 'services/vocab_service.dart';
 
