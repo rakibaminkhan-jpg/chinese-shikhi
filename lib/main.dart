@@ -346,144 +346,139 @@ class HomeScreen extends StatelessWidget {
 
 // ================= VOCABULARY =================
 
-class VocabularyScreen extends StatefulWidget {
+
+class VocabularyScreen extends StatelessWidget {
   const VocabularyScreen({super.key});
 
   @override
-  State<VocabularyScreen> createState() => _VocabularyScreenState();
-}
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('HSK 1–4 — শব্দভান্ডার'),
+      ),
+      bottomNavigationBar: const BannerAdBar(),
+      body: FutureBuilder(
+        future: VocabService.loadWords(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
 
-class _VocabularyScreenState extends State<VocabularyScreen> {
-  late Future<List<VocabWord>> wordsFuture;
-  String searchQuery = '';
-  int selectedLevel = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    wordsFuture = VocabService.loadWords();
-  }
-
-  void _showWordDetails(VocabWord word) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          title: const Text(
-            'শব্দের বিস্তারিত',
-            textAlign: TextAlign.center,
-          ),
-          content: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  word.hanzi,
-                  style: const TextStyle(
-                    fontSize: 42,
-                    fontWeight: FontWeight.bold,
-                  ),
+          if (snapshot.hasError) {
+            return Center(
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Text(
+                  'শব্দ লোড করা যায়নি।\n${snapshot.error}',
+                  textAlign: TextAlign.center,
                 ),
+              ),
+            );
+          }
+
+          final loadedWords = snapshot.data ?? [];
+
+          if (loadedWords.isEmpty) {
+            return const Center(
+              child: Text('কোনো শব্দ পাওয়া যায়নি।'),
+            );
+          }
+
+          return ListView.separated(
+            padding: const EdgeInsets.all(14),
+            itemCount: loadedWords.length,
+            separatorBuilder: (_, __) =>
                 const SizedBox(height: 8),
-                Text(
-                  word.pinyin,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    color: ChineseShikhiApp.red,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const Divider(height: 28),
-                const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'বাংলা অর্থ',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ),
-                const SizedBox(height: 6),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    word.meaning,
-                    style: const TextStyle(fontSize: 18),
-                  ),
-                ),
-                const SizedBox(height: 18),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'HSK Level ${word.level}',
-                    style: const TextStyle(
-                      color: ChineseShikhiApp.red,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                if (word.example.isNotEmpty) ...[
-                  const Divider(height: 28),
-                  const Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'উদাহরণ বাক্য',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      word.example,
-                      style: const TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
+            itemBuilder: (context, index) {
+              final word = loadedWords[index];
+
+              return Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: Column(
+                    crossAxisAlignment:
+                        CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 15,
+                            backgroundColor: AppColors.gold,
+                            foregroundColor: AppColors.deepRed,
+                            child: Text(
+                              '${index + 1}',
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: Text(
+                              word.hanzi,
+                              style: const TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.w900,
+                                color: AppColors.red,
+                              ),
+                            ),
+                          ),
+                          Chip(
+                            label: Text('HSK ${word.level}'),
+                          ),
+                        ],
                       ),
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'Pinyin: ${word.examplePinyin}',
-                      style: const TextStyle(
-                        fontSize: 16,
-                        color: ChineseShikhiApp.red,
+                      const SizedBox(height: 8),
+                      Text(
+                        word.pinyin,
+                        style: const TextStyle(
+                          color: AppColors.deepRed,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
                       ),
-                    ),
+                      const SizedBox(height: 5),
+                      Text('বাংলা অর্থ: ${word.meaningBn.isNotEmpty ? word.meaningBn : word.meaning}'),
+                      if (word.meaning.isNotEmpty) ...[
+                        const SizedBox(height: 3),
+                        Text(
+                          'English: ${word.meaning}',
+                          style: const TextStyle(
+                            color: AppColors.muted,
+                          ),
+                        ),
+                      ],
+                      if (word.example.isNotEmpty) ...[
+                        const Divider(height: 22),
+                        Text(
+                          'উদাহরণ: ${word.example}',
+                          style: const TextStyle(
+                            fontSize: 19,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        Text(
+                          'Pinyin: ${word.examplePinyin}',
+                          style: const TextStyle(
+                            color: AppColors.muted,
+                          ),
+                        ),
+                        Text('বাংলা: ${word.translation}'),
+                      ],
+                    ],
                   ),
-                  const SizedBox(height: 8),
-                  const Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'বাংলা অনুবাদ',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  const SizedBox(height: 5),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      word.translation,
-                      style: const TextStyle(fontSize: 16),
-                    ),
-                  ),
-                ],
-              ],
-            ),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text('বন্ধ করুন'),
-            ),
-          ],
-        );
-      },
+                ),
+              );
+            },
+          );
+        },
+      ),
     );
   }
+}
+
 
   Widget _levelChip(String label, int level) {
     return ChoiceChip(
