@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
@@ -32,12 +31,10 @@ class VocabService {
       return VocabWord(
         hanzi: hanzi,
         pinyin: item['pinyin'].toString(),
-        meaning: bengaliMeanings[hanzi] ??
-            item['meaning'].toString(),
+        meaning: bengaliMeanings[hanzi] ?? item['meaning'].toString(),
         example: '',
         examplePinyin: '',
-        translation: bengaliMeanings[hanzi] ??
-            item['meaning'].toString(),
+        translation: bengaliMeanings[hanzi] ?? item['meaning'].toString(),
       );
     }).toList();
   }
