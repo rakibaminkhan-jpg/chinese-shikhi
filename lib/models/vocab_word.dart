@@ -1,13 +1,14 @@
 
+
 class VocabWord {
   final int level;
   final String hanzi;
   final String pinyin;
 
-  // English meaning
+  // ইংরেজি অর্থ
   final String meaning;
 
-  // Bengali meaning
+  // বাংলা অর্থ
   final String meaningBn;
 
   final String example;
@@ -19,7 +20,7 @@ class VocabWord {
     required this.hanzi,
     required this.pinyin,
     required this.meaning,
-    required this.meaningBn,
+    this.meaningBn = '',
     required this.example,
     required this.examplePinyin,
     required this.translation,
