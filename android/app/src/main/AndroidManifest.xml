@@ -1,10 +1,16 @@
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:label="চীনা শিখি"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
+        <!-- Google AdMob TEST App ID -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713" />
 
         <activity
             android:name=".MainActivity"
@@ -34,4 +40,3 @@
     </application>
 
 </manifest>
-

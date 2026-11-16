@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "906002818669",
+    "project_id": "chinese-shikhi",
+    "storage_bucket": "chinese-shikhi.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906002818669:android:72f15923eea5f874fbc164",
+        "android_client_info": {
+          "package_name": "com.example.chinese_shikhi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA-fH0Z-oj9n3TkaAiyODznOxwUNWOeDs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906002818669:android:0aa81d370a949b58fbc164",
+        "android_client_info": {
+          "package_name": "com.rakibkhan.chineseshikhi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA-fH0Z-oj9n3TkaAiyODznOxwUNWOeDs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

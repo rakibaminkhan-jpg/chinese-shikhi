@@ -1,0 +1,84 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function ownsUser(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    function validUserData(data) {
+      return data.uid == request.auth.uid
+      && data.email == request.auth.token.email
+      && data.updatedAt == request.time
+      && (!('displayName' in data) || data.displayName is string)
+      && (!('createdAt' in data) || data.createdAt is timestamp)
+      && (!('favorites' in data) || data.favorites is list)
+      && (!('learnedWords' in data) || data.learnedWords is list)
+      && (!('activeDays' in data) || data.activeDays is list)
+      && (!('dailyGoal' in data) ||
+          data.dailyGoal in [5, 10, 20])
+      && (!('dailyGoalSelectedDate' in data) ||
+          data.dailyGoalSelectedDate == null ||
+          data.dailyGoalSelectedDate is string)
+      && (!('dailyLearned' in data) || data.dailyLearned is map);
+    }
+
+    match /users/{uid} {
+      allow read: if ownsUser(uid);
+
+      allow create: if ownsUser(uid)
+        && request.resource.data.keys().hasOnly([
+          'uid',
+          'email',
+          'displayName',
+          'createdAt',
+          'updatedAt',
+          'favorites',
+          'learnedWords',
+          'activeDays',
+          'dailyGoal',
+          'dailyGoalSelectedDate',
+          'dailyLearned'
+        ])
+        && validUserData(request.resource.data)
+        && request.resource.data.createdAt == request.time;
+
+      allow update: if ownsUser(uid)
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+          'displayName',
+          'updatedAt',
+          'favorites',
+          'learnedWords',
+          'activeDays',
+          'dailyGoal',
+          'dailyGoalSelectedDate',
+          'dailyLearned'
+        ])
+        && validUserData(request.resource.data)
+        && request.resource.data.createdAt == resource.data.createdAt
+        && request.resource.data.uid == resource.data.uid
+        && request.resource.data.email == resource.data.email;
+
+      allow delete: if false;
+    }
+
+    // Payment ও subscription data আপাতত client থেকে বন্ধ।
+    match /subscriptions/{subscriptionId} {
+      allow read, write: if false;
+    }
+
+    match /paymentRequests/{requestId} {
+      allow read, write: if false;
+    }
+
+    // অন্য সব অজানা collection বন্ধ।
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

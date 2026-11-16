@@ -7,11 +7,17 @@ environment:
   sdk: ">=3.4.0 <4.0.0"
 
 dependencies:
+  cloud_firestore: ^7.1.0
+  firebase_auth: ^7.0.1
+  firebase_core: ^5.1.0
   flutter:
     sdk: flutter
+  flutter_tts: ^4.2.5
   google_mobile_ads: ^9.2.0
+  just_audio: ^0.10.6
   material_ui: ^1.11.0
   shared_preferences: ^2.5.3
+  youtube_player_iframe: ^6.0.2
 
 dev_dependencies:
   flutter_test:

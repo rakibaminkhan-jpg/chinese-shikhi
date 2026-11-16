@@ -1,0 +1,25 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "chinese-shikhi",
+          "appId": "1:906002818669:android:72f15923eea5f874fbc164",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "chinese-shikhi",
+          "configurations": {
+            "android": "1:906002818669:android:72f15923eea5f874fbc164",
+            "web": "1:906002818669:web:d3de5bf55a0a0117fbc164"
+          }
+        }
+      }
+    }
+  },
+  "firestore": {
+    "rules": "firestore.rules"
+  }
+}

@@ -46,3 +46,43 @@ app.*.map.json
 
 # Widget Preview related
 .widget_preview/
+android/key.properties
+android/app/upload-keystore.jks
+
+# Local machine and generated Android files
+/android/local.properties
+/android/.gradle/
+/android_backup/
+
+# Build artifacts and release packages
+*.apk
+*.aab
+*.hprof
+*.zip
+*.symbols
+*.map.json
+
+# Local backups and temporary files
+*.backup
+*.backup.*
+*.bak
+*.save
+/backups/
+build_log.txt
+
+# Temporary grammar editing scripts
+/add_grammar_35_41_safe.py
+/add_grammar_batch.py
+/add_grammar_batch_3.py
+/add_more_grammar.py
+/expand_grammar.py
+
+# Local editor settings
+.vscode/
+
+# All local backup variants
+*.backup*
+*-backup*
+*.before-*
+*.before_*
+*.corrupted_*

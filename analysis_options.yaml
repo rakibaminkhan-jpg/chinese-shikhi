@@ -11,6 +11,12 @@ include: package:flutter_lints/flutter.yaml
 
 analyzer:
   exclude:
+    - backups/**
+    - lib/main_with_grammar.dart
+    - android_backup/**
+    - '**/*.backup'
+    - '**/*.bak'
+    - '**/*-backup*'
     - build/**
     - web/**
     - android/**
