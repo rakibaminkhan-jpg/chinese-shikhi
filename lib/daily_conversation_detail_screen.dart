@@ -1,0 +1,626 @@
+import 'package:material_ui/material_ui.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'daily_conversation_data.dart';
+import 'services/speech_service.dart';
+
+class DailyConversationDetailScreen extends StatefulWidget {
+  final List<ConversationTopic> topics;
+  final int initialIndex;
+
+  const DailyConversationDetailScreen({
+    super.key,
+    required this.topics,
+    required this.initialIndex,
+  });
+
+  @override
+  State<DailyConversationDetailScreen> createState() =>
+      _DailyConversationDetailScreenState();
+}
+
+class _DailyConversationDetailScreenState
+    extends State<DailyConversationDetailScreen> {
+  static const String _bookmarkKey = 'daily_conversation_bookmarks';
+  static const String _completedKey = 'daily_conversation_completed';
+
+  late int _index;
+  Set<String> _bookmarks = {};
+  Set<String> _completed = {};
+  bool _practiceMode = false;
+  bool _loading = true;
+
+  ConversationTopic get _topic => widget.topics[_index];
+
+  String get _topicId => _topic.id.toString();
+
+  @override
+  void initState() {
+    super.initState();
+    _index = widget.initialIndex;
+    _loadState();
+  }
+
+  Future<void> _loadState() async {
+    final prefs = await SharedPreferences.getInstance();
+    if (!mounted) return;
+    setState(() {
+      _bookmarks = (prefs.getStringList(_bookmarkKey) ?? []).toSet();
+      _completed = (prefs.getStringList(_completedKey) ?? []).toSet();
+      _loading = false;
+    });
+  }
+
+  Future<void> _toggleBookmark() async {
+    final prefs = await SharedPreferences.getInstance();
+    final updated = {..._bookmarks};
+    if (!updated.add(_topicId)) updated.remove(_topicId);
+    await prefs.setStringList(_bookmarkKey, updated.toList());
+    if (!mounted) return;
+    setState(() => _bookmarks = updated);
+  }
+
+  Future<void> _markCompleted() async {
+    final prefs = await SharedPreferences.getInstance();
+    final updated = {..._completed, _topicId};
+    await prefs.setStringList(_completedKey, updated.toList());
+    if (!mounted) return;
+    setState(() => _completed = updated);
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('কথোপকথনটি সম্পন্ন হিসেবে সংরক্ষিত হয়েছে।')),
+    );
+  }
+
+  void _move(int amount) {
+    final next = _index + amount;
+    if (next < 0 || next >= widget.topics.length) return;
+    SpeechService.stop();
+    setState(() {
+      _index = next;
+      _practiceMode = false;
+    });
+  }
+
+  void _showLineMeaning(ConversationLine line) {
+    showDialog<void>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(line.chinese, textAlign: TextAlign.center),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(line.pinyin, style: const TextStyle(color: Colors.grey)),
+            const SizedBox(height: 10),
+            Text(line.bengali, style: const TextStyle(fontSize: 16)),
+            const SizedBox(height: 6),
+            Text(line.english, style: const TextStyle(color: Colors.blueGrey)),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('বন্ধ করুন'),
+          ),
+          IconButton(
+            tooltip: 'উচ্চারণ শুনুন',
+            onPressed: () => SpeechService.speakChinese(line.chinese),
+            icon: const Icon(Icons.volume_up_rounded),
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    SpeechService.stop();
+    super.dispose();
+  }
+
+  String _cleanCardField(String value) {
+    return value
+        .replaceFirst(
+          RegExp(
+            r'^(结构|Grammar Structure|Pinyin|বাংলা ব্যাখ্যা|বাংলা|English Explanation|English|例句|Example Pinyin|উদাহরণের উচ্চারণ|বাংলা উদাহরণ|English Example)\s*[:：]\s*',
+            caseSensitive: false,
+          ),
+          '',
+        )
+        .trim();
+  }
+
+  Widget _buildMultilingualCard(
+    String item, {
+    required bool isGrammar,
+  }) {
+    const missingBn = 'তথ্য দেওয়া নেই';
+    const missingEn = 'Not provided';
+
+    final parts = item.split('|').map(_cleanCardField).toList();
+    final fields = <String>[];
+
+    if (!isGrammar) {
+      if (parts.length == 4) {
+        fields.addAll(parts);
+      } else {
+        final legacy = RegExp(
+          r'^(.*?)\s*\((.*?)\)\s*[—–-]\s*(.*)$',
+        ).firstMatch(item.trim());
+
+        if (legacy != null) {
+          fields.addAll([
+            legacy.group(1)!.trim(),
+            legacy.group(2)!.trim(),
+            legacy.group(3)!.trim(),
+            missingEn,
+          ]);
+        } else {
+          fields.addAll([item.trim(), missingBn, missingBn, missingEn]);
+        }
+      }
+    } else {
+      if (parts.length >= 8) {
+        fields.addAll(parts.take(8));
+      } else if (parts.length == 4) {
+        final bnMatch = RegExp(
+          r'উদাহরণ\s*[：:]\s*(.*)$',
+        ).firstMatch(parts[2]);
+        final enMatch = RegExp(
+          r'Example\s*:\s*(.*)$',
+          caseSensitive: false,
+        ).firstMatch(parts[3]);
+
+        final banglaExplanation = bnMatch == null
+            ? parts[2]
+            : parts[2].substring(0, bnMatch.start).trim();
+
+        final englishExplanation = enMatch == null
+            ? parts[3]
+            : parts[3].substring(0, enMatch.start).trim();
+
+        fields.addAll([
+          parts[0],
+          parts[1],
+          banglaExplanation,
+          englishExplanation,
+          bnMatch?.group(1)?.trim() ?? missingBn,
+          missingBn,
+          missingBn,
+          enMatch?.group(1)?.trim() ?? missingEn,
+        ]);
+      } else {
+        final legacy = RegExp(
+          r'^(.*?)\s*\((.*?)\)\s*[—–:-]\s*(.*)$',
+        ).firstMatch(item.trim());
+
+        if (legacy != null) {
+          final explanation = legacy.group(3)!.trim();
+          final exampleMatch = RegExp(
+            r'(?:উদাহরণ|例如)\s*[：:]?\s*(.*)$',
+          ).firstMatch(explanation);
+
+          final banglaExplanation = exampleMatch == null
+              ? explanation
+              : explanation.substring(0, exampleMatch.start).trim();
+
+          fields.addAll([
+            legacy.group(1)!.trim(),
+            legacy.group(2)!.trim(),
+            banglaExplanation,
+            missingEn,
+            exampleMatch?.group(1)?.trim() ?? missingBn,
+            missingBn,
+            missingBn,
+            missingEn,
+          ]);
+        } else {
+          fields.addAll([
+            item.trim(),
+            missingBn,
+            item.trim(),
+            missingEn,
+            missingBn,
+            missingBn,
+            missingBn,
+            missingEn,
+          ]);
+        }
+      }
+    }
+
+    final labels = isGrammar
+        ? [
+            'Grammar Structure — ব্যাকরণ কাঠামো',
+            'Pinyin — উচ্চারণ',
+            'বাংলা ব্যাখ্যা',
+            'English Explanation',
+            'Chinese Example — চীনা উদাহরণ',
+            'Example Pinyin — উদাহরণের উচ্চারণ',
+            'বাংলা উদাহরণ',
+            'English Example — ইংরেজি অনুবাদ',
+          ]
+        : [
+            '中文 — Chinese',
+            'Pinyin — উচ্চারণ',
+            'বাংলা — অর্থ',
+            'English — Meaning',
+          ];
+
+    final scheme = Theme.of(context).colorScheme;
+
+    Widget languageRow(int index) {
+      final value = fields[index].trim().isEmpty
+          ? (index == 3 || index == 7 ? missingEn : missingBn)
+          : fields[index];
+
+      final isPinyin = index == 1 || (isGrammar && index == 5);
+      final isHighlighted = isGrammar ? index == 0 || index == 4 : index == 0;
+
+      final fontSize = isPinyin
+          ? 20.0
+          : isGrammar && index == 0
+              ? 22.0
+              : isGrammar && index == 4
+                  ? 23.0
+                  : !isGrammar && index == 0
+                      ? 27.0
+                      : 18.0;
+
+      return Container(
+        width: double.infinity,
+        margin: const EdgeInsets.only(bottom: 9),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 14,
+          vertical: 12,
+        ),
+        decoration: BoxDecoration(
+          color: isHighlighted
+              ? scheme.primaryContainer
+              : scheme.surface.withValues(alpha: 0.65),
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(
+            color: isHighlighted
+                ? scheme.primary.withValues(alpha: 0.25)
+                : scheme.outline.withValues(alpha: 0.13),
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              labels[index],
+              style: TextStyle(
+                fontSize: 12.5,
+                fontWeight: FontWeight.w700,
+                letterSpacing: 0.2,
+                color: scheme.primary,
+              ),
+            ),
+            const SizedBox(height: 6),
+            Text(
+              value,
+              softWrap: true,
+              style: TextStyle(
+                fontSize: fontSize,
+                fontWeight: isHighlighted || isPinyin
+                    ? FontWeight.w700
+                    : FontWeight.w500,
+                fontStyle: isPinyin ? FontStyle.italic : FontStyle.normal,
+                height: 1.55,
+                color: isHighlighted
+                    ? scheme.onPrimaryContainer
+                    : isPinyin
+                        ? scheme.secondary
+                        : scheme.onSurface,
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    return Card(
+      margin: const EdgeInsets.only(bottom: 14),
+      elevation: 0,
+      color: scheme.surface,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+        side: BorderSide(
+          color: scheme.primary.withValues(alpha: 0.22),
+          width: 1,
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(13),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            for (var i = 0; i < labels.length; i++) languageRow(i),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final topic = _topic;
+    final isBookmarked = _bookmarks.contains(_topicId);
+    final isCompleted = _completed.contains(_topicId);
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Conversation ${topic.id}/250'),
+        actions: [
+          IconButton(
+            tooltip: isBookmarked ? 'বুকমার্ক সরান' : 'বুকমার্ক করুন',
+            onPressed: _toggleBookmark,
+            icon: Icon(
+              isBookmarked ? Icons.bookmark : Icons.bookmark_border_rounded,
+              color: isBookmarked ? Colors.amber : null,
+            ),
+          ),
+        ],
+      ),
+      body: _loading
+          ? const Center(child: CircularProgressIndicator())
+          : ListView(
+              padding: const EdgeInsets.all(16),
+              children: [
+                Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '${topic.icon}  ${topic.category}',
+                          style: const TextStyle(color: Colors.grey),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          topic.titleBn,
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
+                        const SizedBox(height: 4),
+                        Text(topic.titleEn),
+                        const SizedBox(height: 4),
+                        Text(
+                          topic.titleZh,
+                          style: const TextStyle(fontSize: 20),
+                        ),
+                        const SizedBox(height: 8),
+                        Chip(label: Text('HSK ${topic.hskLevel}')),
+                        Text('${topic.lines.length}টি সংলাপ'),
+                      ],
+                    ),
+                  ),
+                ),
+                SwitchListTile(
+                  contentPadding: EdgeInsets.zero,
+                  title: const Text('Practice Mode'),
+                  subtitle: const Text(
+                    'বাংলা ও English অর্থ লুকিয়ে অনুশীলন করো',
+                  ),
+                  value: _practiceMode,
+                  onChanged: (value) => setState(() => _practiceMode = value),
+                ),
+                const SizedBox(height: 8),
+                for (var i = 0; i < topic.lines.length; i++)
+                  _buildDialogueCard(topic.lines[i], i),
+                const SizedBox(height: 16),
+                Text(
+                  'Grammar Notes',
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                const SizedBox(height: 8),
+                for (final item in topic.grammar)
+                  _buildMultilingualCard(item, isGrammar: true),
+                const SizedBox(height: 16),
+                Text(
+                  'Important Vocabulary',
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                const SizedBox(height: 8),
+                for (final item in topic.vocabulary)
+                  _buildMultilingualCard(item, isGrammar: false),
+                const SizedBox(height: 16),
+                FilledButton.icon(
+                  onPressed: isCompleted ? null : _markCompleted,
+                  icon: const Icon(Icons.check_circle_outline_rounded),
+                  label: Text(
+                    isCompleted ? 'সম্পন্ন হয়েছে' : 'কথোপকথন সম্পন্ন করেছি',
+                  ),
+                ),
+                const SizedBox(height: 12),
+                Row(
+                  children: [
+                    Expanded(
+                      child: OutlinedButton.icon(
+                        onPressed: _index > 0 ? () => _move(-1) : null,
+                        icon: const Icon(Icons.arrow_back_rounded),
+                        label: const Text('আগেরটি'),
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: FilledButton.icon(
+                        onPressed: _index < widget.topics.length - 1
+                            ? () => _move(1)
+                            : null,
+                        icon: const Icon(Icons.arrow_forward_rounded),
+                        label: const Text('পরেরটি'),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+    );
+  }
+
+  ({String bn, String hanzi, String pinyin, String en}) _speakerForTopic(
+      ConversationLine line) {
+    if (line.speakerHanzi == '拉基布·阿明' || line.speakerBn == 'রাকিব আমিন') {
+      return (
+        bn: 'রাকিব আমিন',
+        hanzi: '拉基布·阿明',
+        pinyin: 'Lājíbù Āmíng',
+        en: 'Rakib Amin',
+      );
+    }
+
+    switch (int.tryParse(_topicId) ?? -1) {
+      case 1:
+        return (bn: 'রুবেল', hanzi: '鲁贝尔', pinyin: 'Lǔbèiěr', en: 'Rubel');
+      case 2:
+        return (bn: 'সাইফ', hanzi: '赛义夫', pinyin: 'Sàiyìfū', en: 'Saif');
+      case 3:
+        return (bn: 'আলী', hanzi: '阿里', pinyin: 'Ālǐ', en: 'Ali');
+      case 4:
+        return (
+          bn: 'ওয়াং ওয়েই',
+          hanzi: '王伟',
+          pinyin: 'Wáng Wěi',
+          en: 'Wang Wei'
+        );
+      case 5:
+        return (
+          bn: 'চেন মিং',
+          hanzi: '陈明',
+          pinyin: 'Chén Míng',
+          en: 'Chen Ming'
+        );
+      case 6:
+        return (
+          bn: 'ঝাং লেই',
+          hanzi: '张磊',
+          pinyin: 'Zhāng Lěi',
+          en: 'Zhang Lei'
+        );
+      case 7:
+        return (
+          bn: 'লিউ ইয়াং',
+          hanzi: '刘洋',
+          pinyin: 'Liú Yáng',
+          en: 'Liu Yang'
+        );
+      case 8:
+        return (bn: 'ঝাও জুন', hanzi: '赵军', pinyin: 'Zhào Jūn', en: 'Zhao Jun');
+      case 9:
+        return (bn: 'সুন হাও', hanzi: '孙浩', pinyin: 'Sūn Hào', en: 'Sun Hao');
+      case 10:
+        return (bn: 'লিন না', hanzi: '林娜', pinyin: 'Lín Nà', en: 'Lin Na');
+      case 11:
+        return (
+          bn: 'ঝৌ ছিয়াং',
+          hanzi: '周强',
+          pinyin: 'Zhōu Qiáng',
+          en: 'Zhou Qiang'
+        );
+      case 12:
+        return (bn: 'উ মিন', hanzi: '吴敏', pinyin: 'Wú Mǐn', en: 'Wu Min');
+      case 13:
+        return (
+          bn: 'হুয়াং জিয়ে',
+          hanzi: '黄杰',
+          pinyin: 'Huáng Jié',
+          en: 'Huang Jie'
+        );
+      default:
+        return (
+          bn: line.speakerBn,
+          hanzi: line.speakerHanzi,
+          pinyin: line.speakerPinyin,
+          en: line.speakerEn,
+        );
+    }
+  }
+
+  Widget _buildDialogueCard(ConversationLine line, int number) {
+    final speaker = _speakerForTopic(line);
+    return Card(
+      margin: const EdgeInsets.only(bottom: 10),
+      child: Padding(
+        padding: const EdgeInsets.all(13),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                CircleAvatar(
+                  radius: 16,
+                  child: Text(
+                    '${number + 1}',
+                    style: const TextStyle(fontSize: 12),
+                  ),
+                ),
+                const SizedBox(width: 9),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        speaker.bn,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        '${speaker.hanzi} · ${speaker.pinyin}',
+                        style: const TextStyle(
+                          fontSize: 12,
+                          color: Colors.grey,
+                        ),
+                      ),
+                      Text(
+                        speaker.en,
+                        style: const TextStyle(
+                          fontSize: 12,
+                          color: Colors.blueGrey,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                IconButton(
+                  tooltip: 'চীনা উচ্চারণ শুনুন',
+                  onPressed: () => SpeechService.speakChinese(line.chinese),
+                  icon: const Icon(Icons.volume_up_rounded),
+                ),
+              ],
+            ),
+            const Divider(),
+            InkWell(
+              onTap: () {
+                if (!_practiceMode) {
+                  _showLineMeaning(line);
+                }
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 5),
+                child: Text(
+                  line.chinese,
+                  style: const TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+            ),
+            if (!_practiceMode)
+              Text(line.pinyin, style: const TextStyle(color: Colors.blueGrey)),
+            if (!_practiceMode) ...[
+              const SizedBox(height: 7),
+              Text(line.bengali, style: const TextStyle(fontSize: 15)),
+              const SizedBox(height: 3),
+              Text(
+                line.english,
+                style: const TextStyle(fontSize: 13, color: Colors.blueGrey),
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+}

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'services/speech_service.dart';
 import 'services/learning_store.dart';
@@ -6,6 +6,7 @@ import 'models/vocab_word.dart';
 import 'services/vocab_service.dart';
 import 'learning_hub_screens.dart';
 import 'chinese_live_radio_screen.dart';
+import 'daily_conversation_screen.dart';
 
 const Color _gold = Color(0xFFD4AF37);
 const Color _dark = Color(0xFF171717);
@@ -1167,131 +1168,6 @@ class _SpeakingPracticeScreenState extends State<SpeakingPracticeScreen> {
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 11, color: Colors.grey),
           ),
-        ],
-      ),
-    );
-  }
-}
-
-class _DialogueLine {
-  final String chinese;
-  final String pinyin;
-  final String bengali;
-
-  const _DialogueLine(this.chinese, this.pinyin, this.bengali);
-}
-
-class _Scenario {
-  final String title;
-  final String icon;
-  final List<_DialogueLine> lines;
-
-  const _Scenario(this.title, this.icon, this.lines);
-}
-
-const List<_Scenario> _scenarios = [
-  _Scenario('পরিচিত হওয়া', '👋', [
-    _DialogueLine('你好！', 'Nǐ hǎo!', 'হ্যালো!'),
-    _DialogueLine('你叫什么名字？', 'Nǐ jiào shénme míngzi?', 'তোমার নাম কী?'),
-    _DialogueLine('我叫小明。', 'Wǒ jiào Xiǎomíng.', 'আমার নাম শিয়াওমিং।'),
-    _DialogueLine('很高兴认识你。', 'Hěn gāoxìng rènshi nǐ.',
-        'তোমার সঙ্গে পরিচিত হয়ে ভালো লাগল।'),
-  ]),
-  _Scenario('রেস্টুরেন্টে', '🍜', [
-    _DialogueLine('你想吃什么？', 'Nǐ xiǎng chī shénme?', 'তুমি কী খেতে চাও?'),
-    _DialogueLine('我想吃米饭。', 'Wǒ xiǎng chī mǐfàn.', 'আমি ভাত খেতে চাই।'),
-    _DialogueLine('你想喝什么？', 'Nǐ xiǎng hē shénme?', 'তুমি কী পান করতে চাও?'),
-    _DialogueLine('我想喝水。', 'Wǒ xiǎng hē shuǐ.', 'আমি পানি পান করতে চাই।'),
-  ]),
-  _Scenario('বাজারে', '🛍️', [
-    _DialogueLine('这个多少钱？', 'Zhège duōshao qián?', 'এটার দাম কত?'),
-    _DialogueLine('二十块钱。', 'Èrshí kuài qián.', '২০ ইউয়ান।'),
-    _DialogueLine('太贵了。', 'Tài guì le.', 'অনেক দাম!'),
-    _DialogueLine('可以便宜一点吗？', 'Kěyǐ piányi yìdiǎn ma?', 'একটু কম হবে?'),
-  ]),
-];
-
-class DailyConversationScreen extends StatefulWidget {
-  const DailyConversationScreen({super.key});
-
-  @override
-  State<DailyConversationScreen> createState() =>
-      _DailyConversationScreenState();
-}
-
-class _DailyConversationScreenState extends State<DailyConversationScreen> {
-  final Set<int> _completed = {};
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Daily Conversation')),
-      body: ListView(
-        padding: const EdgeInsets.all(15),
-        children: [
-          const Text(
-            'বাস্তব জীবনের Mandarin কথোপকথন অনুশীলন করো।',
-            style: TextStyle(fontSize: 14),
-          ),
-          const SizedBox(height: 12),
-          for (var i = 0; i < _scenarios.length; i++)
-            Card(
-              child: ExpansionTile(
-                leading: Text(
-                  _scenarios[i].icon,
-                  style: const TextStyle(fontSize: 27),
-                ),
-                title: Text(
-                  _scenarios[i].title,
-                  style: const TextStyle(fontWeight: FontWeight.w900),
-                ),
-                subtitle: Text(
-                  _completed.contains(i) ? 'সম্পন্ন ✓' : 'কথোপকথন খুলুন',
-                ),
-                children: [
-                  for (final line in _scenarios[i].lines)
-                    ListTile(
-                      title: Text(
-                        line.chinese,
-                        style: const TextStyle(
-                          fontSize: 19,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      subtitle: Text(
-                        '${line.pinyin}\n${line.bengali}',
-                      ),
-                      trailing: IconButton(
-                        tooltip: 'চীনা উচ্চারণ শুনুন',
-                        icon: const Icon(
-                          Icons.volume_up_rounded,
-                          color: Color(0xFFB8860B),
-                        ),
-                        onPressed: () =>
-                            SpeechService.speakChinese(line.chinese),
-                      ),
-                    ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(12, 4, 12, 14),
-                    child: FilledButton.icon(
-                      onPressed: _completed.contains(i)
-                          ? null
-                          : () async {
-                              await _recordLearningProgress();
-                              if (!mounted) return;
-                              setState(() => _completed.add(i));
-                            },
-                      icon: const Icon(Icons.check_circle_rounded),
-                      label: Text(
-                        _completed.contains(i)
-                            ? 'সম্পন্ন হয়েছে'
-                            : 'এই Conversation শেষ করেছি',
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
         ],
       ),
     );

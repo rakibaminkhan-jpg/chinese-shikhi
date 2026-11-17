@@ -1,0 +1,331 @@
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'daily_conversation_data.dart';
+import 'services/speech_service.dart';
+
+class DailyConversationDetailScreen extends StatefulWidget {
+  final List<ConversationTopic> topics;
+  final int initialIndex;
+
+  const DailyConversationDetailScreen({
+    super.key,
+    required this.topics,
+    required this.initialIndex,
+  });
+
+  @override
+  State<DailyConversationDetailScreen> createState() =>
+      _DailyConversationDetailScreenState();
+}
+
+class _DailyConversationDetailScreenState
+    extends State<DailyConversationDetailScreen> {
+  static const String _bookmarkKey = 'daily_conversation_bookmarks';
+  static const String _completedKey = 'daily_conversation_completed';
+
+  late int _index;
+  Set<String> _bookmarks = {};
+  Set<String> _completed = {};
+  bool _practiceMode = false;
+  bool _loading = true;
+
+  ConversationTopic get _topic => widget.topics[_index];
+
+  String get _topicId => _topic.id.toString();
+
+  @override
+  void initState() {
+    super.initState();
+    _index = widget.initialIndex;
+    _loadState();
+  }
+
+  Future<void> _loadState() async {
+    final prefs = await SharedPreferences.getInstance();
+    if (!mounted) return;
+    setState(() {
+      _bookmarks = (prefs.getStringList(_bookmarkKey) ?? []).toSet();
+      _completed = (prefs.getStringList(_completedKey) ?? []).toSet();
+      _loading = false;
+    });
+  }
+
+  Future<void> _toggleBookmark() async {
+    final prefs = await SharedPreferences.getInstance();
+    final updated = {..._bookmarks};
+    if (!updated.add(_topicId)) updated.remove(_topicId);
+    await prefs.setStringList(_bookmarkKey, updated.toList());
+    if (!mounted) return;
+    setState(() => _bookmarks = updated);
+  }
+
+  Future<void> _markCompleted() async {
+    final prefs = await SharedPreferences.getInstance();
+    final updated = {..._completed, _topicId};
+    await prefs.setStringList(_completedKey, updated.toList());
+    if (!mounted) return;
+    setState(() => _completed = updated);
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('কথোপকথনটি সম্পন্ন হিসেবে সংরক্ষিত হয়েছে।')),
+    );
+  }
+
+  void _move(int amount) {
+    final next = _index + amount;
+    if (next < 0 || next >= widget.topics.length) return;
+    SpeechService.stop();
+    setState(() {
+      _index = next;
+      _practiceMode = false;
+    });
+  }
+
+  void _showLineMeaning(ConversationLine line) {
+    showDialog<void>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(line.chinese, textAlign: TextAlign.center),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(line.pinyin, style: const TextStyle(color: Colors.grey)),
+            const SizedBox(height: 10),
+            Text(line.bengali, style: const TextStyle(fontSize: 16)),
+            const SizedBox(height: 6),
+            Text(line.english, style: const TextStyle(color: Colors.blueGrey)),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('বন্ধ করুন'),
+          ),
+          IconButton(
+            tooltip: 'উচ্চারণ শুনুন',
+            onPressed: () => SpeechService.speakChinese(line.chinese),
+            icon: const Icon(Icons.volume_up_rounded),
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    SpeechService.stop();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final topic = _topic;
+    final isBookmarked = _bookmarks.contains(_topicId);
+    final isCompleted = _completed.contains(_topicId);
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Conversation ${topic.id}/250'),
+        actions: [
+          IconButton(
+            tooltip: isBookmarked ? 'বুকমার্ক সরান' : 'বুকমার্ক করুন',
+            onPressed: _toggleBookmark,
+            icon: Icon(
+              isBookmarked ? Icons.bookmark : Icons.bookmark_border_rounded,
+              color: isBookmarked ? Colors.amber : null,
+            ),
+          ),
+        ],
+      ),
+      body: _loading
+          ? const Center(child: CircularProgressIndicator())
+          : ListView(
+              padding: const EdgeInsets.all(16),
+              children: [
+                Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '${topic.icon}  ${topic.category}',
+                          style: const TextStyle(color: Colors.grey),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          topic.titleBn,
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
+                        const SizedBox(height: 4),
+                        Text(topic.titleEn),
+                        const SizedBox(height: 4),
+                        Text(
+                          topic.titleZh,
+                          style: const TextStyle(fontSize: 20),
+                        ),
+                        const SizedBox(height: 8),
+                        Chip(label: Text('HSK ${topic.hskLevel}')),
+                        Text('${topic.lines.length}টি সংলাপ'),
+                      ],
+                    ),
+                  ),
+                ),
+                SwitchListTile(
+                  contentPadding: EdgeInsets.zero,
+                  title: const Text('Practice Mode'),
+                  subtitle: const Text(
+                    'বাংলা ও English অর্থ লুকিয়ে অনুশীলন করো',
+                  ),
+                  value: _practiceMode,
+                  onChanged: (value) => setState(() => _practiceMode = value),
+                ),
+                const SizedBox(height: 8),
+                for (var i = 0; i < topic.lines.length; i++)
+                  _buildDialogueCard(topic.lines[i], i),
+                const SizedBox(height: 16),
+                Text(
+                  'Grammar Notes',
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                const SizedBox(height: 8),
+                for (final item in topic.grammar)
+                  Card(
+                    child: Padding(
+                      padding: const EdgeInsets.all(12),
+                      child: Text(item),
+                    ),
+                  ),
+                const SizedBox(height: 16),
+                Text(
+                  'Important Vocabulary',
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                const SizedBox(height: 8),
+                for (final item in topic.vocabulary)
+                  ListTile(
+                    dense: true,
+                    leading: const Icon(Icons.translate_rounded),
+                    title: Text(item),
+                  ),
+                const SizedBox(height: 16),
+                FilledButton.icon(
+                  onPressed: isCompleted ? null : _markCompleted,
+                  icon: const Icon(Icons.check_circle_outline_rounded),
+                  label: Text(
+                    isCompleted ? 'সম্পন্ন হয়েছে' : 'কথোপকথন সম্পন্ন করেছি',
+                  ),
+                ),
+                const SizedBox(height: 12),
+                Row(
+                  children: [
+                    Expanded(
+                      child: OutlinedButton.icon(
+                        onPressed: _index > 0 ? () => _move(-1) : null,
+                        icon: const Icon(Icons.arrow_back_rounded),
+                        label: const Text('আগেরটি'),
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: FilledButton.icon(
+                        onPressed: _index < widget.topics.length - 1
+                            ? () => _move(1)
+                            : null,
+                        icon: const Icon(Icons.arrow_forward_rounded),
+                        label: const Text('পরেরটি'),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+    );
+  }
+
+  Widget _buildDialogueCard(ConversationLine line, int number) {
+    return Card(
+      margin: const EdgeInsets.only(bottom: 10),
+      child: Padding(
+        padding: const EdgeInsets.all(13),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                CircleAvatar(
+                  radius: 16,
+                  child: Text(
+                    '${number + 1}',
+                    style: const TextStyle(fontSize: 12),
+                  ),
+                ),
+                const SizedBox(width: 9),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        line.speakerBn,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        '${line.speakerHanzi} · ${line.speakerPinyin}',
+                        style: const TextStyle(
+                          fontSize: 12,
+                          color: Colors.grey,
+                        ),
+                      ),
+                      Text(
+                        line.speakerEn,
+                        style: const TextStyle(
+                          fontSize: 12,
+                          color: Colors.blueGrey,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                IconButton(
+                  tooltip: 'চীনা উচ্চারণ শুনুন',
+                  onPressed: () => SpeechService.speakChinese(line.chinese),
+                  icon: const Icon(Icons.volume_up_rounded),
+                ),
+              ],
+            ),
+            const Divider(),
+            InkWell(
+              onTap: () {
+                if (!_practiceMode) {
+                  _showLineMeaning(line);
+                }
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 5),
+                child: Text(
+                  line.chinese,
+                  style: const TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+            ),
+            if (!_practiceMode)
+              Text(line.pinyin, style: const TextStyle(color: Colors.blueGrey)),
+            if (!_practiceMode) ...[
+              const SizedBox(height: 7),
+              Text(line.bengali, style: const TextStyle(fontSize: 15)),
+              const SizedBox(height: 3),
+              Text(
+                line.english,
+                style: const TextStyle(fontSize: 13, color: Colors.blueGrey),
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+}

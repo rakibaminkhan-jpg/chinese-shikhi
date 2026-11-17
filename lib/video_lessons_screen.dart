@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
+import 'package:video_player/video_player.dart';
 
 class VideoLesson {
   final String title;
@@ -9,12 +10,18 @@ class VideoLesson {
   final String category;
   final String description;
 
+  // URL দিলে সার্ভার থেকে MP4 চলবে; খালি থাকলে YouTube fallback চলবে।
+  final String videoUrl;
+  final String thumbnailUrl;
+
   const VideoLesson({
     required this.title,
     required this.subtitle,
     required this.videoId,
     required this.category,
     this.description = '',
+    this.videoUrl = '',
+    this.thumbnailUrl = '',
   });
 }
 
@@ -34,14 +41,6 @@ const List<VideoLesson> chineseVideoLessons = [
     videoId: 'M3qaSl8OLw0',
     category: 'Pinyin',
     description: 'Pinyin উচ্চারণ ও চীনা শব্দের সঠিক ধ্বনি শোনার অনুশীলন করুন।',
-  ),
-  VideoLesson(
-    title: 'Home with Kids (家有儿女)',
-    subtitle: 'Chinese Family Drama | Mandarin',
-    videoId: 'i1Zy9HI_ffw',
-    category: 'HSK 3',
-    description:
-        'চীনা পারিবারিক কমেডি ড্রামা দেখে Mandarin কথোপকথন ও দৈনন্দিন শব্দ শেখার অনুশীলন করুন।',
   ),
 ];
 
@@ -188,7 +187,9 @@ class _VideoLessonCard extends StatelessWidget {
                 AspectRatio(
                   aspectRatio: 16 / 9,
                   child: Image.network(
-                    'https://img.youtube.com/vi/${lesson.videoId}/hqdefault.jpg',
+                    lesson.thumbnailUrl.trim().isNotEmpty
+                        ? lesson.thumbnailUrl
+                        : 'https://img.youtube.com/vi/${lesson.videoId}/hqdefault.jpg',
                     width: double.infinity,
                     fit: BoxFit.cover,
                     errorBuilder: (_, __, ___) => Container(
@@ -545,9 +546,15 @@ class VideoPlayerScreen extends StatefulWidget {
 }
 
 class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
-  late final YoutubePlayerController controller;
+  YoutubePlayerController? youtubeController;
+  VideoPlayerController? mp4Controller;
+
+  bool mp4Ready = false;
   bool isFavorite = false;
   bool isWatched = false;
+  String? mp4Error;
+
+  bool get usesMp4 => widget.lesson.videoUrl.trim().isNotEmpty;
 
   int get currentIndex => chineseVideoLessons.indexWhere(
         (lesson) => lesson.videoId == widget.lesson.videoId,
@@ -557,19 +564,176 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   void initState() {
     super.initState();
 
-    controller = YoutubePlayerController.fromVideoId(
-      videoId: widget.lesson.videoId,
-      autoPlay: false,
-      params: const YoutubePlayerParams(
-        showControls: true,
-        showFullscreenButton: true,
-        enableCaption: true,
-        interfaceLanguage: 'en',
-        privacyEnhancedMode: true,
-      ),
-    );
+    if (usesMp4) {
+      _initializeMp4();
+    } else {
+      youtubeController = YoutubePlayerController.fromVideoId(
+        videoId: widget.lesson.videoId,
+        autoPlay: false,
+        params: const YoutubePlayerParams(
+          showControls: true,
+          showFullscreenButton: true,
+          enableCaption: true,
+          interfaceLanguage: 'en',
+          privacyEnhancedMode: true,
+        ),
+      );
+    }
 
     _loadStatus();
+  }
+
+  Future<void> _initializeMp4() async {
+    final url = widget.lesson.videoUrl.trim();
+    final uri = Uri.tryParse(url);
+
+    if (uri == null || (uri.scheme != 'https' && uri.scheme != 'http')) {
+      if (!mounted) return;
+      setState(() {
+        mp4Error = 'ভিডিও URL সঠিক নয়। HTTPS MP4 URL ব্যবহার করুন।';
+      });
+      return;
+    }
+
+    final videoController = VideoPlayerController.networkUrl(uri);
+    mp4Controller = videoController;
+
+    try {
+      await videoController.initialize();
+
+      if (!mounted) return;
+
+      setState(() {
+        mp4Ready = true;
+        mp4Error = null;
+      });
+    } catch (_) {
+      if (!mounted) return;
+
+      setState(() {
+        mp4Ready = false;
+        mp4Error =
+            'ভিডিও লোড করা যায়নি। ইন্টারনেট বা ভিডিও সার্ভার পরীক্ষা করুন।';
+      });
+    }
+  }
+
+  Future<void> _retryMp4() async {
+    final oldController = mp4Controller;
+    mp4Controller = null;
+
+    await oldController?.dispose();
+
+    if (!mounted) return;
+
+    setState(() {
+      mp4Ready = false;
+      mp4Error = null;
+    });
+
+    await _initializeMp4();
+  }
+
+  Widget _buildMp4Player() {
+    final videoController = mp4Controller;
+
+    if (videoController == null || !mp4Ready) {
+      return AspectRatio(
+        aspectRatio: 16 / 9,
+        child: Container(
+          color: Colors.black,
+          alignment: Alignment.center,
+          padding: const EdgeInsets.all(20),
+          child: mp4Error != null
+              ? Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(
+                      Icons.error_outline_rounded,
+                      color: Colors.white,
+                      size: 34,
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      mp4Error!,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                    const SizedBox(height: 10),
+                    OutlinedButton.icon(
+                      onPressed: _retryMp4,
+                      icon: const Icon(Icons.refresh_rounded),
+                      label: const Text('আবার চেষ্টা করুন'),
+                    ),
+                  ],
+                )
+              : const Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    CircularProgressIndicator(color: Color(0xFFD4AF37)),
+                    SizedBox(height: 12),
+                    Text(
+                      'সার্ভার থেকে ভিডিও লোড হচ্ছে...',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ],
+                ),
+        ),
+      );
+    }
+
+    return AspectRatio(
+      aspectRatio: videoController.value.aspectRatio > 0
+          ? videoController.value.aspectRatio
+          : 16 / 9,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(16),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Positioned.fill(
+              child: VideoPlayer(videoController),
+            ),
+            IconButton.filled(
+              onPressed: () async {
+                if (videoController.value.isPlaying) {
+                  await videoController.pause();
+                } else {
+                  await videoController.play();
+                }
+
+                if (mounted) setState(() {});
+              },
+              style: IconButton.styleFrom(
+                backgroundColor: Colors.black54,
+                foregroundColor: Colors.white,
+              ),
+              iconSize: 38,
+              icon: Icon(
+                videoController.value.isPlaying
+                    ? Icons.pause_rounded
+                    : Icons.play_arrow_rounded,
+              ),
+            ),
+            Positioned(
+              left: 10,
+              right: 10,
+              bottom: 8,
+              child: VideoProgressIndicator(
+                videoController,
+                allowScrubbing: true,
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                colors: const VideoProgressColors(
+                  playedColor: Color(0xFFD4AF37),
+                  bufferedColor: Colors.white54,
+                  backgroundColor: Colors.white24,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   Future<void> _loadStatus() async {
@@ -617,7 +781,8 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
 
   @override
   void dispose() {
-    controller.close();
+    youtubeController?.close();
+    mp4Controller?.dispose();
     super.dispose();
   }
 
@@ -649,10 +814,12 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(16),
-            child: YoutubePlayer(
-              controller: controller,
-              aspectRatio: 16 / 9,
-            ),
+            child: usesMp4
+                ? _buildMp4Player()
+                : YoutubePlayer(
+                    controller: youtubeController!,
+                    aspectRatio: 16 / 9,
+                  ),
           ),
           const SizedBox(height: 18),
           Text(

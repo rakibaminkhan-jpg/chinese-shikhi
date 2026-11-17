@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -545,5 +546,97 @@ class LearningStore {
     }
 
     return streak;
+  }
+
+  // Version 2: Spaced Repetition System (SRS).
+  static const String _srsReviewKey = 'v2_srs_review_data';
+
+  static Future<Map<String, dynamic>> _getSrsData() async {
+    final prefs = await SharedPreferences.getInstance();
+    final raw = prefs.getString(_srsReviewKey);
+    if (raw == null || raw.isEmpty) return {};
+
+    try {
+      final decoded = jsonDecode(raw);
+      if (decoded is Map) {
+        return Map<String, dynamic>.from(decoded);
+      }
+    } catch (_) {
+      // পুরোনো বা নষ্ট ডেটা থাকলে নতুন ডেটা দিয়ে শুরু হবে।
+    }
+    return {};
+  }
+
+  static Future<Set<String>> getDueReviewWordIds() async {
+    final data = await _getSrsData();
+    final now = DateTime.now().millisecondsSinceEpoch;
+    final due = <String>{};
+
+    for (final entry in data.entries) {
+      if (entry.value is Map) {
+        final item = Map<String, dynamic>.from(entry.value as Map);
+        final nextReviewAt = item['nextReviewAt'];
+        if (nextReviewAt is num && nextReviewAt <= now) {
+          due.add(entry.key);
+        }
+      }
+    }
+    return due;
+  }
+
+  static Future<void> recordSrsReview(
+    String id,
+    String rating,
+  ) async {
+    if (!['again', 'hard', 'good'].contains(rating)) {
+      throw ArgumentError('Invalid SRS rating: $rating');
+    }
+
+    final prefs = await SharedPreferences.getInstance();
+    final data = await _getSrsData();
+
+    final previous = data[id] is Map
+        ? Map<String, dynamic>.from(data[id] as Map)
+        : <String, dynamic>{};
+
+    var repetitions = (previous['repetitions'] as num?)?.toInt() ?? 0;
+    int intervalMinutes;
+
+    if (rating == 'again') {
+      repetitions = 0;
+      intervalMinutes = 10;
+    } else if (rating == 'hard') {
+      intervalMinutes = 24 * 60;
+    } else {
+      const intervalsInDays = [1, 3, 7, 14, 30, 60];
+      final index = repetitions.clamp(0, intervalsInDays.length - 1);
+      intervalMinutes = intervalsInDays[index] * 24 * 60;
+      repetitions++;
+    }
+
+    final now = DateTime.now();
+    final nextReview = now.add(Duration(minutes: intervalMinutes));
+
+    data[id] = {
+      'repetitions': repetitions,
+      'lastReviewedAt': now.millisecondsSinceEpoch,
+      'nextReviewAt': nextReview.millisecondsSinceEpoch,
+      'lastRating': rating,
+      'intervalMinutes': intervalMinutes,
+    };
+
+    await prefs.setString(_srsReviewKey, jsonEncode(data));
+    await markActiveDay();
+  }
+
+  static Future<Map<String, int>> getSrsReviewStats() async {
+    final data = await _getSrsData();
+    final due = await getDueReviewWordIds();
+
+    return {
+      'reviewed': data.length,
+      'due': due.length,
+      'notDue': data.length - due.length,
+    };
   }
 }

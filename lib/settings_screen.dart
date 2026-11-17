@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'services/theme_service.dart';
@@ -214,10 +214,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
           Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: Theme.of(context)
-                  .colorScheme
-                  .primary
-                  .withValues(alpha: 0.10),
+              color:
+                  Theme.of(context).colorScheme.primary.withValues(alpha: 0.10),
               borderRadius: BorderRadius.circular(10),
             ),
             child: Icon(
@@ -346,9 +344,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             : Theme.of(context).colorScheme.surface,
                         borderRadius: BorderRadius.circular(13),
                         border: Border.all(
-                          color: selected
-                              ? _gold
-                              : Theme.of(context).dividerColor,
+                          color:
+                              selected ? _gold : Theme.of(context).dividerColor,
                           width: selected ? 1.7 : 1,
                         ),
                       ),
@@ -571,31 +568,26 @@ class _SettingsScreenState extends State<SettingsScreen> {
               padding: const EdgeInsets.fromLTRB(16, 10, 16, 28),
               children: [
                 _premiumHeader(),
-
                 _sectionTitle(
                   'Appearance & Theme',
                   Icons.palette_outlined,
                 ),
                 _themeCard(),
-
                 _sectionTitle(
                   'Learning Preferences',
                   Icons.flag_outlined,
                 ),
                 _goalCard(),
-
                 _sectionTitle(
                   'Premium Membership',
                   Icons.workspace_premium_outlined,
                 ),
                 _premiumInfoCard(),
-
                 _sectionTitle(
                   'About Application',
                   Icons.info_outline_rounded,
                 ),
                 _aboutCard(),
-
                 const SizedBox(height: 25),
                 Center(
                   child: Column(
@@ -610,9 +602,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         'Made with ❤️ for Chinese learners',
                         style: TextStyle(
                           fontSize: 12,
-                          color: Theme.of(context)
-                              .colorScheme
-                              .onSurfaceVariant,
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
                         ),
                       ),
                       const SizedBox(height: 5),
@@ -621,9 +611,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         style: TextStyle(
                           fontSize: 10,
                           letterSpacing: 1.2,
-                          color: Theme.of(context)
-                              .colorScheme
-                              .onSurfaceVariant,
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
                         ),
                       ),
                     ],

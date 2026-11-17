@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -8,7 +8,7 @@ import 'package:firebase_core_platform_interface/firebase_core_platform_interfac
 import 'package:firebase_auth_platform_interface/firebase_auth_platform_interface.dart';
 import 'package:cloud_firestore_platform_interface/cloud_firestore_platform_interface.dart';
 
-import '../lib/main.dart';
+import 'package:chinese_shikhi/main.dart';
 
 // ------------------------------------------------------------
 // Fake Firebase Core

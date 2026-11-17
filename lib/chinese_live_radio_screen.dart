@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:just_audio/just_audio.dart';
 
 const Color _radioGold = Color(0xFFD4AF37);

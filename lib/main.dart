@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -12,7 +12,9 @@ import 'services/vocab_service.dart';
 import 'models/vocab_word.dart';
 import 'profile_screen.dart';
 import 'video_lessons_screen.dart';
+import 'hsk1_dialogues_screen.dart';
 import 'speaking_listening_screen.dart';
+import 'pdf_library_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -3131,6 +3133,1294 @@ const Map<String, List<GrammarExample>> _additionalGrammarExamples = {
       english: "We learn pronunciation through videos.",
     ),
   ],
+  "নিয়ম অনুযায়ী": [
+    GrammarExample(
+      chinese: "按照规定，学生不能在教室里吃东西。",
+      pinyin: "Ànzhào guīdìng, xuéshēng bù néng zài jiàoshì lǐ chī dōngxi.",
+      bengali: "নিয়ম অনুযায়ী, শিক্ষার্থীরা শ্রেণিকক্ষে খাবার খেতে পারে না।",
+      english: "According to the rules, students cannot eat in the classroom.",
+    ),
+    GrammarExample(
+      chinese: "请按照说明填写这张表。",
+      pinyin: "Qǐng ànzhào shuōmíng tiánxiě zhè zhāng biǎo.",
+      bengali: "অনুগ্রহ করে নির্দেশনা অনুযায়ী এই ফর্মটি পূরণ করুন।",
+      english: "Please fill out this form according to the instructions.",
+    ),
+    GrammarExample(
+      chinese: "我们按照计划出发了。",
+      pinyin: "Wǒmen ànzhào jìhuà chūfā le.",
+      bengali: "আমরা পরিকল্পনা অনুযায়ী রওনা হয়েছি।",
+      english: "We set off according to the plan.",
+    ),
+    GrammarExample(
+      chinese: "按照医生的建议，我每天走路三十分钟。",
+      pinyin: "Ànzhào yīshēng de jiànyì, wǒ měitiān zǒulù sānshí fēnzhōng.",
+      bengali: "ডাক্তারের পরামর্শ অনুযায়ী, আমি প্রতিদিন ৩০ মিনিট হাঁটি।",
+      english:
+          "Following the doctor's advice, I walk for thirty minutes every day.",
+    ),
+    GrammarExample(
+      chinese: "请按照顺序排队。",
+      pinyin: "Qǐng ànzhào shùnxù páiduì.",
+      bengali: "অনুগ্রহ করে ক্রমানুসারে লাইনে দাঁড়ান।",
+      english: "Please line up in order.",
+    ),
+    GrammarExample(
+      chinese: "他按照地图找到了车站。",
+      pinyin: "Tā ànzhào dìtú zhǎodào le chēzhàn.",
+      bengali: "সে মানচিত্র অনুযায়ী স্টেশনটি খুঁজে পেয়েছে।",
+      english: "He found the station by following the map.",
+    ),
+    GrammarExample(
+      chinese: "按照合同，公司每月发工资。",
+      pinyin: "Ànzhào hétong, gōngsī měi yuè fā gōngzī.",
+      bengali: "চুক্তি অনুযায়ী, কোম্পানি প্রতি মাসে বেতন দেয়।",
+      english:
+          "According to the contract, the company pays salaries every month.",
+    ),
+    GrammarExample(
+      chinese: "请按照老师教的方法练习发音。",
+      pinyin: "Qǐng ànzhào lǎoshī jiāo de fāngfǎ liànxí fāyīn.",
+      bengali:
+          "শিক্ষক যেভাবে শিখিয়েছেন, সেই পদ্ধতি অনুযায়ী উচ্চারণ অনুশীলন করুন।",
+      english:
+          "Please practise pronunciation using the method the teacher taught.",
+    ),
+  ],
+  "কারও বা কোনো কিছুর ক্ষেত্রে": [
+    GrammarExample(
+      chinese: "对于我来说，学习中文很有意思。",
+      pinyin: "Duìyú wǒ lái shuō, xuéxí Zhōngwén hěn yǒu yìsi.",
+      bengali: "আমার ক্ষেত্রে চীনা ভাষা শেখা খুব মজার।",
+      english: "For me, learning Chinese is very interesting.",
+    ),
+    GrammarExample(
+      chinese: "对于孩子来说，睡眠很重要。",
+      pinyin: "Duìyú háizi lái shuō, shuìmián hěn zhòngyào.",
+      bengali: "শিশুদের ক্ষেত্রে ঘুম খুব গুরুত্বপূর্ণ।",
+      english: "For children, sleep is very important.",
+    ),
+    GrammarExample(
+      chinese: "对于这个问题，我有不同的看法。",
+      pinyin: "Duìyú zhège wèntí, wǒ yǒu bùtóng de kànfǎ.",
+      bengali: "এই বিষয়ে আমার ভিন্ন মতামত আছে।",
+      english: "I have a different opinion about this issue.",
+    ),
+    GrammarExample(
+      chinese: "对于新学生，学校提供免费课程。",
+      pinyin: "Duìyú xīn xuéshēng, xuéxiào tígōng miǎnfèi kèchéng.",
+      bengali: "নতুন শিক্ষার্থীদের জন্য স্কুল বিনামূল্যে কোর্স দেয়।",
+      english: "The school offers free courses for new students.",
+    ),
+    GrammarExample(
+      chinese: "对于他来说，这份工作不太容易。",
+      pinyin: "Duìyú tā lái shuō, zhè fèn gōngzuò bú tài róngyì.",
+      bengali: "তার ক্ষেত্রে এই কাজটি খুব সহজ নয়।",
+      english: "For him, this job is not very easy.",
+    ),
+    GrammarExample(
+      chinese: "对于这件事，我们需要认真讨论。",
+      pinyin: "Duìyú zhè jiàn shì, wǒmen xūyào rènzhēn tǎolùn.",
+      bengali: "এই বিষয়টি নিয়ে আমাদের গুরুত্ব দিয়ে আলোচনা করা দরকার।",
+      english: "We need to discuss this matter seriously.",
+    ),
+    GrammarExample(
+      chinese: "对于中国文化，她很感兴趣。",
+      pinyin: "Duìyú Zhōngguó wénhuà, tā hěn gǎn xìngqù.",
+      bengali: "চীনা সংস্কৃতির প্রতি তার অনেক আগ্রহ আছে।",
+      english: "She is very interested in Chinese culture.",
+    ),
+    GrammarExample(
+      chinese: "对于初学者，这本书很实用。",
+      pinyin: "Duìyú chūxuézhě, zhè běn shū hěn shíyòng.",
+      bengali: "নতুন শিক্ষার্থীদের জন্য এই বইটি খুব ব্যবহারিক।",
+      english: "This book is very useful for beginners.",
+    ),
+  ],
+  "যদি শর্ত পূরণ হয়": [
+    GrammarExample(
+      chinese: "只要你每天练习，中文就会进步。",
+      pinyin: "Zhǐyào nǐ měitiān liànxí, Zhōngwén jiù huì jìnbù.",
+      bengali: "তুমি প্রতিদিন অনুশীলন করলেই চীনা ভাষায় উন্নতি করবে।",
+      english: "As long as you practise every day, your Chinese will improve.",
+    ),
+    GrammarExample(
+      chinese: "只要有时间，我就去图书馆。",
+      pinyin: "Zhǐyào yǒu shíjiān, wǒ jiù qù túshūguǎn.",
+      bengali: "সময় পেলেই আমি লাইব্রেরিতে যাই।",
+      english: "As long as I have time, I go to the library.",
+    ),
+    GrammarExample(
+      chinese: "只要天气好，我们就去爬山。",
+      pinyin: "Zhǐyào tiānqì hǎo, wǒmen jiù qù páshān.",
+      bengali: "আবহাওয়া ভালো থাকলেই আমরা পাহাড়ে উঠতে যাব।",
+      english: "As long as the weather is good, we will go hiking.",
+    ),
+    GrammarExample(
+      chinese: "只要你告诉我地址，我就能找到你。",
+      pinyin: "Zhǐyào nǐ gàosu wǒ dìzhǐ, wǒ jiù néng zhǎodào nǐ.",
+      bengali: "তুমি আমাকে ঠিকানা বললেই আমি তোমাকে খুঁজে পাব।",
+      english: "As long as you tell me the address, I can find you.",
+    ),
+    GrammarExample(
+      chinese: "只要努力学习，就能通过考试。",
+      pinyin: "Zhǐyào nǔlì xuéxí, jiù néng tōngguò kǎoshì.",
+      bengali: "মন দিয়ে পড়াশোনা করলেই পরীক্ষায় পাস করা যাবে।",
+      english: "As long as you study hard, you can pass the exam.",
+    ),
+    GrammarExample(
+      chinese: "只要不下雨，我们就骑自行车去。",
+      pinyin: "Zhǐyào bú xiàyǔ, wǒmen jiù qí zìxíngchē qù.",
+      bengali: "বৃষ্টি না হলেই আমরা সাইকেলে যাব।",
+      english: "As long as it does not rain, we will go by bicycle.",
+    ),
+    GrammarExample(
+      chinese: "只要你愿意，我就帮你。",
+      pinyin: "Zhǐyào nǐ yuànyì, wǒ jiù bāng nǐ.",
+      bengali: "তুমি রাজি থাকলেই আমি তোমাকে সাহায্য করব।",
+      english: "As long as you are willing, I will help you.",
+    ),
+    GrammarExample(
+      chinese: "只要按时完成工作，就可以早点回家。",
+      pinyin: "Zhǐyào ànshí wánchéng gōngzuò, jiù kěyǐ zǎodiǎn huí jiā.",
+      bengali: "সময়মতো কাজ শেষ করলেই তাড়াতাড়ি বাড়ি যাওয়া যাবে।",
+      english: "As long as you finish the work on time, you can go home early.",
+    ),
+  ],
+  "একমাত্র শর্তেই": [
+    GrammarExample(
+      chinese: "只有认真复习，才能记住这些词。",
+      pinyin: "Zhǐyǒu rènzhēn fùxí, cái néng jìzhù zhèxiē cí.",
+      bengali: "মনোযোগ দিয়ে পুনরাবৃত্তি করলেই কেবল এই শব্দগুলো মনে রাখা যাবে।",
+      english: "Only by reviewing carefully can you remember these words.",
+    ),
+    GrammarExample(
+      chinese: "只有买票，才能进入会场。",
+      pinyin: "Zhǐyǒu mǎi piào, cái néng jìnrù huìchǎng.",
+      bengali: "টিকিট কিনলেই কেবল অনুষ্ঠানের স্থানে প্রবেশ করা যাবে।",
+      english: "Only with a ticket can you enter the venue.",
+    ),
+    GrammarExample(
+      chinese: "只有他知道这个秘密。",
+      pinyin: "Zhǐyǒu tā zhīdào zhège mìmì.",
+      bengali: "শুধু সে-ই এই গোপন কথাটি জানে।",
+      english: "Only he knows this secret.",
+    ),
+    GrammarExample(
+      chinese: "只有周末我才有时间。",
+      pinyin: "Zhǐyǒu zhōumò wǒ cái yǒu shíjiān.",
+      bengali: "শুধু সপ্তাহান্তেই আমার সময় থাকে।",
+      english: "I only have time on weekends.",
+    ),
+    GrammarExample(
+      chinese: "只有完成作业，才能玩游戏。",
+      pinyin: "Zhǐyǒu wánchéng zuòyè, cái néng wán yóuxì.",
+      bengali: "বাড়ির কাজ শেষ করলেই কেবল গেম খেলা যাবে।",
+      english: "Only after finishing the homework can you play games.",
+    ),
+    GrammarExample(
+      chinese: "只有多听多说，才能提高口语。",
+      pinyin: "Zhǐyǒu duō tīng duō shuō, cái néng tígāo kǒuyǔ.",
+      bengali: "বেশি শুনে ও বলে অনুশীলন করলেই কথোপকথনের দক্ষতা বাড়বে।",
+      english:
+          "Only by listening and speaking more can you improve your spoken Chinese.",
+    ),
+    GrammarExample(
+      chinese: "只有你亲自去，才能解决这个问题。",
+      pinyin: "Zhǐyǒu nǐ qīnzì qù, cái néng jiějué zhège wèntí.",
+      bengali: "তুমি নিজে গেলেই কেবল এই সমস্যার সমাধান হবে।",
+      english: "Only if you go in person can this problem be solved.",
+    ),
+    GrammarExample(
+      chinese: "只有天气暖和，花才会开。",
+      pinyin: "Zhǐyǒu tiānqì nuǎnhuo, huā cái huì kāi.",
+      bengali: "আবহাওয়া উষ্ণ হলেই কেবল ফুল ফুটবে।",
+      english: "Only when the weather is warm will the flowers bloom.",
+    ),
+  ],
+  "যদি এমন হয়": [
+    GrammarExample(
+      chinese: "如果你累了，就休息一下。",
+      pinyin: "Rúguǒ nǐ lèi le, jiù xiūxi yíxià.",
+      bengali: "তুমি ক্লান্ত হলে একটু বিশ্রাম নাও।",
+      english: "If you are tired, take a short rest.",
+    ),
+    GrammarExample(
+      chinese: "如果明天有空，我就给你打电话。",
+      pinyin: "Rúguǒ míngtiān yǒu kòng, wǒ jiù gěi nǐ dǎ diànhuà.",
+      bengali: "আগামীকাল সময় থাকলে আমি তোমাকে ফোন করব।",
+      english: "If I am free tomorrow, I will call you.",
+    ),
+    GrammarExample(
+      chinese: "如果不懂，可以问老师。",
+      pinyin: "Rúguǒ bù dǒng, kěyǐ wèn lǎoshī.",
+      bengali: "না বুঝলে শিক্ষককে জিজ্ঞাসা করতে পারো।",
+      english: "If you do not understand, you can ask the teacher.",
+    ),
+    GrammarExample(
+      chinese: "如果下雨，我们就坐公交车。",
+      pinyin: "Rúguǒ xiàyǔ, wǒmen jiù zuò gōngjiāochē.",
+      bengali: "বৃষ্টি হলে আমরা বাসে যাব।",
+      english: "If it rains, we will take the bus.",
+    ),
+    GrammarExample(
+      chinese: "如果你喜欢这本书，我就送给你。",
+      pinyin: "Rúguǒ nǐ xǐhuan zhè běn shū, wǒ jiù sòng gěi nǐ.",
+      bengali: "তোমার এই বইটি পছন্দ হলে আমি তোমাকে উপহার দেব।",
+      english: "If you like this book, I will give it to you as a gift.",
+    ),
+    GrammarExample(
+      chinese: "如果现在出发，我们就能赶上火车。",
+      pinyin: "Rúguǒ xiànzài chūfā, wǒmen jiù néng gǎnshàng huǒchē.",
+      bengali: "এখন রওনা হলে আমরা ট্রেন ধরতে পারব।",
+      english: "If we leave now, we can catch the train.",
+    ),
+    GrammarExample(
+      chinese: "如果他来了，请告诉我。",
+      pinyin: "Rúguǒ tā lái le, qǐng gàosu wǒ.",
+      bengali: "সে এলে অনুগ্রহ করে আমাকে জানিও।",
+      english: "If he comes, please let me know.",
+    ),
+    GrammarExample(
+      chinese: "如果每天听中文，你就会听得更好。",
+      pinyin: "Rúguǒ měitiān tīng Zhōngwén, nǐ jiù huì tīng de gèng hǎo.",
+      bengali: "প্রতিদিন চীনা ভাষা শুনলে তোমার শোনার দক্ষতা আরও ভালো হবে।",
+      english:
+          "If you listen to Chinese every day, your listening will improve.",
+    ),
+  ],
+  "যদি এমন হয় (কথ্য)": [
+    GrammarExample(
+      chinese: "要是你有时间，就来我家吧。",
+      pinyin: "Yàoshi nǐ yǒu shíjiān, jiù lái wǒ jiā ba.",
+      bengali: "তোমার সময় থাকলে আমার বাড়িতে এসো।",
+      english: "If you have time, come to my home.",
+    ),
+    GrammarExample(
+      chinese: "要是明天下雨，我们就不去了。",
+      pinyin: "Yàoshi míngtiān xiàyǔ, wǒmen jiù bú qù le.",
+      bengali: "আগামীকাল বৃষ্টি হলে আমরা যাব না।",
+      english: "If it rains tomorrow, we will not go.",
+    ),
+    GrammarExample(
+      chinese: "要是你饿了，就先吃饭。",
+      pinyin: "Yàoshi nǐ è le, jiù xiān chīfàn.",
+      bengali: "তোমার ক্ষুধা লাগলে আগে খেয়ে নাও।",
+      english: "If you are hungry, eat first.",
+    ),
+    GrammarExample(
+      chinese: "要是他来了，给我打电话。",
+      pinyin: "Yàoshi tā lái le, gěi wǒ dǎ diànhuà.",
+      bengali: "সে এলে আমাকে ফোন করো।",
+      english: "If he comes, call me.",
+    ),
+    GrammarExample(
+      chinese: "要是便宜一点儿，我就买。",
+      pinyin: "Yàoshi piányi yìdiǎnr, wǒ jiù mǎi.",
+      bengali: "আরেকটু সস্তা হলে আমি কিনব।",
+      english: "If it is a little cheaper, I will buy it.",
+    ),
+    GrammarExample(
+      chinese: "要是你不舒服，就早点休息。",
+      pinyin: "Yàoshi nǐ bù shūfu, jiù zǎodiǎn xiūxi.",
+      bengali: "তোমার শরীর খারাপ লাগলে তাড়াতাড়ি বিশ্রাম নাও।",
+      english: "If you feel unwell, rest early.",
+    ),
+    GrammarExample(
+      chinese: "要是有问题，你可以问我。",
+      pinyin: "Yàoshi yǒu wèntí, nǐ kěyǐ wèn wǒ.",
+      bengali: "কোনো সমস্যা হলে তুমি আমাকে জিজ্ঞাসা করতে পারো।",
+      english: "If you have a question, you can ask me.",
+    ),
+    GrammarExample(
+      chinese: "要是今天不忙，我们就一起吃饭。",
+      pinyin: "Yàoshi jīntiān bù máng, wǒmen jiù yìqǐ chīfàn.",
+      bengali: "আজ ব্যস্ত না থাকলে আমরা একসঙ্গে খাব।",
+      english: "If we are not busy today, we will eat together.",
+    ),
+  ],
+  "এমন হলেও তবুও": [
+    GrammarExample(
+      chinese: "即使下雨，我也要去上班。",
+      pinyin: "Jíshǐ xiàyǔ, wǒ yě yào qù shàngbān.",
+      bengali: "বৃষ্টি হলেও আমাকে কাজে যেতে হবে।",
+      english: "Even if it rains, I still have to go to work.",
+    ),
+    GrammarExample(
+      chinese: "即使很累，他也继续学习。",
+      pinyin: "Jíshǐ hěn lèi, tā yě jìxù xuéxí.",
+      bengali: "খুব ক্লান্ত হলেও সে পড়াশোনা চালিয়ে যায়।",
+      english: "Even though he is tired, he continues studying.",
+    ),
+    GrammarExample(
+      chinese: "即使失败了，也不要放弃。",
+      pinyin: "Jíshǐ shībài le, yě bú yào fàngqì.",
+      bengali: "ব্যর্থ হলেও হাল ছেড়ো না।",
+      english: "Even if you fail, do not give up.",
+    ),
+    GrammarExample(
+      chinese: "即使没有钱，我们也可以很快乐。",
+      pinyin: "Jíshǐ méiyǒu qián, wǒmen yě kěyǐ hěn kuàilè.",
+      bengali: "টাকা না থাকলেও আমরা সুখী হতে পারি।",
+      english: "Even without money, we can still be happy.",
+    ),
+    GrammarExample(
+      chinese: "即使很晚，他也会给我打电话。",
+      pinyin: "Jíshǐ hěn wǎn, tā yě huì gěi wǒ dǎ diànhuà.",
+      bengali: "অনেক রাত হলেও সে আমাকে ফোন করবে।",
+      english: "Even if it is very late, he will call me.",
+    ),
+    GrammarExample(
+      chinese: "即使别人不同意，我也会坚持自己的想法。",
+      pinyin: "Jíshǐ biérén bù tóngyì, wǒ yě huì jiānchí zìjǐ de xiǎngfǎ.",
+      bengali: "অন্যরা একমত না হলেও আমি নিজের মত ধরে রাখব।",
+      english: "Even if others disagree, I will stick to my idea.",
+    ),
+    GrammarExample(
+      chinese: "即使路很远，我们也要走过去。",
+      pinyin: "Jíshǐ lù hěn yuǎn, wǒmen yě yào zǒu guòqu.",
+      bengali: "রাস্তা অনেক দূর হলেও আমাদের হেঁটে যেতে হবে।",
+      english: "Even if the road is far, we still have to walk there.",
+    ),
+    GrammarExample(
+      chinese: "即使不懂中文，也可以先试着说。",
+      pinyin: "Jíshǐ bù dǒng Zhōngwén, yě kěyǐ xiān shìzhe shuō.",
+      bengali: "চীনা ভাষা না জানলেও আগে বলার চেষ্টা করা যায়।",
+      english: "Even if you do not know Chinese, you can try speaking first.",
+    ),
+  ],
+  "যাই হোক না কেন": [
+    GrammarExample(
+      chinese: "不管天气怎么样，我都要去。",
+      pinyin: "Bùguǎn tiānqì zěnmeyàng, wǒ dōu yào qù.",
+      bengali: "আবহাওয়া যেমনই হোক, আমি যাব।",
+      english: "No matter what the weather is like, I will go.",
+    ),
+    GrammarExample(
+      chinese: "不管谁来，我都欢迎。",
+      pinyin: "Bùguǎn shéi lái, wǒ dōu huānyíng.",
+      bengali: "যেই আসুক না কেন, আমি তাকে স্বাগত জানাই।",
+      english: "Whoever comes, I welcome them.",
+    ),
+    GrammarExample(
+      chinese: "不管多忙，他都每天运动。",
+      pinyin: "Bùguǎn duō máng, tā dōu měitiān yùndòng.",
+      bengali: "যত ব্যস্তই থাকুক, সে প্রতিদিন ব্যায়াম করে।",
+      english: "No matter how busy he is, he exercises every day.",
+    ),
+    GrammarExample(
+      chinese: "不管你去哪里，我都支持你。",
+      pinyin: "Bùguǎn nǐ qù nǎlǐ, wǒ dōu zhīchí nǐ.",
+      bengali: "তুমি যেখানেই যাও, আমি তোমাকে সমর্থন করব।",
+      english: "Wherever you go, I will support you.",
+    ),
+    GrammarExample(
+      chinese: "不管结果如何，我们都要努力。",
+      pinyin: "Bùguǎn jiéguǒ rúhé, wǒmen dōu yào nǔlì.",
+      bengali: "ফলাফল যা-ই হোক, আমাদের চেষ্টা করতে হবে।",
+      english: "Whatever the result, we must work hard.",
+    ),
+    GrammarExample(
+      chinese: "不管多少钱，我都不卖。",
+      pinyin: "Bùguǎn duōshao qián, wǒ dōu bù mài.",
+      bengali: "যত টাকাই হোক, আমি এটি বিক্রি করব না।",
+      english: "No matter how much money it is, I will not sell it.",
+    ),
+    GrammarExample(
+      chinese: "不管发生什么事，请保持冷静。",
+      pinyin: "Bùguǎn fāshēng shénme shì, qǐng bǎochí lěngjìng.",
+      bengali: "যাই ঘটুক না কেন, শান্ত থাকো।",
+      english: "Whatever happens, please stay calm.",
+    ),
+    GrammarExample(
+      chinese: "不管多晚，我都会等你。",
+      pinyin: "Bùguǎn duō wǎn, wǒ dōu huì děng nǐ.",
+      bengali: "যত রাতই হোক, আমি তোমার জন্য অপেক্ষা করব।",
+      english: "No matter how late it is, I will wait for you.",
+    ),
+  ],
+  "ক্রমশ আরও বেশি": [
+    GrammarExample(
+      chinese: "天气越来越冷了。",
+      pinyin: "Tiānqì yuèláiyuè lěng le.",
+      bengali: "আবহাওয়া ক্রমশ ঠান্ডা হচ্ছে।",
+      english: "The weather is getting colder and colder.",
+    ),
+    GrammarExample(
+      chinese: "我的中文越来越好了。",
+      pinyin: "Wǒ de Zhōngwén yuèláiyuè hǎo le.",
+      bengali: "আমার চীনা ভাষার দক্ষতা ক্রমশ ভালো হচ্ছে।",
+      english: "My Chinese is getting better and better.",
+    ),
+    GrammarExample(
+      chinese: "他越来越喜欢这里。",
+      pinyin: "Tā yuèláiyuè xǐhuan zhèlǐ.",
+      bengali: "সে জায়গাটি ক্রমশ বেশি পছন্দ করছে।",
+      english: "He likes this place more and more.",
+    ),
+    GrammarExample(
+      chinese: "这个城市越来越热闹了。",
+      pinyin: "Zhège chéngshì yuèláiyuè rènao le.",
+      bengali: "এই শহরটি ক্রমশ আরও প্রাণবন্ত হচ্ছে।",
+      english: "This city is becoming livelier and livelier.",
+    ),
+    GrammarExample(
+      chinese: "孩子越来越高了。",
+      pinyin: "Háizi yuèláiyuè gāo le.",
+      bengali: "শিশুটি ক্রমশ লম্বা হচ্ছে।",
+      english: "The child is getting taller and taller.",
+    ),
+    GrammarExample(
+      chinese: "我越来越了解中国文化。",
+      pinyin: "Wǒ yuèláiyuè liǎojiě Zhōngguó wénhuà.",
+      bengali: "আমি চীনা সংস্কৃতি ক্রমশ আরও ভালোভাবে বুঝতে পারছি।",
+      english: "I am understanding Chinese culture more and more.",
+    ),
+    GrammarExample(
+      chinese: "这本书越来越有意思。",
+      pinyin: "Zhè běn shū yuèláiyuè yǒu yìsi.",
+      bengali: "বইটি ক্রমশ আরও আকর্ষণীয় হচ্ছে।",
+      english: "This book is becoming more and more interesting.",
+    ),
+    GrammarExample(
+      chinese: "他的身体越来越健康。",
+      pinyin: "Tā de shēntǐ yuèláiyuè jiànkāng.",
+      bengali: "তার শরীর ক্রমশ আরও সুস্থ হচ্ছে।",
+      english: "His health is getting better and better.",
+    ),
+  ],
+  "প্রায় এমন হতে যাচ্ছিল": [
+    GrammarExample(
+      chinese: "我差点儿迟到了。",
+      pinyin: "Wǒ chàdiǎnr chídào le.",
+      bengali: "আমি প্রায় দেরি করে ফেলেছিলাম।",
+      english: "I was almost late.",
+    ),
+    GrammarExample(
+      chinese: "他差点儿忘了我的生日。",
+      pinyin: "Tā chàdiǎnr wàng le wǒ de shēngrì.",
+      bengali: "সে প্রায় আমার জন্মদিন ভুলে গিয়েছিল।",
+      english: "He almost forgot my birthday.",
+    ),
+    GrammarExample(
+      chinese: "我差点儿摔倒。",
+      pinyin: "Wǒ chàdiǎnr shuāidǎo.",
+      bengali: "আমি প্রায় পড়ে যাচ্ছিলাম।",
+      english: "I almost fell down.",
+    ),
+    GrammarExample(
+      chinese: "我们差点儿错过火车。",
+      pinyin: "Wǒmen chàdiǎnr cuòguò huǒchē.",
+      bengali: "আমরা প্রায় ট্রেন মিস করেছিলাম।",
+      english: "We almost missed the train.",
+    ),
+    GrammarExample(
+      chinese: "她差点儿哭出来。",
+      pinyin: "Tā chàdiǎnr kū chūlái.",
+      bengali: "সে প্রায় কেঁদে ফেলেছিল।",
+      english: "She almost burst into tears.",
+    ),
+    GrammarExample(
+      chinese: "我差点儿把手机忘在家里。",
+      pinyin: "Wǒ chàdiǎnr bǎ shǒujī wàng zài jiālǐ.",
+      bengali: "আমি প্রায় ফোনটি বাড়িতে ফেলে এসেছিলাম।",
+      english: "I almost left my phone at home.",
+    ),
+    GrammarExample(
+      chinese: "他差点儿说错名字。",
+      pinyin: "Tā chàdiǎnr shuō cuò míngzi.",
+      bengali: "সে প্রায় ভুল নাম বলে ফেলেছিল।",
+      english: "He almost said the wrong name.",
+    ),
+    GrammarExample(
+      chinese: "汽车差点儿撞到自行车。",
+      pinyin: "Qìchē chàdiǎnr zhuàng dào zìxíngchē.",
+      bengali: "গাড়িটি প্রায় সাইকেলটিকে ধাক্কা দিয়েছিল।",
+      english: "The car almost hit the bicycle.",
+    ),
+  ],
+  "আসলে বা পরে বুঝতে পারা": [
+    GrammarExample(
+        chinese: "原来你也住在这里。",
+        pinyin: "Yuánlái nǐ yě zhù zài zhèlǐ.",
+        bengali: "আসলে তুমিও এখানে থাকো।",
+        english: "It turns out you live here too."),
+    GrammarExample(
+        chinese: "我找了半天，原来钥匙在包里。",
+        pinyin: "Wǒ zhǎo le bàntiān, yuánlái yàoshi zài bāo lǐ.",
+        bengali: "অনেকক্ষণ খোঁজার পর বুঝলাম, চাবি ব্যাগের ভেতরেই ছিল।",
+        english:
+            "I searched for a long time; it turns out the key was in the bag."),
+    GrammarExample(
+        chinese: "原来这家店今天不开门。",
+        pinyin: "Yuánlái zhè jiā diàn jīntiān bù kāimén.",
+        bengali: "আসলে এই দোকান আজ খোলা নেই।",
+        english: "It turns out this shop is closed today."),
+    GrammarExample(
+        chinese: "他原来是我的同学。",
+        pinyin: "Tā yuánlái shì wǒ de tóngxué.",
+        bengali: "সে আগে আমার সহপাঠী ছিল।",
+        english: "He used to be my classmate."),
+    GrammarExample(
+        chinese: "原来学习汉语没有我想的那么难。",
+        pinyin: "Yuánlái xuéxí Hànyǔ méiyǒu wǒ xiǎng de nàme nán.",
+        bengali: "আসলে চীনা ভাষা শেখা আমার ধারণার মতো কঠিন নয়।",
+        english:
+            "It turns out learning Chinese is not as difficult as I thought."),
+    GrammarExample(
+        chinese: "我现在才明白，原来是我弄错了。",
+        pinyin: "Wǒ xiànzài cái míngbai, yuánlái shì wǒ nòng cuò le.",
+        bengali: "এখন বুঝতে পারলাম, আসলে ভুলটা আমারই ছিল।",
+        english: "I understand now; it was actually my mistake."),
+    GrammarExample(
+        chinese: "原来你早就知道这件事。",
+        pinyin: "Yuánlái nǐ zǎo jiù zhīdào zhè jiàn shì.",
+        bengali: "আসলে তুমি এই বিষয়টি আগেই জানতে।",
+        english: "It turns out you knew about this long ago."),
+    GrammarExample(
+        chinese: "原来他已经到了，我们不用等了。",
+        pinyin: "Yuánlái tā yǐjīng dào le, wǒmen bú yòng děng le.",
+        bengali: "আসলে সে ইতিমধ্যে এসে গেছে, আমাদের আর অপেক্ষা করতে হবে না।",
+        english:
+            "It turns out he has already arrived; we do not need to wait."),
+  ],
+  "এমনকি এটুকুও": [
+    GrammarExample(
+        chinese: "他太忙了，连饭都没时间吃。",
+        pinyin: "Tā tài máng le, lián fàn dōu méi shíjiān chī.",
+        bengali: "সে এত ব্যস্ত যে খাওয়ার সময়টুকুও পায় না।",
+        english: "He is so busy that he does not even have time to eat."),
+    GrammarExample(
+        chinese: "这么简单的问题，连孩子都会。",
+        pinyin: "Zhème jiǎndān de wèntí, lián háizi dōu huì.",
+        bengali: "এত সহজ প্রশ্ন, এমনকি শিশুরাও পারে।",
+        english: "Even children can answer such an easy question."),
+    GrammarExample(
+        chinese: "今天太冷了，连我都不想出门。",
+        pinyin: "Jīntiān tài lěng le, lián wǒ dōu bù xiǎng chūmén.",
+        bengali: "আজ এত ঠান্ডা যে আমিও বাইরে যেতে চাই না।",
+        english: "It is so cold today that even I do not want to go out."),
+    GrammarExample(
+        chinese: "他连自己的名字都不会写。",
+        pinyin: "Tā lián zìjǐ de míngzi dōu bú huì xiě.",
+        bengali: "সে নিজের নামটুকুও লিখতে পারে না।",
+        english: "He cannot even write his own name."),
+    GrammarExample(
+        chinese: "我太累了，连话都不想说。",
+        pinyin: "Wǒ tài lèi le, lián huà dōu bù xiǎng shuō.",
+        bengali: "আমি এত ক্লান্ত যে কথাও বলতে চাই না।",
+        english: "I am so tired that I do not even want to talk."),
+    GrammarExample(
+        chinese: "她连一分钟都没有迟到过。",
+        pinyin: "Tā lián yì fēnzhōng dōu méiyǒu chídào guo.",
+        bengali: "সে এক মিনিটের জন্যও কখনো দেরি করেনি।",
+        english: "She has never been even one minute late."),
+    GrammarExample(
+        chinese: "这个地方太安静了，连鸟叫声都听得见。",
+        pinyin:
+            "Zhège dìfang tài ānjìng le, lián niǎo jiàoshēng dōu tīng de jiàn.",
+        bengali: "জায়গাটি এত শান্ত যে পাখির ডাকও শোনা যায়।",
+        english: "This place is so quiet that even bird calls can be heard."),
+    GrammarExample(
+        chinese: "他连谢谢都忘了说。",
+        pinyin: "Tā lián xièxie dōu wàng le shuō.",
+        bengali: "সে ধন্যবাদ বলতেও ভুলে গেছে।",
+        english: "He even forgot to say thank you."),
+  ],
+  "বরং উল্টো ফল": [
+    GrammarExample(
+        chinese: "我没有生气，反而笑了。",
+        pinyin: "Wǒ méiyǒu shēngqì, fǎn'ér xiào le.",
+        bengali: "আমি রাগ করিনি, বরং হেসেছি।",
+        english: "I did not get angry; instead, I laughed."),
+    GrammarExample(
+        chinese: "休息了一会儿以后，我反而更有精神了。",
+        pinyin: "Xiūxi le yíhuìr yǐhòu, wǒ fǎn'ér gèng yǒu jīngshen le.",
+        bengali: "কিছুক্ষণ বিশ্রামের পর বরং আমার আরও শক্তি ফিরে এসেছে।",
+        english: "After resting for a while, I actually felt more energetic."),
+    GrammarExample(
+        chinese: "他没有批评我，反而鼓励了我。",
+        pinyin: "Tā méiyǒu pīpíng wǒ, fǎn'ér gǔlì le wǒ.",
+        bengali: "সে আমাকে সমালোচনা করেনি, বরং উৎসাহ দিয়েছে।",
+        english: "He did not criticize me; instead, he encouraged me."),
+    GrammarExample(
+        chinese: "天气没有变暖，反而更冷了。",
+        pinyin: "Tiānqì méiyǒu biàn nuǎn, fǎn'ér gèng lěng le.",
+        bengali: "আবহাওয়া গরম হয়নি, বরং আরও ঠান্ডা হয়েছে।",
+        english: "The weather did not get warmer; instead, it became colder."),
+    GrammarExample(
+        chinese: "我以为他会拒绝，没想到他反而答应了。",
+        pinyin: "Wǒ yǐwéi tā huì jùjué, méi xiǎngdào tā fǎn'ér dāying le.",
+        bengali:
+            "আমি ভেবেছিলাম সে প্রত্যাখ্যান করবে, কিন্তু সে বরং রাজি হয়ে গেল।",
+        english: "I thought he would refuse, but he actually agreed."),
+    GrammarExample(
+        chinese: "吃了药以后，他反而觉得更不舒服。",
+        pinyin: "Chī le yào yǐhòu, tā fǎn'ér juéde gèng bù shūfu.",
+        bengali: "ওষুধ খাওয়ার পর তার বরং আরও অস্বস্তি লাগল।",
+        english: "After taking the medicine, he actually felt worse."),
+    GrammarExample(
+        chinese: "这次失败反而让我学到了很多。",
+        pinyin: "Zhè cì shībài fǎn'ér ràng wǒ xué dào le hěn duō.",
+        bengali: "এই ব্যর্থতা বরং আমাকে অনেক কিছু শিখিয়েছে।",
+        english: "This failure actually taught me a lot."),
+    GrammarExample(
+        chinese: "他没有变慢，反而跑得更快了。",
+        pinyin: "Tā méiyǒu biàn màn, fǎn'ér pǎo de gèng kuài le.",
+        bengali: "সে ধীর হয়নি, বরং আরও দ্রুত দৌড়েছে।",
+        english: "He did not slow down; instead, he ran faster."),
+  ],
+  "এবং পাশাপাশি": [
+    GrammarExample(
+        chinese: "他会说中文，并且会写汉字。",
+        pinyin: "Tā huì shuō Zhōngwén, bìngqiě huì xiě Hànzì.",
+        bengali: "সে চীনা বলতে পারে এবং পাশাপাশি চীনা অক্ষরও লিখতে পারে।",
+        english: "He can speak Chinese and can also write Chinese characters."),
+    GrammarExample(
+        chinese: "这家餐厅环境很好，并且价格合理。",
+        pinyin: "Zhè jiā cāntīng huánjìng hěn hǎo, bìngqiě jiàgé hélǐ.",
+        bengali: "এই রেস্তোরাঁর পরিবেশ ভালো এবং দামও যুক্তিসংগত।",
+        english:
+            "This restaurant has a nice environment and reasonable prices."),
+    GrammarExample(
+        chinese: "她工作认真，并且非常有耐心。",
+        pinyin: "Tā gōngzuò rènzhēn, bìngqiě fēicháng yǒu nàixīn.",
+        bengali: "সে মনোযোগ দিয়ে কাজ করে এবং খুব ধৈর্যশীল।",
+        english: "She works carefully and is very patient."),
+    GrammarExample(
+        chinese: "我们需要学习新知识，并且不断练习。",
+        pinyin: "Wǒmen xūyào xuéxí xīn zhīshi, bìngqiě búduàn liànxí.",
+        bengali: "আমাদের নতুন জ্ঞান শিখতে হবে এবং নিয়মিত অনুশীলন করতে হবে।",
+        english: "We need to learn new knowledge and keep practicing."),
+    GrammarExample(
+        chinese: "这个手机很轻，并且电池很耐用。",
+        pinyin: "Zhège shǒujī hěn qīng, bìngqiě diànchí hěn nàiyòng.",
+        bengali: "এই ফোনটি হালকা এবং এর ব্যাটারিও দীর্ঘস্থায়ী।",
+        english: "This phone is light and its battery lasts a long time."),
+    GrammarExample(
+        chinese: "他不仅帮助了我，并且给了我很多建议。",
+        pinyin: "Tā bùjǐn bāngzhù le wǒ, bìngqiě gěi le wǒ hěn duō jiànyì.",
+        bengali: "সে শুধু আমাকে সাহায্যই করেনি, পাশাপাশি অনেক পরামর্শও দিয়েছে।",
+        english: "He not only helped me but also gave me a lot of advice."),
+    GrammarExample(
+        chinese: "这本书内容丰富，并且容易理解。",
+        pinyin: "Zhè běn shū nèiróng fēngfù, bìngqiě róngyì lǐjiě.",
+        bengali: "এই বইটির বিষয়বস্তু সমৃদ্ধ এবং সহজে বোঝা যায়।",
+        english: "This book is informative and easy to understand."),
+    GrammarExample(
+        chinese: "我们应该保护环境，并且节约资源。",
+        pinyin: "Wǒmen yīnggāi bǎohù huánjìng, bìngqiě jiéyuē zīyuán.",
+        bengali: "আমাদের পরিবেশ রক্ষা করা এবং সম্পদ সাশ্রয় করা উচিত।",
+        english: "We should protect the environment and conserve resources."),
+  ],
+  "এখনও বা তবুও": [
+    GrammarExample(
+        chinese: "虽然很晚了，他仍然在工作。",
+        pinyin: "Suīrán hěn wǎn le, tā réngrán zài gōngzuò.",
+        bengali: "অনেক রাত হলেও সে এখনও কাজ করছে।",
+        english: "Although it is late, he is still working."),
+    GrammarExample(
+        chinese: "下了这么久的雨，天气仍然很热。",
+        pinyin: "Xià le zhème jiǔ de yǔ, tiānqì réngrán hěn rè.",
+        bengali: "এতক্ষণ বৃষ্টি হওয়ার পরও আবহাওয়া এখনও গরম।",
+        english: "Even after so much rain, the weather is still hot."),
+    GrammarExample(
+        chinese: "他已经三十岁了，仍然住在父母家。",
+        pinyin: "Tā yǐjīng sānshí suì le, réngrán zhù zài fùmǔ jiā.",
+        bengali: "তার বয়স ইতিমধ্যে ত্রিশ, তবুও সে বাবা-মায়ের বাড়িতে থাকে।",
+        english: "He is already thirty, but he still lives with his parents."),
+    GrammarExample(
+        chinese: "我问了他很多次，他仍然没有回答。",
+        pinyin: "Wǒ wèn le tā hěn duō cì, tā réngrán méiyǒu huídá.",
+        bengali: "আমি তাকে অনেকবার জিজ্ঞেস করেছি, তবুও সে উত্তর দেয়নি।",
+        english: "I asked him many times, but he still did not answer."),
+    GrammarExample(
+        chinese: "经过多次练习，她仍然觉得这个发音很难。",
+        pinyin: "Jīngguò duō cì liànxí, tā réngrán juéde zhège fāyīn hěn nán.",
+        bengali: "অনেকবার অনুশীলনের পরও তার এই উচ্চারণটি কঠিন মনে হয়।",
+        english:
+            "After practicing many times, she still finds this pronunciation difficult."),
+    GrammarExample(
+        chinese: "尽管遇到了困难，我们仍然没有放弃。",
+        pinyin: "Jǐnguǎn yùdào le kùnnan, wǒmen réngrán méiyǒu fàngqì.",
+        bengali: "সমস্যার মুখোমুখি হলেও আমরা এখনও হাল ছাড়িনি।",
+        english: "Although we faced difficulties, we still did not give up."),
+    GrammarExample(
+        chinese: "这家店已经开了很多年，生意仍然很好。",
+        pinyin:
+            "Zhè jiā diàn yǐjīng kāi le hěn duō nián, shēngyi réngrán hěn hǎo.",
+        bengali: "এই দোকানটি অনেক বছর ধরে চলছে, তবুও ব্যবসা এখনও ভালো।",
+        english:
+            "This shop has been open for many years, and business is still good."),
+    GrammarExample(
+        chinese: "问题还没有解决，我们仍然需要时间。",
+        pinyin: "Wèntí hái méiyǒu jiějué, wǒmen réngrán xūyào shíjiān.",
+        bengali: "সমস্যার সমাধান এখনও হয়নি, আমাদের এখনও সময় প্রয়োজন।",
+        english: "The problem has not been solved; we still need time."),
+  ],
+  "দেখতে মনে হয়": [
+    GrammarExample(
+        chinese: "今天看起来很冷。",
+        pinyin: "Jīntiān kàn qǐlái hěn lěng.",
+        bengali: "আজ দেখতে বেশ ঠান্ডা মনে হচ্ছে।",
+        english: "It looks quite cold today."),
+    GrammarExample(
+        chinese: "他看起来有点儿累。",
+        pinyin: "Tā kàn qǐlái yǒudiǎnr lèi.",
+        bengali: "তাকে দেখতে কিছুটা ক্লান্ত মনে হচ্ছে।",
+        english: "He looks a little tired."),
+    GrammarExample(
+        chinese: "这道菜看起来很好吃。",
+        pinyin: "Zhè dào cài kàn qǐlái hěn hǎochī.",
+        bengali: "এই খাবারটি দেখতে খুব সুস্বাদু মনে হচ্ছে।",
+        english: "This dish looks delicious."),
+    GrammarExample(
+        chinese: "这个问题看起来很简单。",
+        pinyin: "Zhège wèntí kàn qǐlái hěn jiǎndān.",
+        bengali: "এই প্রশ্নটি দেখতে খুব সহজ মনে হচ্ছে।",
+        english: "This question looks very simple."),
+    GrammarExample(
+        chinese: "她看起来很年轻。",
+        pinyin: "Tā kàn qǐlái hěn niánqīng.",
+        bengali: "তাকে দেখতে বেশ তরুণ মনে হয়।",
+        english: "She looks quite young."),
+    GrammarExample(
+        chinese: "外面看起来要下雨了。",
+        pinyin: "Wàimiàn kàn qǐlái yào xiàyǔ le.",
+        bengali: "বাইরে দেখে মনে হচ্ছে বৃষ্টি হবে।",
+        english: "It looks like it is going to rain outside."),
+    GrammarExample(
+        chinese: "这本书看起来很有意思。",
+        pinyin: "Zhè běn shū kàn qǐlái hěn yǒu yìsi.",
+        bengali: "এই বইটি দেখতে বেশ মজার মনে হচ্ছে।",
+        english: "This book looks interesting."),
+    GrammarExample(
+        chinese: "他看起来不太高兴。",
+        pinyin: "Tā kàn qǐlái bú tài gāoxìng.",
+        bengali: "তাকে দেখতে খুব একটা খুশি মনে হচ্ছে না।",
+        english: "He does not look very happy."),
+  ],
+  "কাজটি কীভাবে হলো": [
+    GrammarExample(
+        chinese: "他说汉语说得很好。",
+        pinyin: "Tā shuō Hànyǔ shuō de hěn hǎo.",
+        bengali: "সে খুব ভালো চীনা ভাষা বলে।",
+        english: "He speaks Chinese very well."),
+    GrammarExample(
+        chinese: "你跑得真快。",
+        pinyin: "Nǐ pǎo de zhēn kuài.",
+        bengali: "তুমি সত্যিই খুব দ্রুত দৌড়াও।",
+        english: "You run really fast."),
+    GrammarExample(
+        chinese: "她唱歌唱得很好听。",
+        pinyin: "Tā chàng gē chàng de hěn hǎotīng.",
+        bengali: "সে খুব সুন্দর গান গায়।",
+        english: "She sings beautifully."),
+    GrammarExample(
+        chinese: "弟弟睡得很早。",
+        pinyin: "Dìdi shuì de hěn zǎo.",
+        bengali: "ছোট ভাই খুব তাড়াতাড়ি ঘুমায়।",
+        english: "My younger brother goes to sleep very early."),
+    GrammarExample(
+        chinese: "你写汉字写得很漂亮。",
+        pinyin: "Nǐ xiě Hànzì xiě de hěn piàoliang.",
+        bengali: "তুমি খুব সুন্দর চীনা অক্ষর লেখো।",
+        english: "You write Chinese characters beautifully."),
+    GrammarExample(
+        chinese: "他们玩得很开心。",
+        pinyin: "Tāmen wán de hěn kāixīn.",
+        bengali: "তারা খুব আনন্দ করে সময় কাটিয়েছে।",
+        english: "They had a great time."),
+    GrammarExample(
+        chinese: "老师讲课讲得很清楚。",
+        pinyin: "Lǎoshī jiǎng kè jiǎng de hěn qīngchu.",
+        bengali: "শিক্ষক খুব পরিষ্কারভাবে পড়ান।",
+        english: "The teacher explains the lessons very clearly."),
+    GrammarExample(
+        chinese: "他工作得非常认真。",
+        pinyin: "Tā gōngzuò de fēicháng rènzhēn.",
+        bengali: "সে খুব মনোযোগ দিয়ে কাজ করে।",
+        english: "He works very carefully."),
+  ],
+  "ফলাফল বোঝানো ক্রিয়া": [
+    GrammarExample(
+        chinese: "我听懂了老师的话。",
+        pinyin: "Wǒ tīng dǒng le lǎoshī de huà.",
+        bengali: "আমি শিক্ষকের কথা শুনে বুঝেছি।",
+        english: "I understood what the teacher said."),
+    GrammarExample(
+        chinese: "他终于做完了作业。",
+        pinyin: "Tā zhōngyú zuò wán le zuòyè.",
+        bengali: "সে অবশেষে বাড়ির কাজ শেষ করেছে।",
+        english: "He finally finished his homework."),
+    GrammarExample(
+        chinese: "我找到我的手机了。",
+        pinyin: "Wǒ zhǎodào wǒ de shǒujī le.",
+        bengali: "আমি আমার মোবাইলটি খুঁজে পেয়েছি।",
+        english: "I found my phone."),
+    GrammarExample(
+        chinese: "你听见外面的声音了吗？",
+        pinyin: "Nǐ tīngjiàn wàimiàn de shēngyīn le ma?",
+        bengali: "তুমি কি বাইরের শব্দ শুনতে পেয়েছ?",
+        english: "Did you hear the sound outside?"),
+    GrammarExample(
+        chinese: "请关上门。",
+        pinyin: "Qǐng guān shàng mén.",
+        bengali: "অনুগ্রহ করে দরজাটি বন্ধ করুন।",
+        english: "Please close the door."),
+    GrammarExample(
+        chinese: "我已经写好了这封信。",
+        pinyin: "Wǒ yǐjīng xiě hǎo le zhè fēng xìn.",
+        bengali: "আমি ইতিমধ্যে চিঠিটি লেখা শেষ করেছি।",
+        english: "I have finished writing this letter."),
+    GrammarExample(
+        chinese: "她把衣服洗干净了。",
+        pinyin: "Tā bǎ yīfu xǐ gānjìng le.",
+        bengali: "সে কাপড়গুলো পরিষ্কার করে ধুয়েছে।",
+        english: "She washed the clothes clean."),
+    GrammarExample(
+        chinese: "我们买到了两张电影票。",
+        pinyin: "Wǒmen mǎidào le liǎng zhāng diànyǐng piào.",
+        bengali: "আমরা দুটি সিনেমার টিকিট কিনতে পেরেছি।",
+        english: "We managed to buy two movie tickets."),
+  ],
+  "দিক নির্দেশক পরিপূরক": [
+    GrammarExample(
+        chinese: "请进来坐吧。",
+        pinyin: "Qǐng jìnlái zuò ba.",
+        bengali: "ভেতরে এসে বসুন।",
+        english: "Please come in and sit down."),
+    GrammarExample(
+        chinese: "他走出教室了。",
+        pinyin: "Tā zǒu chū jiàoshì le.",
+        bengali: "সে শ্রেণিকক্ষ থেকে বেরিয়ে গেছে।",
+        english: "He has walked out of the classroom."),
+    GrammarExample(
+        chinese: "请把书拿过来。",
+        pinyin: "Qǐng bǎ shū ná guòlái.",
+        bengali: "অনুগ্রহ করে বইটি এখানে নিয়ে আসুন।",
+        english: "Please bring the book over here."),
+    GrammarExample(
+        chinese: "孩子跑上楼去了。",
+        pinyin: "Háizi pǎo shàng lóu qù le.",
+        bengali: "শিশুটি দৌড়ে ওপরতলায় চলে গেছে।",
+        english: "The child ran upstairs."),
+    GrammarExample(
+        chinese: "他从椅子上站起来了。",
+        pinyin: "Tā cóng yǐzi shàng zhàn qǐlái le.",
+        bengali: "সে চেয়ার থেকে উঠে দাঁড়িয়েছে।",
+        english: "He stood up from the chair."),
+    GrammarExample(
+        chinese: "请把垃圾拿出去。",
+        pinyin: "Qǐng bǎ lājī ná chūqu.",
+        bengali: "অনুগ্রহ করে আবর্জনা বাইরে নিয়ে যান।",
+        english: "Please take the rubbish outside."),
+    GrammarExample(
+        chinese: "爸爸从公司回来了。",
+        pinyin: "Bàba cóng gōngsī huílái le.",
+        bengali: "বাবা অফিস থেকে ফিরে এসেছেন।",
+        english: "Dad has returned from the office."),
+    GrammarExample(
+        chinese: "小猫跳下来了。",
+        pinyin: "Xiǎomāo tiào xiàlái le.",
+        bengali: "ছোট বিড়ালটি লাফ দিয়ে নিচে নেমে এসেছে।",
+        english: "The kitten jumped down."),
+  ],
+  "এমনকি তাও": [
+    GrammarExample(
+        chinese: "他甚至不知道我的名字。",
+        pinyin: "Tā shènzhì bù zhīdào wǒ de míngzi.",
+        bengali: "সে এমনকি আমার নামও জানে না।",
+        english: "He does not even know my name."),
+    GrammarExample(
+        chinese: "她甚至没有看我一眼。",
+        pinyin: "Tā shènzhì méiyǒu kàn wǒ yì yǎn.",
+        bengali: "সে এমনকি আমার দিকে একবারও তাকায়নি।",
+        english: "She did not even look at me once."),
+    GrammarExample(
+        chinese: "这个孩子甚至会说三种语言。",
+        pinyin: "Zhège háizi shènzhì huì shuō sān zhǒng yǔyán.",
+        bengali: "এই শিশুটি এমনকি তিনটি ভাষাও বলতে পারে।",
+        english: "This child can even speak three languages."),
+    GrammarExample(
+        chinese: "他工作得很忙，甚至忘了吃午饭。",
+        pinyin: "Tā gōngzuò de hěn máng, shènzhì wàng le chī wǔfàn.",
+        bengali: "সে কাজে এত ব্যস্ত ছিল যে এমনকি দুপুরের খাবারও ভুলে গেছে।",
+        english: "He was so busy working that he even forgot to eat lunch."),
+    GrammarExample(
+        chinese: "我连这个简单的问题都不会，甚至更难的题也不会。",
+        pinyin:
+            "Wǒ lián zhège jiǎndān de wèntí dōu bú huì, shènzhì gèng nán de tí yě bú huì.",
+        bengali:
+            "আমি এই সহজ প্রশ্নটিও পারি না, এমনকি আরও কঠিন প্রশ্নও পারি না।",
+        english:
+            "I cannot answer this simple question, and I cannot even answer harder ones."),
+    GrammarExample(
+        chinese: "他甚至为了学习放弃了假期。",
+        pinyin: "Tā shènzhì wèile xuéxí fàngqì le jiàqī.",
+        bengali: "সে এমনকি পড়াশোনার জন্য ছুটিও ত্যাগ করেছে।",
+        english: "He even gave up his holiday to study."),
+    GrammarExample(
+        chinese: "这件事甚至影响了整个家庭。",
+        pinyin: "Zhè jiàn shì shènzhì yǐngxiǎng le zhěnggè jiātíng.",
+        bengali: "এই ঘটনাটি এমনকি পুরো পরিবারকেও প্রভাবিত করেছে।",
+        english: "This incident even affected the whole family."),
+    GrammarExample(
+        chinese: "他太累了，甚至站不起来。",
+        pinyin: "Tā tài lèi le, shènzhì zhàn bù qǐlái.",
+        bengali: "সে এত ক্লান্ত যে এমনকি দাঁড়াতেও পারছে না।",
+        english: "He is so tired that he cannot even stand up."),
+  ],
+  "অন্তত": [
+    GrammarExample(
+      chinese: "每天至少学习半个小时。",
+      pinyin: "Měitiān zhìshǎo xuéxí bàn ge xiǎoshí.",
+      bengali: "প্রতিদিন অন্তত আধা ঘণ্টা পড়াশোনা করো।",
+      english: "Study for at least half an hour every day.",
+    ),
+    GrammarExample(
+      chinese: "我至少需要两天时间。",
+      pinyin: "Wǒ zhìshǎo xūyào liǎng tiān shíjiān.",
+      bengali: "আমার অন্তত দুই দিন সময় প্রয়োজন।",
+      english: "I need at least two days.",
+    ),
+    GrammarExample(
+      chinese: "这里至少有五十个人。",
+      pinyin: "Zhèlǐ zhìshǎo yǒu wǔshí ge rén.",
+      bengali: "এখানে অন্তত পঞ্চাশ জন মানুষ আছে।",
+      english: "There are at least fifty people here.",
+    ),
+    GrammarExample(
+      chinese: "你至少应该试一次。",
+      pinyin: "Nǐ zhìshǎo yīnggāi shì yí cì.",
+      bengali: "তোমার অন্তত একবার চেষ্টা করা উচিত।",
+      english: "You should try at least once.",
+    ),
+    GrammarExample(
+      chinese: "这本书至少有三百页。",
+      pinyin: "Zhè běn shū zhìshǎo yǒu sānbǎi yè.",
+      bengali: "এই বইটিতে অন্তত তিনশ পৃষ্ঠা আছে।",
+      english: "This book has at least three hundred pages.",
+    ),
+    GrammarExample(
+      chinese: "我们至少要提前十分钟到。",
+      pinyin: "Wǒmen zhìshǎo yào tíqián shí fēnzhōng dào.",
+      bengali: "আমাদের অন্তত দশ মিনিট আগে পৌঁছাতে হবে।",
+      english: "We need to arrive at least ten minutes early.",
+    ),
+    GrammarExample(
+      chinese: "他至少会说三种语言。",
+      pinyin: "Tā zhìshǎo huì shuō sān zhǒng yǔyán.",
+      bengali: "সে অন্তত তিনটি ভাষা বলতে পারে।",
+      english: "He can speak at least three languages.",
+    ),
+    GrammarExample(
+      chinese: "请至少带一张照片。",
+      pinyin: "Qǐng zhìshǎo dài yì zhāng zhàopiàn.",
+      bengali: "অনুগ্রহ করে অন্তত একটি ছবি নিয়ে এসো।",
+      english: "Please bring at least one photo.",
+    ),
+  ],
+  "মোট": [
+    GrammarExample(
+      chinese: "我们一共五个人。",
+      pinyin: "Wǒmen yígòng wǔ ge rén.",
+      bengali: "আমরা মোট পাঁচজন।",
+      english: "There are five of us in total.",
+    ),
+    GrammarExample(
+      chinese: "这些书一共多少钱？",
+      pinyin: "Zhèxiē shū yígòng duōshao qián?",
+      bengali: "এই বইগুলোর মোট দাম কত?",
+      english: "How much are these books altogether?",
+    ),
+    GrammarExample(
+      chinese: "我一共买了三件衣服。",
+      pinyin: "Wǒ yígòng mǎi le sān jiàn yīfu.",
+      bengali: "আমি মোট তিনটি পোশাক কিনেছি।",
+      english: "I bought three pieces of clothing in total.",
+    ),
+    GrammarExample(
+      chinese: "今天一共来了二十个学生。",
+      pinyin: "Jīntiān yígòng lái le èrshí ge xuésheng.",
+      bengali: "আজ মোট বিশজন শিক্ষার্থী এসেছে।",
+      english: "Twenty students came in total today.",
+    ),
+    GrammarExample(
+      chinese: "这次旅行一共花了五千块钱。",
+      pinyin: "Zhè cì lǚxíng yígòng huā le wǔqiān kuài qián.",
+      bengali: "এই ভ্রমণে মোট পাঁচ হাজার ইউয়ান খরচ হয়েছে।",
+      english: "This trip cost five thousand yuan in total.",
+    ),
+    GrammarExample(
+      chinese: "我们一共等了一个小时。",
+      pinyin: "Wǒmen yígòng děng le yí ge xiǎoshí.",
+      bengali: "আমরা মোট এক ঘণ্টা অপেক্ষা করেছি।",
+      english: "We waited for one hour altogether.",
+    ),
+    GrammarExample(
+      chinese: "这两个箱子一共多重？",
+      pinyin: "Zhè liǎng ge xiāngzi yígòng duō zhòng?",
+      bengali: "এই দুটি বাক্সের মোট ওজন কত?",
+      english: "How much do these two boxes weigh altogether?",
+    ),
+    GrammarExample(
+      chinese: "他们一共完成了十项任务。",
+      pinyin: "Tāmen yígòng wánchéng le shí xiàng rènwu.",
+      bengali: "তারা মোট দশটি কাজ সম্পন্ন করেছে।",
+      english: "They completed ten tasks in total.",
+    ),
+  ],
+  "ভুল করে ভেবেছিলাম": [
+    GrammarExample(
+      chinese: "我以为你今天不来。",
+      pinyin: "Wǒ yǐwéi nǐ jīntiān bù lái.",
+      bengali: "আমি ভেবেছিলাম তুমি আজ আসবে না।",
+      english: "I thought you weren't coming today.",
+    ),
+    GrammarExample(
+      chinese: "我以为他是老师。",
+      pinyin: "Wǒ yǐwéi tā shì lǎoshī.",
+      bengali: "আমি ভেবেছিলাম তিনি শিক্ষক।",
+      english: "I thought he was a teacher.",
+    ),
+    GrammarExample(
+      chinese: "她以为我已经回家了。",
+      pinyin: "Tā yǐwéi wǒ yǐjīng huí jiā le.",
+      bengali: "সে ভেবেছিল আমি ইতিমধ্যে বাড়ি ফিরে গেছি।",
+      english: "She thought I had already gone home.",
+    ),
+    GrammarExample(
+      chinese: "我以为这里可以停车。",
+      pinyin: "Wǒ yǐwéi zhèlǐ kěyǐ tíngchē.",
+      bengali: "আমি ভেবেছিলাম এখানে গাড়ি পার্ক করা যায়।",
+      english: "I thought we could park here.",
+    ),
+    GrammarExample(
+      chinese: "他以为考试很容易。",
+      pinyin: "Tā yǐwéi kǎoshì hěn róngyì.",
+      bengali: "সে ভেবেছিল পরীক্ষাটি খুব সহজ।",
+      english: "He thought the exam would be easy.",
+    ),
+    GrammarExample(
+      chinese: "我们以为火车已经开走了。",
+      pinyin: "Wǒmen yǐwéi huǒchē yǐjīng kāizǒu le.",
+      bengali: "আমরা ভেবেছিলাম ট্রেনটি ইতিমধ্যে চলে গেছে।",
+      english: "We thought the train had already left.",
+    ),
+    GrammarExample(
+      chinese: "我以前以为中文很难。",
+      pinyin: "Wǒ yǐqián yǐwéi Zhōngwén hěn nán.",
+      bengali: "আগে আমি ভাবতাম চীনা ভাষা খুব কঠিন।",
+      english: "I used to think Chinese was very difficult.",
+    ),
+    GrammarExample(
+      chinese: "她以为这个礼物是给她的。",
+      pinyin: "Tā yǐwéi zhège lǐwù shì gěi tā de.",
+      bengali: "সে ভেবেছিল উপহারটি তার জন্য।",
+      english: "She thought the gift was for her.",
+    ),
+  ],
+  "শেষ পর্যন্ত": [
+    GrammarExample(
+      chinese: "我终于找到我的手机了。",
+      pinyin: "Wǒ zhōngyú zhǎodào wǒ de shǒujī le.",
+      bengali: "শেষ পর্যন্ত আমি আমার মোবাইল খুঁজে পেয়েছি।",
+      english: "I finally found my phone.",
+    ),
+    GrammarExample(
+      chinese: "他终于通过了考试。",
+      pinyin: "Tā zhōngyú tōngguò le kǎoshì.",
+      bengali: "শেষ পর্যন্ত সে পরীক্ষায় পাস করেছে।",
+      english: "He finally passed the exam.",
+    ),
+    GrammarExample(
+      chinese: "我们终于到家了。",
+      pinyin: "Wǒmen zhōngyú dào jiā le.",
+      bengali: "শেষ পর্যন্ত আমরা বাড়িতে পৌঁছেছি।",
+      english: "We finally arrived home.",
+    ),
+    GrammarExample(
+      chinese: "雨终于停了。",
+      pinyin: "Yǔ zhōngyú tíng le.",
+      bengali: "শেষ পর্যন্ত বৃষ্টি থেমেছে।",
+      english: "The rain has finally stopped.",
+    ),
+    GrammarExample(
+      chinese: "她终于学会开车了。",
+      pinyin: "Tā zhōngyú xuéhuì kāichē le.",
+      bengali: "শেষ পর্যন্ত সে গাড়ি চালানো শিখেছে।",
+      english: "She finally learned to drive.",
+    ),
+    GrammarExample(
+      chinese: "我等了很久，他终于来了。",
+      pinyin: "Wǒ děng le hěn jiǔ, tā zhōngyú lái le.",
+      bengali: "আমি অনেকক্ষণ অপেক্ষা করেছি, শেষ পর্যন্ত সে এসেছে।",
+      english: "I waited a long time, and he finally came.",
+    ),
+    GrammarExample(
+      chinese: "经过努力，我们终于成功了。",
+      pinyin: "Jīngguò nǔlì, wǒmen zhōngyú chénggōng le.",
+      bengali: "চেষ্টার পর শেষ পর্যন্ত আমরা সফল হয়েছি।",
+      english: "After working hard, we finally succeeded.",
+    ),
+    GrammarExample(
+      chinese: "电影终于开始了。",
+      pinyin: "Diànyǐng zhōngyú kāishǐ le.",
+      bengali: "শেষ পর্যন্ত সিনেমা শুরু হয়েছে।",
+      english: "The movie has finally started.",
+    ),
+  ],
+  "চালিয়ে যাওয়া": [
+    GrammarExample(
+      chinese: "请继续说。",
+      pinyin: "Qǐng jìxù shuō.",
+      bengali: "অনুগ্রহ করে কথা চালিয়ে যাও।",
+      english: "Please continue speaking.",
+    ),
+    GrammarExample(
+      chinese: "我们明天继续学习。",
+      pinyin: "Wǒmen míngtiān jìxù xuéxí.",
+      bengali: "আমরা আগামীকাল পড়াশোনা চালিয়ে যাব।",
+      english: "We will continue studying tomorrow.",
+    ),
+    GrammarExample(
+      chinese: "下雨了，但是比赛继续进行。",
+      pinyin: "Xiàyǔ le, dànshì bǐsài jìxù jìnxíng.",
+      bengali: "বৃষ্টি হচ্ছে, কিন্তু প্রতিযোগিতা চলতে থাকবে।",
+      english: "It's raining, but the competition will continue.",
+    ),
+    GrammarExample(
+      chinese: "他决定继续工作。",
+      pinyin: "Tā juédìng jìxù gōngzuò.",
+      bengali: "সে কাজ চালিয়ে যাওয়ার সিদ্ধান্ত নিয়েছে।",
+      english: "He decided to continue working.",
+    ),
+    GrammarExample(
+      chinese: "请继续往前走。",
+      pinyin: "Qǐng jìxù wǎng qián zǒu.",
+      bengali: "অনুগ্রহ করে সামনে এগিয়ে যেতে থাকো।",
+      english: "Please continue walking forward.",
+    ),
+    GrammarExample(
+      chinese: "如果你累了，我们可以休息一下再继续。",
+      pinyin: "Rúguǒ nǐ lèi le, wǒmen kěyǐ xiūxi yíxià zài jìxù.",
+      bengali: "তুমি ক্লান্ত হলে একটু বিশ্রাম নিয়ে আবার চালিয়ে যেতে পারি।",
+      english: "If you're tired, we can rest a little and then continue.",
+    ),
+    GrammarExample(
+      chinese: "她每天继续练习中文。",
+      pinyin: "Tā měitiān jìxù liànxí Zhōngwén.",
+      bengali: "সে প্রতিদিন চীনা ভাষার অনুশীলন চালিয়ে যায়।",
+      english: "She continues practicing Chinese every day.",
+    ),
+    GrammarExample(
+      chinese: "故事还会继续。",
+      pinyin: "Gùshi hái huì jìxù.",
+      bengali: "গল্পটি এখনও চলতে থাকবে।",
+      english: "The story will continue.",
+    ),
+  ],
+  "একে অপরকে": [
+    GrammarExample(
+      chinese: "我们应该互相帮助。",
+      pinyin: "Wǒmen yīnggāi hùxiāng bāngzhù.",
+      bengali: "আমাদের একে অপরকে সাহায্য করা উচিত।",
+      english: "We should help each other.",
+    ),
+    GrammarExample(
+      chinese: "他们互相认识。",
+      pinyin: "Tāmen hùxiāng rènshi.",
+      bengali: "তারা একে অপরকে চেনে।",
+      english: "They know each other.",
+    ),
+    GrammarExample(
+      chinese: "朋友之间要互相信任。",
+      pinyin: "Péngyou zhījiān yào hùxiāng xìnrèn.",
+      bengali: "বন্ধুদের মধ্যে একে অপরের প্রতি বিশ্বাস থাকা উচিত।",
+      english: "Friends should trust each other.",
+    ),
+    GrammarExample(
+      chinese: "我们互相学习。",
+      pinyin: "Wǒmen hùxiāng xuéxí.",
+      bengali: "আমরা একে অপরের কাছ থেকে শিখি।",
+      english: "We learn from each other.",
+    ),
+    GrammarExample(
+      chinese: "两个孩子互相看着。",
+      pinyin: "Liǎng ge háizi hùxiāng kànzhe.",
+      bengali: "দুটি শিশু একে অপরের দিকে তাকিয়ে আছে।",
+      english: "The two children are looking at each other.",
+    ),
+    GrammarExample(
+      chinese: "他们互相交换了电话号码。",
+      pinyin: "Tāmen hùxiāng jiāohuàn le diànhuà hàomǎ.",
+      bengali: "তারা একে অপরের সঙ্গে ফোন নম্বর বিনিময় করেছে।",
+      english: "They exchanged phone numbers with each other.",
+    ),
+    GrammarExample(
+      chinese: "我们应该互相尊重。",
+      pinyin: "Wǒmen yīnggāi hùxiāng zūnzhòng.",
+      bengali: "আমাদের একে অপরকে সম্মান করা উচিত।",
+      english: "We should respect each other.",
+    ),
+    GrammarExample(
+      chinese: "这两个国家互相支持。",
+      pinyin: "Zhè liǎng ge guójiā hùxiāng zhīchí.",
+      bengali: "এই দুটি দেশ একে অপরকে সমর্থন করে।",
+      english: "These two countries support each other.",
+    ),
+  ],
+  "শুধু এইটুকু": [
+    GrammarExample(
+      chinese: "这只不过是一个小问题。",
+      pinyin: "Zhè zhǐbuguò shì yí ge xiǎo wèntí.",
+      bengali: "এটি শুধু একটি ছোট সমস্যা মাত্র।",
+      english: "This is just a small problem.",
+    ),
+    GrammarExample(
+      chinese: "他只不过开了一个玩笑。",
+      pinyin: "Tā zhǐbuguò kāi le yí ge wánxiào.",
+      bengali: "সে শুধু একটি মজা করেছে মাত্র।",
+      english: "He was only making a joke.",
+    ),
+    GrammarExample(
+      chinese: "这只不过是我的想法。",
+      pinyin: "Zhè zhǐbuguò shì wǒ de xiǎngfǎ.",
+      bengali: "এটি শুধু আমার মতামত মাত্র।",
+      english: "This is just my opinion.",
+    ),
+    GrammarExample(
+      chinese: "我只不过想帮你。",
+      pinyin: "Wǒ zhǐbuguò xiǎng bāng nǐ.",
+      bengali: "আমি শুধু তোমাকে সাহায্য করতে চেয়েছিলাম।",
+      english: "I only wanted to help you.",
+    ),
+    GrammarExample(
+      chinese: "这只不过是开始。",
+      pinyin: "Zhè zhǐbuguò shì kāishǐ.",
+      bengali: "এটি তো কেবল শুরু মাত্র।",
+      english: "This is only the beginning.",
+    ),
+    GrammarExample(
+      chinese: "他只不过晚到了五分钟。",
+      pinyin: "Tā zhǐbuguò wǎn dào le wǔ fēnzhōng.",
+      bengali: "সে মাত্র পাঁচ মিনিট দেরিতে এসেছে।",
+      english: "He was only five minutes late.",
+    ),
+    GrammarExample(
+      chinese: "这只不过是一个误会。",
+      pinyin: "Zhè zhǐbuguò shì yí ge wùhuì.",
+      bengali: "এটি শুধু একটি ভুল বোঝাবুঝি মাত্র।",
+      english: "This is just a misunderstanding.",
+    ),
+    GrammarExample(
+      chinese: "我只不过问了一个问题。",
+      pinyin: "Wǒ zhǐbuguò wèn le yí ge wèntí.",
+      bengali: "আমি শুধু একটি প্রশ্ন করেছিলাম মাত্র।",
+      english: "I only asked one question.",
+    ),
+  ],
 };
 const Map<String, List<String>> _grammarOriginalEnglish = {
   '是 — পরিচয় বোঝানো': [
@@ -5061,16 +6351,25 @@ class _GrammarLessonScreenState extends State<GrammarLessonScreen> {
                       style: const TextStyle(
                           fontWeight: FontWeight.w800, fontSize: 15)),
                   const SizedBox(height: 8),
-                  for (int i = 0; i < lesson.options.length; i++)
-                    RadioListTile<int>(
-                      value: i,
-                      groupValue: _selectedAnswer,
-                      contentPadding: EdgeInsets.zero,
-                      title: Text(lesson.options[i]),
-                      onChanged: _submitted
-                          ? null
-                          : (value) => setState(() => _selectedAnswer = value),
+                  RadioGroup<int>(
+                    groupValue: _selectedAnswer,
+                    onChanged: (value) {
+                      if (!_submitted && value != null) {
+                        setState(() => _selectedAnswer = value);
+                      }
+                    },
+                    child: Column(
+                      children: [
+                        for (int i = 0; i < lesson.options.length; i++)
+                          RadioListTile<int>(
+                            value: i,
+                            enabled: !_submitted,
+                            contentPadding: EdgeInsets.zero,
+                            title: Text(lesson.options[i]),
+                          ),
+                      ],
                     ),
+                  ),
                   const SizedBox(height: 8),
                   SizedBox(
                     width: double.infinity,
@@ -6250,8 +7549,8 @@ class _HomeDashboardScreenState extends State<_HomeDashboardScreen> {
     final hours = seconds ~/ 3600;
     final minutes = (seconds % 3600) ~/ 60;
 
-    if (hours > 0) return '${hours}ঘ ${minutes}মি';
-    return '${minutes} মিনিট';
+    if (hours > 0) return '$hoursঘ $minutesমি';
+    return '$minutes মিনিট';
   }
 
   String _formatTimer(int seconds) {
@@ -6361,7 +7660,34 @@ class _HomeDashboardScreenState extends State<_HomeDashboardScreen> {
           child: Container(
             constraints: const BoxConstraints(minHeight: 116),
             padding: const EdgeInsets.all(14),
-            decoration: premiumCardDecoration(radius: 21),
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [
+                  Color(0xFF064E3B),
+                  Color(0xFF047857),
+                  Color(0xFF065F46),
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+              borderRadius: BorderRadius.circular(21),
+              border: Border.all(
+                color: AppColors.gold.withValues(alpha: 0.75),
+                width: 1.3,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Color(0xFF064E3B).withValues(alpha: 0.30),
+                  blurRadius: 18,
+                  offset: Offset(0, 8),
+                ),
+                BoxShadow(
+                  color: AppColors.gold.withValues(alpha: 0.08),
+                  blurRadius: 12,
+                  spreadRadius: 1,
+                ),
+              ],
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -6503,6 +7829,12 @@ class _HomeDashboardScreenState extends State<_HomeDashboardScreen> {
                   title: 'Flashcards',
                   subtitle: 'শব্দ মনে রাখুন সহজে',
                   onTap: () => _openDrawerPage(const FlashcardScreen()),
+                ),
+                _drawerMenuItem(
+                  icon: Icons.picture_as_pdf_rounded,
+                  title: 'PDF Library',
+                  subtitle: 'PDF বই পড়ুন • প্রথম ১০ পৃষ্ঠা ফ্রি',
+                  onTap: () => _openDrawerPage(const PdfLibraryScreen()),
                 ),
                 const SizedBox(height: 18),
                 const Divider(
@@ -6990,7 +8322,34 @@ class _HomeDashboardScreenState extends State<_HomeDashboardScreen> {
           // Daily goal and lock feature
           Container(
             padding: const EdgeInsets.all(18),
-            decoration: premiumCardDecoration(),
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [
+                  Color(0xFF064E3B),
+                  Color(0xFF047857),
+                  Color(0xFF065F46),
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+              borderRadius: BorderRadius.circular(22),
+              border: Border.all(
+                color: AppColors.gold.withValues(alpha: 0.75),
+                width: 1.3,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Color(0xFF064E3B).withValues(alpha: 0.30),
+                  blurRadius: 18,
+                  offset: Offset(0, 8),
+                ),
+                BoxShadow(
+                  color: AppColors.gold.withValues(alpha: 0.08),
+                  blurRadius: 12,
+                  spreadRadius: 1,
+                ),
+              ],
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -7482,6 +8841,171 @@ class _HomeDashboardScreenState extends State<_HomeDashboardScreen> {
             onSeeAll: () => _openPage(const VideoLessonsScreen()),
           ),
 
+          const SizedBox(height: 14),
+
+          Material(
+            color: Colors.transparent,
+            child: InkWell(
+              borderRadius: BorderRadius.circular(19),
+              onTap: () => _openPage(const Hsk1DialoguesScreen()),
+              child: Ink(
+                padding: const EdgeInsets.all(17),
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    colors: [Color(0xFF17130B), Color(0xFF493714)],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                  borderRadius: BorderRadius.circular(19),
+                  border: Border.all(
+                    color: AppColors.gold.withValues(alpha: 0.65),
+                  ),
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 49,
+                      height: 49,
+                      decoration: BoxDecoration(
+                        color: AppColors.gold.withValues(alpha: 0.17),
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      child: const Icon(
+                        Icons.play_circle_fill_rounded,
+                        color: AppColors.gold,
+                        size: 31,
+                      ),
+                    ),
+                    const SizedBox(width: 13),
+                    const Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'HSK 1 Dialogues',
+                            style: TextStyle(
+                              color: AppColors.lightGold,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
+                          SizedBox(height: 5),
+                          Text(
+                            'নতুন Chinese conversation ভিডিও দেখুন',
+                            style: TextStyle(
+                              color: Colors.white70,
+                              fontSize: 11,
+                            ),
+                          ),
+                          SizedBox(height: 6),
+                          Text(
+                            'ভিডিও ক্লাস শুরু করুন  →',
+                            style: TextStyle(
+                              color: AppColors.gold,
+                              fontSize: 11,
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      color: AppColors.gold,
+                      size: 17,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+
+          const SizedBox(height: 14),
+
+          InkWell(
+            borderRadius: BorderRadius.circular(20),
+            onTap: () {
+              Navigator.push<void>(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (_) => const PdfLibraryScreen(),
+                ),
+              );
+            },
+            child: Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                  colors: [
+                    Color(0xFF29200D),
+                    Color(0xFF101010),
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                  color: AppColors.gold.withValues(alpha: 0.65),
+                ),
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    width: 54,
+                    height: 54,
+                    decoration: BoxDecoration(
+                      color: AppColors.gold.withValues(alpha: 0.14),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: const Icon(
+                      Icons.picture_as_pdf_rounded,
+                      color: AppColors.gold,
+                      size: 30,
+                    ),
+                  ),
+                  const SizedBox(width: 13),
+                  const Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'PDF Library',
+                          style: TextStyle(
+                            color: AppColors.lightGold,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w900,
+                          ),
+                        ),
+                        SizedBox(height: 5),
+                        Text(
+                          'চীনা শেখার PDF বই পড়ুন',
+                          style: TextStyle(
+                            color: Colors.white70,
+                            fontSize: 11,
+                          ),
+                        ),
+                        SizedBox(height: 6),
+                        Text(
+                          'প্রথম ১০ পৃষ্ঠা ফ্রি পড়ুন  →',
+                          style: TextStyle(
+                            color: AppColors.gold,
+                            fontSize: 11,
+                            fontWeight: FontWeight.w900,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    color: AppColors.gold,
+                    size: 17,
+                  ),
+                ],
+              ),
+            ),
+          ),
+
           const SizedBox(height: 24),
 
           Container(
@@ -7529,11 +9053,27 @@ class _HomeDashboardScreenState extends State<_HomeDashboardScreen> {
           Container(
             padding: const EdgeInsets.all(15),
             decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.surface,
+              gradient: const LinearGradient(
+                colors: [
+                  Color(0xFF7F1D1D),
+                  Color(0xFF991B1B),
+                  Color(0xFF450A0A),
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
               borderRadius: BorderRadius.circular(22),
               border: Border.all(
-                color: AppColors.gold.withValues(alpha: 0.65),
+                color: AppColors.gold.withValues(alpha: 0.85),
+                width: 1.3,
               ),
+              boxShadow: [
+                BoxShadow(
+                  color: Color(0xFF450A0A).withValues(alpha: 0.28),
+                  blurRadius: 18,
+                  offset: Offset(0, 8),
+                ),
+              ],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -7579,21 +9119,20 @@ class _HomeDashboardScreenState extends State<_HomeDashboardScreen> {
                   children: [
                     Expanded(
                       child: Text(
-                        [
-                              'জানুয়ারি',
-                              'ফেব্রুয়ারি',
-                              'মার্চ',
-                              'এপ্রিল',
-                              'মে',
-                              'জুন',
-                              'জুলাই',
-                              'আগস্ট',
-                              'সেপ্টেম্বর',
-                              'অক্টোবর',
-                              'নভেম্বর',
-                              'ডিসেম্বর',
-                            ][_calendarMonth.month - 1] +
-                            ' ${_calendarMonth.year}',
+                        '${[
+                          'জানুয়ারি',
+                          'ফেব্রুয়ারি',
+                          'মার্চ',
+                          'এপ্রিল',
+                          'মে',
+                          'জুন',
+                          'জুলাই',
+                          'আগস্ট',
+                          'সেপ্টেম্বর',
+                          'অক্টোবর',
+                          'নভেম্বর',
+                          'ডিসেম্বর',
+                        ][_calendarMonth.month - 1]} ${_calendarMonth.year}',
                         style: TextStyle(
                           color: foreground,
                           fontWeight: FontWeight.w900,
@@ -7715,11 +9254,6 @@ class _HomeDashboardScreenState extends State<_HomeDashboardScreen> {
                       },
                     ),
                   ],
-                ),
-                const SizedBox(height: 12),
-                Text(
-                  'সোনালি চিহ্ন = পড়াশোনা হয়েছে  •  লাল বর্ডার = আজ',
-                  style: TextStyle(color: muted, fontSize: 10),
                 ),
               ],
             ),
@@ -9349,7 +10883,7 @@ class _VocabularyScreenState extends State<VocabularyScreen> {
                   const Text(
                     'শেখা হয়েছে',
                     style: TextStyle(
-                      color: const Color(0xFF176B45),
+                      color: Color(0xFF176B45),
                       fontSize: 10,
                       fontWeight: FontWeight.w800,
                     ),
@@ -9393,7 +10927,7 @@ class _VocabularyScreenState extends State<VocabularyScreen> {
                       padding: EdgeInsets.all(12),
                       child: Icon(
                         Icons.volume_up_rounded,
-                        color: const Color(0xFF176B45),
+                        color: Color(0xFF176B45),
                         size: 23,
                       ),
                     ),
@@ -9726,6 +11260,31 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                       ),
                     ),
                   ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(14, 8, 14, 8),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: FilledButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => FlashcardScreen(
+                            initialWords: favoriteWords,
+                          ),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.style_rounded),
+                    label: const Text('প্রিয় শব্দ দিয়ে অনুশীলন করুন'),
+                    style: FilledButton.styleFrom(
+                      backgroundColor: AppColors.gold,
+                      foregroundColor: AppColors.deepRed,
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                    ),
+                  ),
                 ),
               ),
               Expanded(
@@ -11009,6 +12568,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
     final todayLearned = await LearningStore.getTodayLearnedCount();
     final dailyGoal = await LearningStore.getDailyGoal();
     final streak = await LearningStore.getStreak();
+    final srsStats = await LearningStore.getSrsReviewStats();
 
     final totalXp = await LearningStore.getTotalXp();
     final level = (totalXp ~/ 100) + 1;
@@ -11067,6 +12627,9 @@ class _ProgressScreenState extends State<ProgressScreen> {
       'attempts': attempts,
       'accuracy': accuracy,
       'dailyActivity': dailyActivity,
+      'srsReviewed': srsStats['reviewed'] ?? 0,
+      'srsDue': srsStats['due'] ?? 0,
+      'srsNotDue': srsStats['notDue'] ?? 0,
     };
   }
 
@@ -11168,6 +12731,9 @@ class _ProgressScreenState extends State<ProgressScreen> {
           final attempts = data['attempts'] as int;
           final accuracy = data['accuracy'] as int;
           final activity = data['dailyActivity'] as List<Map<String, dynamic>>;
+          final srsReviewed = data['srsReviewed'] as int;
+          final srsDue = data['srsDue'] as int;
+          final srsNotDue = data['srsNotDue'] as int;
 
           final goalProgress = (todayLearned / dailyGoal).clamp(0.0, 1.0);
 
@@ -11286,6 +12852,24 @@ class _ProgressScreenState extends State<ProgressScreen> {
                       title: 'Quiz দিয়েছেন',
                       value: '$attempts বার',
                       subtitle: 'মোট প্রচেষ্টা',
+                    ),
+                    _statCard(
+                      icon: Icons.replay_rounded,
+                      title: 'মোট রিভিউ',
+                      value: '$srsReviewed',
+                      subtitle: 'SRS-এ রিভিউ করা শব্দ',
+                    ),
+                    _statCard(
+                      icon: Icons.notifications_active_rounded,
+                      title: 'রিভিউ বাকি',
+                      value: '$srsDue',
+                      subtitle: 'এখন রিভিউ করার সময়',
+                    ),
+                    _statCard(
+                      icon: Icons.schedule_rounded,
+                      title: 'পরবর্তী রিভিউ',
+                      value: '$srsNotDue',
+                      subtitle: 'পরে রিভিউ হবে',
                     ),
                   ],
                 ),
@@ -12681,7 +14265,12 @@ class _VocabularyDetailsScreenState extends State<VocabularyDetailsScreen> {
 // -------------------- SMART FLASHCARDS --------------------
 
 class FlashcardScreen extends StatefulWidget {
-  const FlashcardScreen({super.key});
+  const FlashcardScreen({
+    super.key,
+    this.initialWords,
+  });
+
+  final List<VocabWord>? initialWords;
 
   @override
   State<FlashcardScreen> createState() => _FlashcardScreenState();
@@ -12695,12 +14284,62 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
   bool _isShuffling = false;
   final Set<String> _learned = {};
   final Set<String> _seen = {};
+  final Set<String> _dueReviewIds = {};
+  bool _reviewMode = false;
 
   @override
   void initState() {
     super.initState();
-    _wordsFuture = VocabService.loadWords();
+    _wordsFuture = widget.initialWords != null
+        ? Future<List<VocabWord>>.value(widget.initialWords!)
+        : VocabService.loadWords();
     _loadLearned();
+    _loadDueReviews();
+  }
+
+  Future<void> _loadDueReviews() async {
+    final due = await LearningStore.getDueReviewWordIds();
+    if (!mounted) return;
+    setState(() {
+      _dueReviewIds
+        ..clear()
+        ..addAll(due);
+    });
+  }
+
+  Future<void> _rateReview(
+    VocabWord word,
+    String rating,
+    List<VocabWord> words,
+  ) async {
+    final id = _id(word);
+    await LearningStore.recordSrsReview(id, rating);
+    if (!mounted) return;
+
+    setState(() {
+      _dueReviewIds.remove(id);
+      _showBack = false;
+      if (_reviewMode) {
+        _currentIndex = 0;
+      }
+    });
+
+    final message = switch (rating) {
+      'again' => '১০ মিনিট পর শব্দটি আবার রিভিউ করতে হবে।',
+      'hard' => 'শব্দটি ১ দিন পর আবার দেখানো হবে।',
+      _ => 'দারুণ! পরবর্তী রিভিউয়ের সময় নির্ধারণ হয়েছে।',
+    };
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        duration: const Duration(milliseconds: 1200),
+      ),
+    );
+
+    if (!_reviewMode && words.length > 1) {
+      _next(words);
+    }
   }
 
   Future<void> _loadLearned() async {
@@ -12788,6 +14427,24 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
         ),
         actions: [
           IconButton(
+            tooltip: _reviewMode
+                ? 'সাধারণ Flashcards-এ ফিরুন'
+                : 'আজকের রিভিউ (${_dueReviewIds.length})',
+            onPressed: () {
+              setState(() {
+                _reviewMode = !_reviewMode;
+                _currentIndex = 0;
+                _showBack = false;
+              });
+            },
+            icon: Icon(
+              _reviewMode
+                  ? Icons.style_rounded
+                  : Icons.replay_circle_filled_rounded,
+              color: AppColors.lightGold,
+            ),
+          ),
+          IconButton(
             tooltip: 'শব্দ এলোমেলো করুন',
             onPressed: () {
               // শব্দের তালিকা FutureBuilder থেকে নিয়ন্ত্রণ করা হয়।
@@ -12826,11 +14483,57 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
           }
 
           final allWords = snapshot.data!;
-          final words =
-              allWords.where((word) => word.level == _selectedLevel).toList();
+          final levelWords = widget.initialWords != null
+              ? allWords
+              : allWords.where((word) => word.level == _selectedLevel).toList();
+          final words = _reviewMode
+              ? levelWords
+                  .where((word) => _dueReviewIds.contains(_id(word)))
+                  .toList()
+              : levelWords;
 
           if (words.isEmpty) {
-            return const Center(child: Text('এই লেভেলে কোনো শব্দ নেই।'));
+            return Center(
+              child: Padding(
+                padding: const EdgeInsets.all(24),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      _reviewMode
+                          ? Icons.task_alt_rounded
+                          : Icons.menu_book_rounded,
+                      size: 54,
+                      color: AppColors.gold,
+                    ),
+                    const SizedBox(height: 14),
+                    Text(
+                      _reviewMode
+                          ? 'এই HSK লেভেলে এখন কোনো রিভিউ বাকি নেই!'
+                          : 'এই লেভেলে কোনো শব্দ নেই।',
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w800,
+                        fontSize: 16,
+                      ),
+                    ),
+                    if (_reviewMode) ...[
+                      const SizedBox(height: 14),
+                      FilledButton.icon(
+                        onPressed: () {
+                          setState(() {
+                            _reviewMode = false;
+                            _currentIndex = 0;
+                          });
+                        },
+                        icon: const Icon(Icons.style_rounded),
+                        label: const Text('সাধারণ Flashcards'),
+                      ),
+                    ],
+                  ],
+                ),
+              ),
+            );
           }
 
           final index = _currentIndex.clamp(0, words.length - 1);
@@ -13245,6 +14948,46 @@ class _FlashcardScreenState extends State<FlashcardScreen> {
                           ),
                         ),
                       ),
+                      if (_showBack) ...[
+                        const SizedBox(height: 10),
+                        const Text(
+                          'এই শব্দটি কতটা মনে রাখতে পেরেছেন?',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontWeight: FontWeight.w800),
+                        ),
+                        const SizedBox(height: 8),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: OutlinedButton(
+                                onPressed: () =>
+                                    _rateReview(word, 'again', words),
+                                child: const Text('আবার'),
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: OutlinedButton(
+                                onPressed: () =>
+                                    _rateReview(word, 'hard', words),
+                                child: const Text('কঠিন'),
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: FilledButton(
+                                onPressed: () =>
+                                    _rateReview(word, 'good', words),
+                                style: FilledButton.styleFrom(
+                                  backgroundColor: AppColors.success,
+                                  foregroundColor: Colors.white,
+                                ),
+                                child: const Text('ভালো'),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                       const SizedBox(height: 4),
                       TextButton(
                         onPressed: () => _next(words),
